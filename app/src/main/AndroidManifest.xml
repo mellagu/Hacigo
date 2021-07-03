@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hacigo_MobileApp">
+        <activity android:name=".ui._parenthood.ParenthoodActivity"></activity>
+        <activity android:name=".ui._kiddojournal.KiddoJournalActivity" />
+        <activity android:name=".ui._fooddetect.FoodDetectActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

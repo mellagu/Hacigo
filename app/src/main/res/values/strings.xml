@@ -5,4 +5,14 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_account">Account</string>
     <string name="Welcome">Welcome Mommy</string>
+    <string name="pick_the_food">Pick The Food</string>
+    <string name="desc_detect">Capture the groceries,
+Find the recipes,
+Get the best nutrition
+for your child.</string>
+    <string name="parenthood">Parenthood</string>
+    <string name="desc_parenthood">Find best articles,
+about parenting,
+write by the experts.</string>
+    <string name="kiddo_grow_chart">Kiddo Grow Chart</string>
 </resources>
