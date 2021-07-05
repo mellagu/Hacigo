@@ -100,7 +100,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:textAlignment="center"
                 android:textSize="12sp"
-                tools:text="Write Daily Month of\nKiddo Journal" />
+                android:text="Write Daily Month of\nKiddo Journal" />
 
         </RelativeLayout>
 
@@ -224,9 +224,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title_grow"/>
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
