@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hacigo_MobileApp</string>
+    <string name="app_name">Hacigo</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -15,4 +15,6 @@ for your child.</string>
 about parenting,
 write by the experts.</string>
     <string name="kiddo_grow_chart">Kiddo Grow Chart</string>
+    <string name="kiddo_journal">Kiddo Journal</string>
+    <string name="toolbar">toolbar</string>
 </resources>

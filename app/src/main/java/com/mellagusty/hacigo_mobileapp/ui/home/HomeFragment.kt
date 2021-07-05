@@ -1,31 +1,61 @@
 package com.mellagusty.hacigo_mobileapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
+import com.mellagusty.hacigo_mobileapp.ui._fooddetect.FoodDetectActivity
+import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
+import com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodActivity
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var binding : FragmentHomeBinding
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+    ): View {
+        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+
+        binding.cardJournal.setOnClickListener {
+            val intent = Intent(requireContext(),KiddoJournalActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.cvPickFood.setOnClickListener {
+            val intent = Intent(requireContext(), FoodDetectActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.cvParenthood.setOnClickListener {
+            val intent = Intent(requireContext(),ParenthoodActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        showLoading(false)
+
+    }
+
+    //Show the progress bar while load
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 }

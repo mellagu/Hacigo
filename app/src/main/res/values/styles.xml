@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeOverlay.search" parent="Theme.Hacigo_MobileApp">
+
+        <!-- Text color -->
+        <item name="android:editTextColor">@color/prime</item>
+        <!-- Hint text color -->
+        <item name="android:textColorHint">@color/prime</item>
+
+    </style>
+</resources>

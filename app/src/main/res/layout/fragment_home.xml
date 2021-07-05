@@ -10,6 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:visibility="visible"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
@@ -84,7 +95,7 @@
                 android:layout_below="@id/iv_journal"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="7dp"
-                android:elevation="12dp"
+                android:elevation="15dp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_medium"
                 android:textAlignment="center"
