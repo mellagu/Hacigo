@@ -10,7 +10,7 @@ interface HacigoDataSource {
 
 
     //Journal
-    fun getJournalAll(): LiveData<PagedList<KiddoJournalEntity>>
+    fun getJournalAll(): List<KiddoJournalEntity>
 
     fun getSpecificAllJournal(id: Int): KiddoJournalEntity
 

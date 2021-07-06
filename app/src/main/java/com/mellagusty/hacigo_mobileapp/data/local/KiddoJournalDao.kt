@@ -7,7 +7,7 @@ import androidx.room.*
 interface KiddoJournalDao {
 
     @Query("SELECT * FROM KiddoJournal ORDER BY id DESC")
-    suspend fun getAllJournal(): DataSource.Factory<Int,KiddoJournalEntity>
+    suspend fun getAllJournal(): List<KiddoJournalEntity>
 
     @Query("SELECT * FROM KiddoJournal WHERE id =:id")
     suspend fun getSpecificJournal(id:Int) : KiddoJournalEntity

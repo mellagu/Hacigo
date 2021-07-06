@@ -8,6 +8,8 @@ import androidx.room.RoomDatabase
 @Database(entities = [KiddoJournalEntity::class], version = 1, exportSchema = false)
 abstract class KiddoJournalDatabase : RoomDatabase() {
 
+    abstract fun kiddoJournalDao(): KiddoJournalDao
+
     companion object {
         @Volatile
         private var INSTANCE: KiddoJournalDatabase? = null
