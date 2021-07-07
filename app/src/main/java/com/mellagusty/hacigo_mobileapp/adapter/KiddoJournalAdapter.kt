@@ -13,6 +13,7 @@ import com.mellagusty.hacigo_mobileapp.databinding.ItemRvJournalBinding
 class KiddoJournalAdapter(private val listener: (KiddoJournalEntity) -> Unit) :
     RecyclerView.Adapter<KiddoJournalAdapter.JournalViewHolder>() {
 
+
     private var list: List<KiddoJournalEntity> = ArrayList()
 
     fun setListData(kiddo: List<KiddoJournalEntity>) {

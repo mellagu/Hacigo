@@ -20,4 +20,7 @@ write by the experts.</string>
     <string name="notes">Notes</string>
     <string name="journal_title">Journal Title</string>
     <string name="journal_subtitle">Journal Subtitle</string>
+    <string name="kiddo_age">Kiddo Age in Month</string>
+    <string name="kiddo_weight_kg">Kiddo Weight in Kg</string>
+    <string name="kiddo_height_cm">Kiddo Height in Cm</string>
 </resources>

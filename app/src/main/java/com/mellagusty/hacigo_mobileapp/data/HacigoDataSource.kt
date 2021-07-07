@@ -10,7 +10,7 @@ interface HacigoDataSource {
 
 
     //Journal
-    fun getJournalAll(): List<KiddoJournalEntity>
+    suspend fun getJournalAll(): List<KiddoJournalEntity>
 
     fun getSpecificAllJournal(id: Int): KiddoJournalEntity
 

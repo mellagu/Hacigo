@@ -9,8 +9,10 @@ interface KiddoJournalDao {
     @Query("SELECT * FROM KiddoJournal ORDER BY id DESC")
     suspend fun getAllJournal(): List<KiddoJournalEntity>
 
+    //this is for edit Journal, you have to pick Journal
     @Query("SELECT * FROM KiddoJournal WHERE id =:id")
     suspend fun getSpecificJournal(id:Int) : KiddoJournalEntity
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertJournal(journalEntity: KiddoJournalEntity)

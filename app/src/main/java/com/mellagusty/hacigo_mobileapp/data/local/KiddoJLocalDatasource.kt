@@ -7,11 +7,27 @@ import kotlinx.coroutines.launch
 
 class KiddoJLocalDatasource(private val dao: KiddoJournalDao){
 
-//    fun getAllJournal(): List<KiddoJournalEntity>{
-//        CoroutineScope(Dispatchers.IO).launch{
-//            coroutineContext.let {
-//                var journal = dao.getAllJournal()
-//            }
-//        }
-//    }
+    companion object {
+        private var INSTANCE: KiddoJLocalDatasource? = null
+
+        fun getInstances(dao: KiddoJournalDao): KiddoJLocalDatasource =
+            INSTANCE ?: KiddoJLocalDatasource(dao).apply {
+                INSTANCE = this
+            }
+
+    }
+
+    suspend fun getAllJournal(): List<KiddoJournalEntity>{
+        return dao.getAllJournal()
+    }
+
+    suspend fun insertJournal(journalEntity: KiddoJournalEntity){
+        return dao.insertJournal(journalEntity)
+    }
+
+
+
+
+
+
 }
