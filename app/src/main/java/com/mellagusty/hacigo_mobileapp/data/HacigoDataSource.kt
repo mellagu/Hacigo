@@ -12,7 +12,7 @@ interface HacigoDataSource {
     //Journal
     suspend fun getJournalAll(): List<KiddoJournalEntity>
 
-    fun getSpecificAllJournal(id: Int): KiddoJournalEntity
+    suspend fun getSpecificAllJournal(id: Int): KiddoJournalEntity
 
     //Add Delete Update for Local Journal
     fun insertToJournal(journalEntity: KiddoJournalEntity)

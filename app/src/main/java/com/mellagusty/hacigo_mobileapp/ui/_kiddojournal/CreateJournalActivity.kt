@@ -1,5 +1,8 @@
 package com.mellagusty.hacigo_mobileapp.ui._kiddojournal
 
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -9,8 +12,12 @@ import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityCreateJournalBinding
 import com.mellagusty.hacigo_mobileapp.di.HacigoDataInjection
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import pub.devrel.easypermissions.EasyPermissions
 
-class CreateJournalActivity : AppCompatActivity() {
+class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks, EasyPermissions.RationaleCallbacks {
 
     private lateinit var binding: ActivityCreateJournalBinding
     private lateinit var repository: Repository
@@ -30,14 +37,63 @@ class CreateJournalActivity : AppCompatActivity() {
 
         repository = HacigoDataInjection().provideRepository(this)
 
+        if (noteId != -1)
+            CoroutineScope(Dispatchers.IO).launch{
+                var journal = repository.getSpecificAllJournal(noteId)
+                binding.colorView.setBackgroundColor(Color.parseColor(journal.color))
+                binding.colorView2.setBackgroundColor(Color.parseColor(journal.color))
+                binding.colorView3.setBackgroundColor(Color.parseColor(journal.color))
+                binding.colorView4.setBackgroundColor(Color.parseColor(journal.color))
+                binding.etJournalTitle.setText(journal.title)
+                binding.etJournalSubTitle.setText(journal.subTitle)
+                binding.etJournalDesc.setText(journal.journalText)
+                binding.etAge.setText(journal.ageInMonth)
+                binding.etWeight.setText(journal.weight)
+                binding.etHeight.setText(journal.height)
+
+                if (journal.imgPath != "") {
+                    selectedImagePath = journal.imgPath!!
+                    binding.imgJournal.setImageBitmap(BitmapFactory.decodeFile(journal.imgPath))
+                    binding.layoutImage.visibility = View.VISIBLE
+                    binding.imgJournal.visibility = View.VISIBLE
+                    binding.imgDelete.visibility = View.VISIBLE
+                } else {
+                    binding.layoutImage.visibility = View.GONE
+                    binding.imgJournal.visibility = View.GONE
+                    binding.imgDelete.visibility = View.GONE
+                }
+
+                if (journal.webLink != "") {
+                    webLink = journal.webLink!!
+                    binding.tvWebLink.text = journal.webLink
+                    binding.layoutWebUrl.visibility = View.VISIBLE
+                    binding.etWebLink.setText(journal.webLink)
+                    binding.imgUrlDelete.visibility = View.VISIBLE
+                } else {
+                    binding.imgUrlDelete.visibility = View.GONE
+                    binding.layoutWebUrl.visibility = View.GONE
+                }
+
+
+            }
+        
+        noteId = intent.getIntExtra("noteId",-1)
 
         binding.saveChecklist.setOnClickListener {
+            if (noteId != -1){
+                updateJournal()
+            } else
             saveJournal()
         }
         binding.back.setOnClickListener {
             onBackPressed()
         }
         
+    }
+
+
+    private fun updateJournal() {
+
     }
 
 
@@ -68,5 +124,21 @@ class CreateJournalActivity : AppCompatActivity() {
             supportFragmentManager.popBackStack()
 
         }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
+        TODO("Not yet implemented")
     }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onRationaleAccepted(requestCode: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onRationaleDenied(requestCode: Int) {
+        TODO("Not yet implemented")
+    }
+}
 

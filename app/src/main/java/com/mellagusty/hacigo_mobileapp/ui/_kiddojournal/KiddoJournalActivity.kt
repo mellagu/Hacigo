@@ -3,6 +3,7 @@ package com.mellagusty.hacigo_mobileapp.ui._kiddojournal
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.adapter.KiddoJournalAdapter
 import com.mellagusty.hacigo_mobileapp.data.Repository
@@ -41,6 +42,10 @@ class KiddoJournalActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.recyclerView.setHasFixedSize(true)
+        binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2,
+            StaggeredGridLayoutManager.VERTICAL)
+        
         getAllJournal()
 
     }

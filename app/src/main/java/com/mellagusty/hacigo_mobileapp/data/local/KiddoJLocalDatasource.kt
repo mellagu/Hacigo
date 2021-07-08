@@ -21,6 +21,10 @@ class KiddoJLocalDatasource(private val dao: KiddoJournalDao){
         return dao.getAllJournal()
     }
 
+    suspend fun getSpecificJournal(id:Int): KiddoJournalEntity{
+        return dao.getSpecificJournal(id)
+    }
+
     suspend fun insertJournal(journalEntity: KiddoJournalEntity){
         return dao.insertJournal(journalEntity)
     }
