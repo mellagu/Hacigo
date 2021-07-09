@@ -1,5 +1,6 @@
 package com.mellagusty.hacigo_mobileapp.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.room.*
 

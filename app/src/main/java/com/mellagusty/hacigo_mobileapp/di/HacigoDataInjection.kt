@@ -6,7 +6,7 @@ import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.data.local.KiddoJLocalDatasource
 import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalDatabase
 
-class HacigoDataInjection {
+object HacigoDataInjection {
 
     fun provideRepository(context: Context): Repository{
 

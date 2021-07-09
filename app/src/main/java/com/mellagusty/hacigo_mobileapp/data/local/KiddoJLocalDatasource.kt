@@ -1,5 +1,6 @@
 package com.mellagusty.hacigo_mobileapp.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +18,7 @@ class KiddoJLocalDatasource(private val dao: KiddoJournalDao){
 
     }
 
-    suspend fun getAllJournal(): List<KiddoJournalEntity>{
+    suspend fun getAllJournal(): List<KiddoJournalEntity> {
         return dao.getAllJournal()
     }
 

@@ -7,11 +7,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
+import androidx.lifecycle.lifecycleScope
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityCreateJournalBinding
 import com.mellagusty.hacigo_mobileapp.di.HacigoDataInjection
+import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,6 +25,7 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
 
     private lateinit var binding: ActivityCreateJournalBinding
     private lateinit var repository: Repository
+    private lateinit var viewModel: CreateJournalViewModel
 
     var selectedColor = "#DD4F8A"
     var currentDate: String? = null
@@ -35,7 +40,10 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         binding = ActivityCreateJournalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        repository = HacigoDataInjection().provideRepository(this)
+        val factory = ViewModelFactory.getInstance(this)
+        viewModel = ViewModelProvider(this,factory).get(CreateJournalViewModel::class.java)
+
+//        repository = HacigoDataInjection().provideRepository(this)
 
         if (noteId != -1)
             CoroutineScope(Dispatchers.IO).launch{
@@ -111,7 +119,10 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
             journal.imgPath = selectedImagePath
             journal.webLink = webLink
 
-            repository.insertToJournal(journal)
+//            repository.insertToJournal(journal)
+            lifecycleScope.launch {
+                viewModel.insertToJournal(journal)
+            }
             binding.etJournalTitle.setText("")
             binding.etJournalSubTitle.setText("")
             binding.etJournalDesc.setText("")
@@ -121,7 +132,13 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
             binding.layoutImage.visibility = View.GONE
             binding.imgJournal.visibility = View.GONE
             binding.tvWebLink.visibility = View.GONE
-            supportFragmentManager.popBackStack()
+
+            val intent = Intent(this,KiddoJournalActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+//            finish()
+//            supportFragmentManager.popBackStack()
+
 
         }
 
