@@ -1,6 +1,8 @@
 package com.mellagusty.hacigo_mobileapp.ui._kiddojournal
 
+import android.content.BroadcastReceiver
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalEntity
@@ -20,6 +23,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pub.devrel.easypermissions.EasyPermissions
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks, EasyPermissions.RationaleCallbacks {
 
@@ -43,11 +48,10 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this,factory).get(CreateJournalViewModel::class.java)
 
-//        repository = HacigoDataInjection().provideRepository(this)
 
         if (noteId != -1)
             CoroutineScope(Dispatchers.IO).launch{
-                var journal = repository.getSpecificAllJournal(noteId)
+                var journal = viewModel.getSpecificAllJournal(noteId)
                 binding.colorView.setBackgroundColor(Color.parseColor(journal.color))
                 binding.colorView2.setBackgroundColor(Color.parseColor(journal.color))
                 binding.colorView3.setBackgroundColor(Color.parseColor(journal.color))
@@ -87,6 +91,17 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         
         noteId = intent.getIntExtra("noteId",-1)
 
+//        LocalBroadcastManager.getInstance(this).registerReceiver(
+//            BroadcastReceiver, IntentFilter("bottom_sheet_action")
+//        )
+
+        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+
+        currentDate = sdf.format(Date())
+        binding.colorView.setBackgroundColor(Color.parseColor(selectedColor))
+
+        binding.tvDateTime.text = currentDate
+
         binding.saveChecklist.setOnClickListener {
             if (noteId != -1){
                 updateJournal()
@@ -100,7 +115,12 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
     }
 
 
+
     private fun updateJournal() {
+//        var journal = KiddoJournalEntity()
+//        lifecycleScope.launch {
+//            viewModel.updateJournal(journal)
+//        }
 
     }
 

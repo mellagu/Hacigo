@@ -30,6 +30,10 @@ class KiddoJLocalDatasource(private val dao: KiddoJournalDao){
         return dao.insertJournal(journalEntity)
     }
 
+    suspend fun updateJournal(journalEntity: KiddoJournalEntity){
+        return dao.updateJournal(journalEntity)
+    }
+
 
 
 

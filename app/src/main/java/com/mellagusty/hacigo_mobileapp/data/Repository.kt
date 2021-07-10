@@ -41,11 +41,13 @@ class Repository(
         }
     }
 
-    override fun removeJournal(id: Int) {
-        TODO("Not yet implemented")
+    override fun updateJournal(journalEntity: KiddoJournalEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            kiddoJLocalDatasource.updateJournal(journalEntity)
+        }
     }
 
-    override fun updateJournal(journalEntity: KiddoJournalEntity) {
+    override fun removeJournal(id: Int) {
         TODO("Not yet implemented")
     }
 }
