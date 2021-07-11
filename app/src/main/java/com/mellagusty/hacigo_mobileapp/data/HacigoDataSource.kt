@@ -17,7 +17,7 @@ interface HacigoDataSource {
     //Add Delete Update for Local Journal
     fun insertToJournal(journalEntity: KiddoJournalEntity)
 
-    fun removeJournal(id:Int)
+    fun deleteSpecificJournal(id:Int)
 
     fun updateJournal(journalEntity: KiddoJournalEntity)
 }

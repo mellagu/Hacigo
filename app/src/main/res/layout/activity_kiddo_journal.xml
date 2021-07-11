@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<ScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui._kiddojournal.KiddoJournalActivity">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui._kiddojournal.KiddoJournalActivity">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/relativeBackground"
@@ -83,7 +87,8 @@
             app:layout_constraintTop_toBottomOf="@id/search_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/recycler_view"/>
+            android:id="@+id/recycler_view"
+            tools:listitem="@layout/item_rv_journal"/>
 
         <LinearLayout
             android:id="@+id/l1"
@@ -136,3 +141,4 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

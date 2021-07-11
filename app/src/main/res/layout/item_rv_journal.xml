@@ -13,7 +13,7 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         android:layout_margin="5dp"
-        app:cardBackgroundColor="@color/pink"
+        app:cardBackgroundColor="@color/prime"
         android:padding="5dp">
 
         <LinearLayout

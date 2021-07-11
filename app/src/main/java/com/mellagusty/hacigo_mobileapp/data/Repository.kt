@@ -47,7 +47,9 @@ class Repository(
         }
     }
 
-    override fun removeJournal(id: Int) {
-        TODO("Not yet implemented")
+    override fun deleteSpecificJournal(id: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            kiddoJLocalDatasource.deleteSpecificJournal(id)
+        }
     }
 }

@@ -316,9 +316,9 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
                 "WebUrl" -> {
                     binding.layoutWebUrl.visibility = View.VISIBLE
                 }
-                "DeleteNote" -> {
+                "DeleteJournal" -> {
                     //delete note
-                    deleteNote()
+                    deleteJournal()
                 }
 
 
@@ -334,7 +334,13 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         }
     }
 
-    private fun deleteNote() {
+    private fun deleteJournal() {
+        lifecycleScope.launch {
+            viewModel.deleteSpecificJournal(noteId)
+        }
+        val intent = Intent(this, KiddoJournalActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
 
     }
 

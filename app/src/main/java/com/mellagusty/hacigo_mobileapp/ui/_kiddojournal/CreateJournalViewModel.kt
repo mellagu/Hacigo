@@ -24,5 +24,9 @@ class CreateJournalViewModel(private val repository: Repository): ViewModel() {
         repository.updateJournal(journalEntity)
     }
 
+    fun deleteSpecificJournal(id:Int){
+        repository.deleteSpecificJournal(id)
+    }
+
 
 }
