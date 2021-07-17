@@ -24,16 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize">
-
-                <ImageView
-                    android:id="@+id/ToolbarImage"
-                    android:layout_width="110dp"
-                    android:layout_height="42dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/toolbar"/>
-
-            </androidx.appcompat.widget.Toolbar>
+                android:minHeight="?attr/actionBarSize"/>
 
         </com.google.android.material.appbar.AppBarLayout>
     </LinearLayout>

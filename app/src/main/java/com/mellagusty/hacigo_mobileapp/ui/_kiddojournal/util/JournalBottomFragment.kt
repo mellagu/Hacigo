@@ -204,7 +204,7 @@ class JournalBottomFragment : BottomSheetDialogFragment() {
         }
         binding.layoutDeleteNote.setOnClickListener {
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "DeleteNote")
+            intent.putExtra("action", "DeleteJournal")
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
             dismiss()
         }

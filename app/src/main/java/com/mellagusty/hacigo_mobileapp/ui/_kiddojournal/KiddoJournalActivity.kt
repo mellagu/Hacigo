@@ -18,6 +18,7 @@ class KiddoJournalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityKiddoJournalBinding
     private lateinit var kiddoJournalAdapter: KiddoJournalAdapter
     private lateinit var viewModel: KiddoJournalViewModel
+    private var noteId = -1
 
     private var list: List<KiddoJournalEntity> = ArrayList()
 
@@ -32,10 +33,10 @@ class KiddoJournalActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory).get(KiddoJournalViewModel::class.java)
 
         kiddoJournalAdapter = KiddoJournalAdapter {
-            val intent = Intent(this, CreateJournalActivity::class.java)
+            val intent = Intent(this,CreateJournalActivity::class.java)
+            intent.putExtra("note_id",it.id!!)
             startActivity(intent)
         }
-
 
 //        repository = HacigoDataInjection().provideRepository(this)
 
@@ -46,6 +47,7 @@ class KiddoJournalActivity : AppCompatActivity() {
 
         binding.fabBtnCreateJournal.setOnClickListener {
             val intent = Intent(this, CreateJournalActivity::class.java)
+            intent.putExtra("note_id",-1)
             startActivity(intent)
         }
 
@@ -54,6 +56,8 @@ class KiddoJournalActivity : AppCompatActivity() {
             2,
             StaggeredGridLayoutManager.VERTICAL
         )
+        binding.recyclerView.adapter = kiddoJournalAdapter
+
 
         getAllJournal()
 

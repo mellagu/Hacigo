@@ -18,7 +18,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.mellagusty.hacigo_mobileapp.R
-import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityCreateJournalBinding
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.util.JournalBottomFragment
@@ -28,10 +27,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.regex.Pattern
 
 class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks,
     EasyPermissions.RationaleCallbacks {
@@ -52,51 +49,59 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         binding = ActivityCreateJournalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        val a = intent.extras!!.getInt("note_id")
+
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory).get(CreateJournalViewModel::class.java)
 
+        noteId = a
 
         if (noteId != -1)
             CoroutineScope(Dispatchers.IO).launch {
                 var journal = viewModel.getSpecificAllJournal(noteId)
-                binding.colorView.setBackgroundColor(Color.parseColor(journal.color))
-                binding.colorView2.setBackgroundColor(Color.parseColor(journal.color))
-                binding.colorView3.setBackgroundColor(Color.parseColor(journal.color))
-                binding.colorView4.setBackgroundColor(Color.parseColor(journal.color))
-                binding.etJournalTitle.setText(journal.title)
-                binding.etJournalSubTitle.setText(journal.subTitle)
-                binding.etJournalDesc.setText(journal.journalText)
-                binding.etAge.setText(journal.ageInMonth)
-                binding.etWeight.setText(journal.weight)
-                binding.etHeight.setText(journal.height)
+                runOnUiThread {
+                    //dijalankan harus di luar UI thread
+                    binding.colorView.setBackgroundColor(Color.parseColor(journal.color))
+                    binding.colorView2.setBackgroundColor(Color.parseColor(journal.color))
+                    binding.colorView3.setBackgroundColor(Color.parseColor(journal.color))
+                    binding.colorView4.setBackgroundColor(Color.parseColor(journal.color))
+                    binding.etJournalTitle.setText(journal.title)
+                    binding.etJournalSubTitle.setText(journal.subTitle)
+                    binding.etJournalDesc.setText(journal.journalText)
+                    binding.etAge.setText(journal.ageInMonth)
+                    binding.etWeight.setText(journal.weight)
+                    binding.etHeight.setText(journal.height)
 
-                if (journal.imgPath != "") {
-                    selectedImagePath = journal.imgPath!!
-                    binding.imgJournal.setImageBitmap(BitmapFactory.decodeFile(journal.imgPath))
-                    binding.layoutImage.visibility = View.VISIBLE
-                    binding.imgJournal.visibility = View.VISIBLE
-                    binding.imgDelete.visibility = View.VISIBLE
-                } else {
-                    binding.layoutImage.visibility = View.GONE
-                    binding.imgJournal.visibility = View.GONE
-                    binding.imgDelete.visibility = View.GONE
+                    if (journal.imgPath != "") {
+                        selectedImagePath = journal.imgPath!!
+                        binding.imgJournal.setImageBitmap(BitmapFactory.decodeFile(journal.imgPath))
+                        binding.layoutImage.visibility = View.VISIBLE
+                        binding.imgJournal.visibility = View.VISIBLE
+                        binding.imgDelete.visibility = View.VISIBLE
+                    } else {
+                        binding.layoutImage.visibility = View.GONE
+                        binding.imgJournal.visibility = View.GONE
+                        binding.imgDelete.visibility = View.GONE
+                    }
+
+                    if (journal.webLink != "") {
+                        webLink = journal.webLink!!
+                        binding.tvWebLink.text = journal.webLink
+                        binding.layoutWebUrl.visibility = View.VISIBLE
+                        binding.etWebLink.setText(journal.webLink)
+                        binding.imgUrlDelete.visibility = View.VISIBLE
+                    } else {
+                        binding.imgUrlDelete.visibility = View.GONE
+                        binding.layoutWebUrl.visibility = View.GONE
+                    }
                 }
 
-                if (journal.webLink != "") {
-                    webLink = journal.webLink!!
-                    binding.tvWebLink.text = journal.webLink
-                    binding.layoutWebUrl.visibility = View.VISIBLE
-                    binding.etWebLink.setText(journal.webLink)
-                    binding.imgUrlDelete.visibility = View.VISIBLE
-                } else {
-                    binding.imgUrlDelete.visibility = View.GONE
-                    binding.layoutWebUrl.visibility = View.GONE
-                }
 
 
             }
 
-        noteId = intent.getIntExtra("noteId", -1)
+
 
         LocalBroadcastManager.getInstance(this).registerReceiver(
             BroadcastReceiver, IntentFilter("bottom_sheet_action")
@@ -108,6 +113,8 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         binding.colorView.setBackgroundColor(Color.parseColor(selectedColor))
 
         binding.tvDateTime.text = currentDate
+
+
 
         binding.saveChecklist.setOnClickListener {
             if (noteId != -1) {
@@ -162,13 +169,13 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
     }
 
     private fun checkWebUrl() {
-        if (Patterns.WEB_URL.matcher(binding.etWebLink.text.toString()).matches()){
+        if (Patterns.WEB_URL.matcher(binding.etWebLink.text.toString()).matches()) {
             binding.layoutWebUrl.visibility = View.GONE
             binding.etWebLink.isEnabled = false
             webLink = binding.etWebLink.text.toString()
             binding.tvWebLink.visibility = View.VISIBLE
             binding.tvWebLink.text = binding.etWebLink.text.toString()
-        } else{
+        } else {
             Toast.makeText(this, "Url is not valid", Toast.LENGTH_SHORT).show()
         }
     }
@@ -176,14 +183,14 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
 
     private fun updateJournal() {
 
-        lifecycleScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             var journal = viewModel.getSpecificAllJournal(noteId)
-            journal.title = binding.etJournalTitle.toString()
-            journal.subTitle = binding.etJournalSubTitle.toString()
-            journal.ageInMonth = binding.etAge.toString()
-            journal.height = binding.etHeight.toString()
-            journal.weight = binding.etWeight.toString()
-            journal.journalText = binding.etJournalDesc.toString()
+            journal.title = binding.etJournalTitle.text.toString()
+            journal.subTitle = binding.etJournalSubTitle.text.toString()
+            journal.ageInMonth = binding.etAge.text.toString()
+            journal.height = binding.etHeight.text.toString()
+            journal.weight = binding.etWeight.text.toString()
+            journal.journalText = binding.etJournalDesc.text.toString()
             journal.dateTime = currentDate
             journal.color = selectedColor
             journal.imgPath = selectedImagePath
@@ -191,16 +198,16 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
 
             viewModel.updateJournal(journal)
         }
-            binding.etJournalTitle.setText("")
-            binding.etJournalSubTitle.setText("")
-            binding.etJournalDesc.setText("")
-            binding.etAge.setText("")
-            binding.etHeight.setText("")
-            binding.etWeight.setText("")
-            binding.layoutImage.visibility = View.GONE
-            binding.imgJournal.visibility = View.GONE
-            binding.tvWebLink.visibility = View.GONE
-
+            
+//            binding.etJournalTitle.setText("")
+//            binding.etJournalSubTitle.setText("")
+//            binding.etJournalDesc.setText("")
+//            binding.etAge.setText("")
+//            binding.etHeight.setText("")
+//            binding.etWeight.setText("")
+//            binding.layoutImage.visibility = View.GONE
+//            binding.imgJournal.visibility = View.GONE
+//            binding.tvWebLink.visibility = View.GONE
         val intent = Intent(this, KiddoJournalActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
@@ -373,7 +380,7 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         }
     }
 
-    private fun getPathFromUri(contentUri: Uri): String?{
+    private fun getPathFromUri(contentUri: Uri): String? {
         var filePath: String? = null
         var cursor = this.contentResolver.query(contentUri, null, null, null, null)
         if (cursor == null) {
@@ -389,8 +396,8 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == REQUEST_CODE_IMAGE && resultCode == RESULT_OK){
-            if (data != null){
+        if (requestCode == REQUEST_CODE_IMAGE && resultCode == RESULT_OK) {
+            if (data != null) {
                 var selectedImageUrl = data.data
                 if (selectedImageUrl != null) {
                     try {
@@ -402,7 +409,7 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
                         binding.layoutImage.visibility = View.VISIBLE
 
                         selectedImagePath = getPathFromUri(selectedImageUrl)!!
-                    } catch (e: Exception){
+                    } catch (e: Exception) {
                         Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -427,10 +434,11 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
 
 
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        if (EasyPermissions.somePermissionPermanentlyDenied(this,perms)){
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
             AppSettingsDialog.Builder(this).build().show()
         }
     }
+
     override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
 
     }

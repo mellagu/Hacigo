@@ -9,11 +9,8 @@ import kotlinx.coroutines.launch
 
 class CreateJournalViewModel(private val repository: Repository): ViewModel() {
 
-    fun getSpecificAllJournal(id: Int): KiddoJournalEntity{
-        CoroutineScope(Dispatchers.IO).launch{
-            repository.getSpecificAllJournal(id)
-        }
-        return KiddoJournalEntity()
+    suspend fun getSpecificAllJournal(noteId: Int): KiddoJournalEntity{
+        return repository.getSpecificAllJournal(noteId)
     }
 
     fun insertToJournal(journalEntity: KiddoJournalEntity) {
