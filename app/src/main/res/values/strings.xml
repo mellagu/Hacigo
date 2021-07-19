@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Hacigo</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_parenthood">Parenthood</string>
+    <string name="title_journal">Journal</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_account">Account</string>
     <string name="Welcome">Welcome Mommy</string>
@@ -41,4 +42,5 @@ write by the experts.</string>
         ]]>
     </string>
     <string name="command">Arahkan kamera ke bahan makanan</string>
+    <string name="detect_food">Detect Food</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.mellagusty.hacigo_mobileapp.ui.dashboard
+package com.mellagusty.hacigo_mobileapp.ui.recipes
 
 import android.os.Bundle
 import android.view.LayoutInflater

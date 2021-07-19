@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.mellagusty.hacigo_mobileapp.ui.dashboard.DashboardFragment"
+        android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.DashboardFragment"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment

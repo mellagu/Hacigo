@@ -1,4 +1,4 @@
-package com.mellagusty.hacigo_mobileapp.ui.dashboard
+package com.mellagusty.hacigo_mobileapp.ui.recipes
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

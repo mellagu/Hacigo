@@ -9,8 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.tflite.imageclassification.sample.camera.CameraActivity
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
-import com.mellagusty.hacigo_mobileapp.ui._fooddetect.FoodDetectActivity
-import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
+import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalActivity
 import com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodActivity
 
 class HomeFragment : Fragment() {
@@ -32,7 +31,7 @@ class HomeFragment : Fragment() {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         binding.cardJournal.setOnClickListener {
-            val intent = Intent(requireContext(),KiddoJournalActivity::class.java)
+            val intent = Intent(requireContext(),CreateJournalActivity::class.java)
             startActivity(intent)
         }
 
