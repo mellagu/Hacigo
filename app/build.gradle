@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.mellagusty.hacigo_mobileapp"
-        minSdkVersion 26
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -35,6 +35,10 @@ android {
 
     buildFeatures {
         viewBinding = true
+    }
+    aaptOptions {
+        noCompress "tflite"
+        noCompress "lite"
     }
 }
 
@@ -79,4 +83,7 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+
+    //tensorFlow
+    implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
 }

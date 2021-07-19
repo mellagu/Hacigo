@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.tflite.imageclassification.sample.camera.CameraActivity
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
 import com.mellagusty.hacigo_mobileapp.ui._fooddetect.FoodDetectActivity
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
@@ -36,7 +37,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvPickFood.setOnClickListener {
-            val intent = Intent(requireContext(), FoodDetectActivity::class.java)
+            val intent = Intent(requireContext(),CameraActivity::class.java )
             startActivity(intent)
         }
 

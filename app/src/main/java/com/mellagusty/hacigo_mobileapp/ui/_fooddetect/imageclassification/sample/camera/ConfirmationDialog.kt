@@ -20,8 +20,8 @@ import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
-import com.google.tflite.imageclassification.sample.R
+import androidx.fragment.app.DialogFragment
+import com.mellagusty.hacigo_mobileapp.R
 
 /**
  * Shows OK/Cancel confirmation dialog about camera permission.
@@ -29,14 +29,16 @@ import com.google.tflite.imageclassification.sample.R
 class ConfirmationDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-            AlertDialog.Builder(activity)
-                    .setMessage(R.string.request_permission)
-                    .setPositiveButton(android.R.string.ok) { _, _ ->
-                        parentFragment!!.requestPermissions(arrayOf(Manifest.permission.CAMERA),
-                                REQUEST_CAMERA_PERMISSION)
-                    }
-                    .setNegativeButton(android.R.string.cancel) { _, _ ->
-                        parentFragment!!.activity?.finish()
-                    }
-                    .create()
+        AlertDialog.Builder(activity)
+            .setMessage(R.string.request_permission)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                requireParentFragment().requestPermissions(
+                    arrayOf(Manifest.permission.CAMERA),
+                    REQUEST_CAMERA_PERMISSION
+                )
+            }
+            .setNegativeButton(android.R.string.cancel) { _, _ ->
+                requireParentFragment().activity?.finish()
+            }
+            .create()
 }

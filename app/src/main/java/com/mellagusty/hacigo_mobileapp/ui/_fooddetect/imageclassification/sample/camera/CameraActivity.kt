@@ -16,15 +16,9 @@
 
 package com.google.tflite.imageclassification.sample.camera
 
-import android.content.Context
-import android.os.Build
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.ContextCompat.getSystemService
-import android.support.v7.app.AppCompatActivity
-import com.google.tflite.imageclassification.sample.R
+import androidx.appcompat.app.AppCompatActivity
+import com.mellagusty.hacigo_mobileapp.R
 
 class CameraActivity : AppCompatActivity() {
 
@@ -32,8 +26,8 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
         savedInstanceState ?: supportFragmentManager.beginTransaction()
-                .replace(R.id.container, Camera2BasicFragment.newInstance())
-                .commit()
+            .replace(R.id.container, Camera2BasicFragment.newInstance())
+            .commit()
     }
 
 }
