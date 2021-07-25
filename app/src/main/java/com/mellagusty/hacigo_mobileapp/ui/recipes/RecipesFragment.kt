@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mellagusty.hacigo_mobileapp.adapter.RecipesAdapter
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentRecipesBinding
 
-class recipesFragment : Fragment() {
+class RecipesFragment : Fragment() {
 
     private lateinit var binding: FragmentRecipesBinding
-    private lateinit var recipesViewModel: recipesViewModel
+    private lateinit var adapter : RecipesAdapter
+    private lateinit var recipesViewModel: RecipesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,

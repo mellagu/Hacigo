@@ -13,12 +13,12 @@
 
     <fragment
         android:id="@+id/navigation_parenthood"
-        android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.recipesFragment"
+        android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.RecipesFragment"
         tools:layout="@layout/fragment_parenthood" />
 
     <fragment
         android:id="@+id/navigation_recipe"
-        android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.recipesFragment"
+        android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.RecipesFragment"
         tools:layout="@layout/fragment_recipes"/>
 
     <fragment
