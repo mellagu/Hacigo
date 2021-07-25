@@ -7,6 +7,7 @@ import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.di.HacigoDataInjection
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalViewModel
+import com.mellagusty.hacigo_mobileapp.ui.recipes.RecipesViewModel
 
 class ViewModelFactory private constructor(private val repository: Repository): ViewModelProvider.Factory{
 
@@ -29,6 +30,9 @@ class ViewModelFactory private constructor(private val repository: Repository): 
         }
         if (modelClass.isAssignableFrom(KiddoJournalViewModel::class.java)){
             return KiddoJournalViewModel(repository) as T
+        }
+        if (modelClass.isAssignableFrom(RecipesViewModel::class.java)){
+            return RecipesViewModel(repository) as T
         }
         throw IllegalArgumentException()
     }

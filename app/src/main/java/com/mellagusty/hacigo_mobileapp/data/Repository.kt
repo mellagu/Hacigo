@@ -1,8 +1,9 @@
-
 package com.mellagusty.hacigo_mobileapp.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import com.mellagusty.hacigo_mobileapp.data.firestore.RecipeFirestoreSrc
+import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.data.local.KiddoJLocalDatasource
 import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalEntity
 import kotlinx.coroutines.CoroutineScope
@@ -11,6 +12,7 @@ import kotlinx.coroutines.launch
 
 class Repository(
     private val kiddoJLocalDatasource: KiddoJLocalDatasource,
+    private val RecipeFirestoreSrc: RecipeFirestoreSrc,
     application: Application
 ) : HacigoDataSource {
 
@@ -20,10 +22,13 @@ class Repository(
 
         fun getInstance(
             localDataSource: KiddoJLocalDatasource,
+            RecipeFirestoreSrc: RecipeFirestoreSrc,
             application: Application
         ): Repository =
             instance ?: synchronized(this) {
-                Repository(localDataSource, application).apply { instance = this }
+                Repository(localDataSource, RecipeFirestoreSrc, application).apply {
+                    instance = this
+                }
             }
     }
 
@@ -53,4 +58,10 @@ class Repository(
             kiddoJLocalDatasource.deleteSpecificJournal(id)
         }
     }
+
+    //firestore for recipes
+    override fun getRecipesData(): LiveData<MutableList<RecipesEntity>> {
+        return RecipeFirestoreSrc.getRecipesData()
+    }
+
 }
