@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1012792991859",
+    "project_id": "hacigo-tim00",
+    "storage_bucket": "hacigo-tim00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012792991859:android:4dcc4de937cae221214a06",
+        "android_client_info": {
+          "package_name": "com.mellagusty.hacigo_mobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012792991859-56o9ic3ogjdb7ihjh3mbbnnfalr9omo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK0vEF26op0QaXOxrkdp-IVYWi1ona0kI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012792991859-56o9ic3ogjdb7ihjh3mbbnnfalr9omo4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

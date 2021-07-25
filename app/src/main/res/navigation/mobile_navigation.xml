@@ -10,10 +10,11 @@
         android:name="com.mellagusty.hacigo_mobileapp.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
+
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.DashboardFragment"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_parenthood"
+        android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.recipesFragment"
+        tools:layout="@layout/fragment_parenthood" />
 
     <fragment
         android:id="@+id/navigation_account"

@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.tflite.imageclassification.sample.camera.CameraActivity
+import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalActivity
 import com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodActivity
@@ -43,6 +46,17 @@ class HomeFragment : Fragment() {
         binding.cvParenthood.setOnClickListener {
             val intent = Intent(requireContext(),ParenthoodActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.test.setOnClickListener {
+
+            val testRecipe = RecipesEntity("judul 1", "subjudul", "sayur",
+                "goreng")
+            FirebaseFirestore.getInstance().collection("cook")
+                .add(testRecipe)
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Anda sudah upload resep terbaru", Toast.LENGTH_SHORT).show()
+                }
         }
 
 
