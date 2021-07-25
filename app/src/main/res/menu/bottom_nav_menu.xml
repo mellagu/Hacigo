@@ -12,6 +12,11 @@
         android:title="@string/title_parenthood" />
 
     <item
+        android:id="@+id/navigation_recipe"
+        android:icon="@drawable/ic_dish"
+        android:title="@string/recipes" />
+
+    <item
         android:id="@+id/navigation_account"
         android:icon="@drawable/ic_user"
         android:title="@string/title_account" />

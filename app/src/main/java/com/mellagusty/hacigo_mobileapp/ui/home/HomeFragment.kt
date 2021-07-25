@@ -48,16 +48,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.test.setOnClickListener {
 
-            val testRecipe = RecipesEntity("judul 1", "subjudul", "sayur",
-                "goreng")
-            FirebaseFirestore.getInstance().collection("cook")
-                .add(testRecipe)
-                .addOnSuccessListener {
-                    Toast.makeText(requireContext(), "Anda sudah upload resep terbaru", Toast.LENGTH_SHORT).show()
-                }
-        }
 
 
         showLoading(false)
