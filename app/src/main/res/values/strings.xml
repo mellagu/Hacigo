@@ -45,4 +45,6 @@ write by the experts.</string>
     <string name="detect_food">Detect Food</string>
     <string name="see_more">See more</string>
     <string name="recipes">Recipes</string>
+    <string name="bahan">Bahan :</string>
+    <string name="cara_membuat">Cara Membuat :</string>
 </resources>
