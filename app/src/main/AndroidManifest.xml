@@ -30,7 +30,7 @@
         <activity android:name=".ui._kiddojournal.KiddoJournalActivity" />
         <activity android:name=".ui._fooddetect.Result_RecipeNut" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name="com.google.tflite.imageclassification.sample.camera.CameraActivity" />

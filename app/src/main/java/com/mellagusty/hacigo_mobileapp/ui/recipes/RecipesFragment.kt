@@ -2,6 +2,7 @@ package com.mellagusty.hacigo_mobileapp.ui.recipes
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,45 +35,30 @@ class RecipesFragment : Fragment() {
         val factory = ViewModelFactory.getInstance(requireContext())
         recipesViewModel = ViewModelProvider(this, factory).get(RecipesViewModel::class.java)
 
-        showRecycleCard()
         observeData()
+        showRecycleCard()
 
 
     }
 
     private fun observeData() {
-        recipesViewModel.fetchUserData().observe(requireActivity(), Observer { recipe ->
+        recipesViewModel.fetchUserData().observe(viewLifecycleOwner, { recipe ->
             adapter.setListData(recipe)
             adapter.notifyDataSetChanged()
+            Log.d("TAG","ini data untuk recycleview $recipe")
+
         })
     }
 
-//    private fun ReadRecipesData() {
-//        db = FirebaseFirestore.getInstance()
-//        db.collection("cook")
-//            .get()
-//            .addOnCompleteListener {
-//                val result: StringBuffer = StringBuffer()
-//                //stringBuffer for append first name and last name accordingly
-//
-//                if (it.isSuccessful) {
-//                    for (document in it.result!!) {
-//                        result.append(document.data.getValue("judul")).append(" ")
-//                            .append(document.data.getValue("subJudul")).append("\n\n")
-//                    }
-//                    //resultnya bagaimana ya?
-//                }
-//            }
-//    }
 
     private fun showRecycleCard() {
         binding.rvRecipes.layoutManager =
-            LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         adapter = RecipesAdapter {
             val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
             startActivity(intent)
         }
-        binding.rvRecipes.adapter
+        binding.rvRecipes.adapter = adapter
     }
 
 

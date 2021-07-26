@@ -38,7 +38,6 @@ class KiddoJournalActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        repository = HacigoDataInjection().provideRepository(this)
 
         //back press
         binding.arrowBack.setOnClickListener {

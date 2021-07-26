@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.mellagusty.hacigo_mobileapp.MainActivity
+import com.mellagusty.hacigo_mobileapp.ui.MainActivity
 import com.mellagusty.hacigo_mobileapp.R
 
 class SplashScreenActivity : AppCompatActivity() {

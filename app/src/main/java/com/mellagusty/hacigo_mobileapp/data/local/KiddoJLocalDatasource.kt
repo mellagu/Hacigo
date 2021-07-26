@@ -1,12 +1,6 @@
 package com.mellagusty.hacigo_mobileapp.data.local
 
-import androidx.lifecycle.LiveData
-import androidx.paging.DataSource
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-
-class KiddoJLocalDatasource(private val dao: KiddoJournalDao){
+class KiddoJLocalDatasource(private val dao: KiddoJournalDao) {
 
     companion object {
         private var INSTANCE: KiddoJLocalDatasource? = null
@@ -22,25 +16,21 @@ class KiddoJLocalDatasource(private val dao: KiddoJournalDao){
         return dao.getAllJournal()
     }
 
-    suspend fun getSpecificJournal(id:Int): KiddoJournalEntity{
+    suspend fun getSpecificJournal(id: Int): KiddoJournalEntity {
         return dao.getSpecificJournal(id)
     }
 
-    suspend fun insertJournal(journalEntity: KiddoJournalEntity){
+    suspend fun insertJournal(journalEntity: KiddoJournalEntity) {
         return dao.insertJournal(journalEntity)
     }
 
-    suspend fun updateJournal(journalEntity: KiddoJournalEntity){
+    suspend fun updateJournal(journalEntity: KiddoJournalEntity) {
         return dao.updateJournal(journalEntity)
     }
 
     suspend fun deleteSpecificJournal(id: Int) {
-        return  dao.deleteSpecificJournal(id)
+        return dao.deleteSpecificJournal(id)
     }
-
-
-
-
 
 
 }
