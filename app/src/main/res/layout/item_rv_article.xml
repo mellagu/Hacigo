@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:cardBackgroundColor="@color/ColorPurpleNote"
         app:cardCornerRadius="15dp"
@@ -27,26 +27,39 @@
                 android:id="@+id/iv_article"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
+                android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/parent_1" />
 
             <TextView
-                android:id="@+id/title_recipe"
+                android:id="@+id/tv_title_article"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/iv_article"
-                android:fontFamily="@font/poppins_medium"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 tools:text="Ini Judul Tentang Parenting" />
 
             <TextView
-                android:id="@+id/desc_recipe"
+                android:id="@+id/tv_writer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/title_recipe"
+                android:layout_below="@+id/tv_title_article"
+                android:layout_marginStart="20dp"
+                android:maxLines="3"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="Rammy Bolder" />
+
+            <TextView
+                android:id="@+id/desc_article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_writer"
                 android:layout_marginStart="20dp"
                 android:maxLines="3"
                 android:fontFamily="@font/poppins_reguler"
@@ -58,10 +71,11 @@
                 android:id="@+id/see_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/desc_recipe"
+                android:layout_below="@id/desc_article"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
                 android:textColor="@color/white"
                 android:text="@string/see_more"/>
 

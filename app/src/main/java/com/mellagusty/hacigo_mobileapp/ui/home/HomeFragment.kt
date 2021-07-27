@@ -12,7 +12,6 @@ import com.google.tflite.imageclassification.sample.camera.CameraActivity
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
-import com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodActivity
 import com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodFragment
 
 class HomeFragment : Fragment() {

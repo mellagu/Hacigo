@@ -10,16 +10,15 @@
         android:name="com.mellagusty.hacigo_mobileapp.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
-
     <fragment
         android:id="@+id/navigation_parenthood"
-        android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.RecipesFragment"
+        android:name="com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodFragment"
         tools:layout="@layout/fragment_parenthood" />
 
     <fragment
         android:id="@+id/navigation_recipe"
         android:name="com.mellagusty.hacigo_mobileapp.ui.recipes.RecipesFragment"
-        tools:layout="@layout/fragment_recipes"/>
+        tools:layout="@layout/fragment_recipes" />
 
     <fragment
         android:id="@+id/navigation_account"
