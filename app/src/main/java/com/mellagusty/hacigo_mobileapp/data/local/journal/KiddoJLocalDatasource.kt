@@ -1,4 +1,4 @@
-package com.mellagusty.hacigo_mobileapp.data.local
+package com.mellagusty.hacigo_mobileapp.data.local.journal
 
 class KiddoJLocalDatasource(private val dao: KiddoJournalDao) {
 

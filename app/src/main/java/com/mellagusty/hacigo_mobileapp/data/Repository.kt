@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import com.mellagusty.hacigo_mobileapp.data.firestore.RecipeFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
-import com.mellagusty.hacigo_mobileapp.data.local.KiddoJLocalDatasource
-import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJLocalDatasource
+import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

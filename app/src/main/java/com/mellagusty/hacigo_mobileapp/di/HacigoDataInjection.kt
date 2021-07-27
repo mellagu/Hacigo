@@ -4,8 +4,8 @@ import android.app.Application
 import android.content.Context
 import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.data.firestore.RecipeFirestoreSrc
-import com.mellagusty.hacigo_mobileapp.data.local.KiddoJLocalDatasource
-import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalDatabase
+import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJLocalDatasource
+import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalDatabase
 
 object HacigoDataInjection {
 

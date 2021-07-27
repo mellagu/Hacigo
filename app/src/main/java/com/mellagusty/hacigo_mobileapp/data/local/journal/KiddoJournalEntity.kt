@@ -1,4 +1,4 @@
-package com.mellagusty.hacigo_mobileapp.data.local
+package com.mellagusty.hacigo_mobileapp.data.local.journal
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

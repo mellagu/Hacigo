@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.google.tflite.imageclassification.sample.camera.CameraActivity
+import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
 import com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodActivity
+import com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodFragment
 
 class HomeFragment : Fragment() {
 
@@ -41,12 +44,11 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvParenthood.setOnClickListener {
-            val intent = Intent(requireContext(), ParenthoodActivity::class.java)
-            startActivity(intent)
+            val parenthood = ParenthoodFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.navigation_home,parenthood)
+            transaction.commit()
         }
-
-
-
 
         showLoading(false)
 

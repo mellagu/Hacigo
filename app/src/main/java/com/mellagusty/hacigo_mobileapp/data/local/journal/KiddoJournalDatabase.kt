@@ -1,4 +1,4 @@
-package com.mellagusty.hacigo_mobileapp.data.local
+package com.mellagusty.hacigo_mobileapp.data.local.journal
 
 import android.content.Context
 import androidx.room.Database

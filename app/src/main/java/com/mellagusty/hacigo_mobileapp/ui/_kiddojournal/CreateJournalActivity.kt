@@ -18,7 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.mellagusty.hacigo_mobileapp.R
-import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityCreateJournalBinding
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.util.JournalBottomFragment
 import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory

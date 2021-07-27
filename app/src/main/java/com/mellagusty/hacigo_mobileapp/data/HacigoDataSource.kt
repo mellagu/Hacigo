@@ -1,9 +1,8 @@
 package com.mellagusty.hacigo_mobileapp.data
 
 import androidx.lifecycle.LiveData
-import androidx.paging.PagedList
 import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
-import com.mellagusty.hacigo_mobileapp.data.local.KiddoJournalEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 
 interface HacigoDataSource {
 

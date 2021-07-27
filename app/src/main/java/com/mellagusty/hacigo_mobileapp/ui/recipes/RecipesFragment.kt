@@ -55,6 +55,7 @@ class RecipesFragment : Fragment() {
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         adapter = RecipesAdapter {
             val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
+            intent.putExtra(RecipesDetailActivity.EXTRA_RECIPES,it)
             startActivity(intent)
         }
         binding.rvRecipes.adapter = adapter
