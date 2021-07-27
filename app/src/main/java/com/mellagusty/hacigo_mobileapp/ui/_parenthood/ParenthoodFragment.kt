@@ -45,9 +45,14 @@ class ParenthoodFragment : Fragment() {
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
         adapterArticle = ParentArticleAdapter {
             val intent = Intent(requireContext(),ArticleActivity::class.java)
+            intent.putExtra(ArticleActivity.EXTRA_TITLE_ARTICLE,it.title)
+            intent.putExtra(ArticleActivity.EXTRA_WRITER_ARTICLE,it.writer)
+            intent.putExtra(ArticleActivity.EXTRA_DESC_ARTICLE,it.desc)
+            intent.putExtra(ArticleActivity.EXTRA_IMAGE_ARTICLE,it.image)
             startActivity(intent)
         }
         binding.rvArticle.adapter = adapterArticle
+
     }
     private fun initDummyData() {
         articles.clear()

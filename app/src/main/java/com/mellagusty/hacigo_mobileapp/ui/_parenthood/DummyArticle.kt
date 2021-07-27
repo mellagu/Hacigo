@@ -10,7 +10,7 @@ fun DummyArticle(): MutableList<ArticleEntity> {
         add(
             ArticleEntity(
                 "20 Volunteer Ideas for Kids: An Age-by-Age Guide to Doing Good",
-                "Kaitlin Lowe",
+                "by Kaitlin Lowe",
                 "Let’s set the record straight: No child is too young to volunteer. In fact, during the toddler and preschool years, being a helper shapes a child’s developing sense of morality, says Joseph F. Hagan Jr., M.D., clinical professor of pediatrics at Larner College of Medicine at The University of Vermont, in Burlington.\n" +
                         "Pick wildflowers with your child, bundle them up, and together give the bouquet to a friend, a family member, or a neighbor who could use cheering up.\n" +
                         "Encourage him to notice a child playing alone and have him ask to join in.\n" +
@@ -25,7 +25,7 @@ fun DummyArticle(): MutableList<ArticleEntity> {
         add(
             ArticleEntity(
                 "So Your Child Needs a Feeding Tube—Here's Everything You Need to Know",
-                "Nancy Fitzgerald ",
+                "by Nancy Fitzgerald ",
                 "Has your pediatrician suggested a feeding tube for your child? If you're experiencing a rush of emotions—from sadness to worry to full-blown panic—you're not alone. Nearly 200,000 American kids use feeding tubes for some, or all, of their nutritional needs.\n" +
                         "\n" +
                         "That means more than several other parents know exactly how you feel.\n" +
@@ -39,7 +39,7 @@ fun DummyArticle(): MutableList<ArticleEntity> {
         add(
             ArticleEntity(
                 "5 Ways to Make the Most of Weeknights With Your Kids",
-                "Lisa Lombardi",
+                "by Lisa Lombardi",
                 "One night when my older son was 12, he said in the cheeriest of tones, “Mom, I’ve spent more of my life with Mable than with you or Dad.” Mable is our nanny, you should know, and if you’re counting waking hours, he is technically right.\n" +
                         "\n" +
                         "File that under things that a working parent never, ever wants to hear. We already torture ourselves with that math. On weekdays, we might get just two hours with our kids each morning and two hours at night (depending on their ages), and it’s easy to feel teary and guilty if you compare those 20 hours with what the sitter or the day-care center gets. When Serena Williams was a new mom, she lamented on Twitter that she’d missed her baby’s first steps while she was training for Wimbledon. What parent couldn’t relate? Sure, there will be many milestones as our kids grow, but when you miss one, it rips your heart out.\n" +
