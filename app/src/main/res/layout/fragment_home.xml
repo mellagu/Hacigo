@@ -57,7 +57,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                tools:text="Annisa" />
+                android:text="Ibunya Annisa" />
 
             <ImageView
                 android:id="@+id/iv_mom"
@@ -100,14 +100,14 @@
                 android:fontFamily="@font/poppins_medium"
                 android:textAlignment="center"
                 android:textSize="12sp"
-                android:text="Write Daily Month of\nKiddo Journal" />
+                android:text="Tulis Jurnal Kiddo\nSetiap Sebulan" />
 
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_pick_food"
             android:layout_width="300dp"
-            android:layout_height="170dp"
+            android:layout_height="180dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="9dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +155,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_parenthood"
             android:layout_width="300dp"
-            android:layout_height="170dp"
+            android:layout_height="180dp"
             android:layout_marginTop="40dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="9dp"
@@ -192,7 +192,7 @@
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_title_parenthood"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="20dp"
                     android:layout_alignParentEnd="true"
                     android:textSize="12sp"

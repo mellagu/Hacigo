@@ -5,16 +5,15 @@
     <string name="title_journal">Journal</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_account">Account</string>
-    <string name="Welcome">Welcome Mommy</string>
-    <string name="pick_the_food">Pick The Food</string>
-    <string name="desc_detect">Capture the groceries,
-Find the recipes,
-Get the best nutrition
-for your child.</string>
+    <string name="Welcome">Selamat Datang</string>
+    <string name="pick_the_food">Pilih Makanan</string>
+    <string name="desc_detect">Foto Bahan Makanan,
+Dapatkan resep,
+berikan nutrisi terbaik
+untuk anak anda.</string>
     <string name="parenthood">Parenthood</string>
-    <string name="desc_parenthood">Find best articles,
-about parenting,
-write by the experts.</string>
+    <string name="desc_parenthood">Dapatkan artikel dan acara terbaik parenting
+oleh para ahli.</string>
     <string name="kiddo_grow_chart">Kiddo Grow Chart</string>
     <string name="kiddo_journal">Kiddo Journal</string>
     <string name="toolbar">toolbar</string>
@@ -47,4 +46,7 @@ write by the experts.</string>
     <string name="recipes">Recipes</string>
     <string name="bahan">Bahan :</string>
     <string name="cara_membuat">Cara Membuat :</string>
+    <string name="title_text">Title text</string>
+    <string name="skip_intro">Lewati</string>
+    <string name="next">Selanjutnya</string>
 </resources>
