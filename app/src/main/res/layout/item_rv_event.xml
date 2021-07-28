@@ -24,7 +24,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/iv_article"
+                android:id="@+id/iv_event"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:contentDescription="@string/app_name"
@@ -32,23 +32,23 @@
                 tools:src="@drawable/event1" />
 
             <TextView
-                android:id="@+id/tv_title_article"
+                android:id="@+id/tv_title_event"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_below="@id/iv_article"
+                android:layout_below="@id/iv_event"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/pink_dark"
                 android:textSize="18sp"
                 tools:text="WORKSHOP : Teknik Belajar Seru dan Menyenangkan di masa COVID-19" />
 
             <TextView
-                android:id="@+id/tv_writer"
+                android:id="@+id/tv_noteSpeaker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_title_article"
+                android:layout_below="@+id/tv_title_event"
                 android:layout_marginStart="20dp"
                 android:maxLines="3"
                 android:fontFamily="@font/poppins_medium"
@@ -57,10 +57,10 @@
                 tools:text="oleh Dr. Rahayu Sintha Sp.A" />
 
             <TextView
-                android:id="@+id/desc_article"
+                android:id="@+id/tv_schedule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_writer"
+                android:layout_below="@+id/tv_noteSpeaker"
                 android:layout_marginStart="20dp"
                 android:maxLines="3"
                 android:fontFamily="@font/poppins_reguler"
@@ -68,10 +68,10 @@
                 tools:text="Jumat, 12 Agustus 2021\n08.00 WIB"/>
 
             <TextView
-                android:id="@+id/see_more"
+                android:id="@+id/tv_held"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/desc_article"
+                android:layout_below="@id/tv_schedule"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"

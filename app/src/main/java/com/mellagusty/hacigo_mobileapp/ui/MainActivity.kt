@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityMainBinding
@@ -20,7 +21,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.MyToolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.hide()
+//        val bar = binding.ToolbarImage
+//        //Glide Toolbar's photo
+//        val photo = R.drawable.hacigo_launcher
+//        Glide.with(this)
+//            .load(photo)
+//            .into(bar)
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 

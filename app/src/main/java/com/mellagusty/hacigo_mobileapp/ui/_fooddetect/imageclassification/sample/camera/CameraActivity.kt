@@ -19,8 +19,10 @@ package com.google.tflite.imageclassification.sample.camera
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.ui._fooddetect.imageclassification.sample.camera.Communicator
+import com.mellagusty.hacigo_mobileapp.ui.recipes.RecipesFragment
 
-class CameraActivity : AppCompatActivity() {
+class CameraActivity : AppCompatActivity(),Communicator {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,4 +32,18 @@ class CameraActivity : AppCompatActivity() {
             .commit()
     }
 
+    override fun passDataCom(textInput: String) {
+        val bundle = Bundle()
+        bundle.putString("bahan",textInput)
+
+        val transaction = this.supportFragmentManager.beginTransaction()
+        val frag = RecipesFragment()
+        frag.arguments = bundle
+
+        transaction.replace(R.id.container, frag)
+        transaction.commit()
+    }
+
 }
+
+

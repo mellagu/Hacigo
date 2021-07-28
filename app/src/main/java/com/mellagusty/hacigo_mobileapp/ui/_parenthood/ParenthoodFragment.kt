@@ -12,15 +12,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.adapter.ParentArticleAdapter
+import com.mellagusty.hacigo_mobileapp.adapter.ParentEventAdapter
 import com.mellagusty.hacigo_mobileapp.data.local.article.ArticleEntity
+import com.mellagusty.hacigo_mobileapp.data.local.event.EventEntity
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentParenthoodBinding
 
 
 class ParenthoodFragment : Fragment() {
 
     private var articles = mutableListOf<ArticleEntity>()
+    private var event = mutableListOf<EventEntity>()
     private lateinit var binding : FragmentParenthoodBinding
     private lateinit var adapterArticle: ParentArticleAdapter
+    private lateinit var adapterEvent: ParentEventAdapter
 
 
     override fun onCreateView(
@@ -36,11 +40,28 @@ class ParenthoodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG,"onViewCreated called")
 
-        showRecycleView()
-        initDummyData()
+        showRecycleViewEvent()
+        initDummyDataEvent()
+
+        showRecycleViewArticle()
+        initDummyDataArticle()
 
     }
-    private fun showRecycleView() {
+
+    private fun initDummyDataEvent() {
+        event.clear()
+        event = DummyEvent()
+        adapterEvent.setListData(event)
+    }
+
+    private fun showRecycleViewEvent() {
+        binding.rvEvent.layoutManager =
+            LinearLayoutManager(requireContext(),RecyclerView.HORIZONTAL,false)
+        adapterEvent = ParentEventAdapter {  }
+        binding.rvEvent.adapter = adapterEvent
+    }
+
+    private fun showRecycleViewArticle() {
         binding.rvArticle.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
         adapterArticle = ParentArticleAdapter {
@@ -54,7 +75,7 @@ class ParenthoodFragment : Fragment() {
         binding.rvArticle.adapter = adapterArticle
 
     }
-    private fun initDummyData() {
+    private fun initDummyDataArticle() {
         articles.clear()
         articles = DummyArticle()
         adapterArticle.setListData(articles)

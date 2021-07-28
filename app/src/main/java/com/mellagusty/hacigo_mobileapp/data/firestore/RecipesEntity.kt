@@ -8,9 +8,10 @@ import kotlinx.parcelize.Parcelize
 data class RecipesEntity(
     val judul: String? = null,
     val subJudul: String? = null,
-    val bahan: ArrayList<String>,
+    val bahanUtama: ArrayList<String>,
+    val bahanSemua: ArrayList<String>,
     val caraBuat: ArrayList<String>,
-    val imageUrl: String? = null
+    val imageUrl: Int
 
 
 ) : Parcelable

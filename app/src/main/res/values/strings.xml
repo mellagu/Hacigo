@@ -41,7 +41,7 @@ write by the experts.</string>
 
         ]]>
     </string>
-    <string name="command">Arahkan kamera ke bahan makanan</string>
+    <string name="command">Arahkan kamera ke bahan makanan\n Kami akan merekomendasikan resep sesuai pedoman gizi seimbang\n Berdasarkan bahan makanan ini</string>
     <string name="detect_food">Detect Food</string>
     <string name="see_more">See more</string>
     <string name="recipes">Recipes</string>

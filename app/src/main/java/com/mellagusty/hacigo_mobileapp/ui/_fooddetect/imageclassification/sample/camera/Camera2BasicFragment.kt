@@ -37,6 +37,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.tflite.imageclassification.sample.tflite.Classifier
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.ui._fooddetect.imageclassification.sample.camera.Communicator
 import com.mellagusty.hacigo_mobileapp.ui._fooddetect.imageclassification.sample.utils.ImageUtils
 import java.io.File
 import java.util.*
@@ -53,6 +54,7 @@ class Camera2BasicFragment : Fragment(), View.OnClickListener,
     private val mModelPath = "mobilenet_v1_1.0_224_quant.tflite"
     private val mLabelPath = "labels_mobilenet_quant_v1_224.txt"
     private var rgbFrameBitmap: Bitmap? = null
+    private lateinit var communicator: Communicator
 
     /**
      * [TextureView.SurfaceTextureListener] handles several lifecycle events on a
@@ -946,10 +948,9 @@ class Camera2BasicFragment : Fragment(), View.OnClickListener,
                     if (confidence1!! > 40 && categories_id.contains(category_id!!)) {
                         this.vibratePhone()
                         val category_name = category_id.let { it1 -> this.getCategory(it1) }
-                        activity?.runOnUiThread({
-                            itemNameTextView.text = category_name
-                            Toast.makeText(activity, category_name, Toast.LENGTH_LONG).show()
-                        })
+
+                        communicator = activity as Communicator
+                        communicator.passDataCom(category_name)
                     }
 
                     image.close()
