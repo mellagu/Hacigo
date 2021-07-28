@@ -23,6 +23,7 @@ class RecipesDetailActivity : AppCompatActivity() {
 
         val judul = intent.getStringExtra(EXTRA_JUDUL)
         val subjudul = intent.getStringExtra(EXTRA_SUBJUDUL)
+        val nutrisi = intent.getStringExtra(EXTRA_NUTRISI)
         val bahan = intent.getStringArrayListExtra(EXTRA_BAHAN)
         val cara = intent.getStringArrayListExtra(EXTRA_CARA)
         val image = intent.getIntExtra(EXTRA_IMAGE, -1)
@@ -35,6 +36,7 @@ class RecipesDetailActivity : AppCompatActivity() {
             .into(binding.ivRecipe)
         binding.tvTitleRecipe.text = judul.toString()
         binding.tvSubTitleRecipe.text = subjudul.toString()
+        binding.descNutrition.text = nutrisi.toString()
         binding.tvBahan.text = bahanStr
         binding.tvCaraBuat.text = caraStr
 
@@ -68,6 +70,7 @@ class RecipesDetailActivity : AppCompatActivity() {
         const val EXTRA_BAHAN = "bahan"
         const val EXTRA_CARA = "cara"
         const val EXTRA_IMAGE = "image"
+        const val EXTRA_NUTRISI = "nutrisi"
     }
 
 }

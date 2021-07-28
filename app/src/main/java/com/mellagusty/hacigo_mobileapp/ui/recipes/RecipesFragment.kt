@@ -77,6 +77,7 @@ class RecipesFragment : Fragment() {
             val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
             intent.putExtra(RecipesDetailActivity.EXTRA_JUDUL, it.judul)
             intent.putExtra(RecipesDetailActivity.EXTRA_SUBJUDUL, it.subJudul)
+            intent.putExtra(RecipesDetailActivity.EXTRA_NUTRISI, it.nutrisi)
             intent.putExtra(RecipesDetailActivity.EXTRA_BAHAN, it.bahanSemua)
             intent.putExtra(RecipesDetailActivity.EXTRA_CARA, it.caraBuat)
             intent.putExtra(RecipesDetailActivity.EXTRA_IMAGE, it.imageUrl)

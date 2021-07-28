@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.tflite.imageclassification.sample.camera.CameraActivity
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
@@ -43,10 +44,11 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvParenthood.setOnClickListener {
-            val parenthood = ParenthoodFragment()
-            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.navigation_home,parenthood)
-            transaction.commit()
+//            val parenthood = ParenthoodFragment()
+//            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+//            transaction.replace(R.id.navigation_home,parenthood)
+//            transaction.commit()
+            findNavController().navigate(R.id.action_to_parenthood)
         }
 
         showLoading(false)

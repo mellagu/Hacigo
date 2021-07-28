@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.mellagusty.hacigo_mobileapp.ui.home.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_to_parenthood"
+            app:destination="@id/navigation_parenthood" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_parenthood"

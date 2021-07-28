@@ -5,12 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginBottom="20dp">
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:cardBackgroundColor="@color/prime"
         app:cardCornerRadius="10dp"
@@ -52,6 +54,7 @@
                 android:layout_below="@id/desc_recipe"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/white"
                 android:text="@string/see_more"/>
