@@ -2,6 +2,7 @@ package com.mellagusty.hacigo_mobileapp.ui._kiddojournal
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -12,6 +13,8 @@ import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.collections.ArrayList
 
 class KiddoJournalActivity : AppCompatActivity() {
 
@@ -58,8 +61,30 @@ class KiddoJournalActivity : AppCompatActivity() {
         binding.recyclerView.adapter = kiddoJournalAdapter
 
 
+        searchBar()
         getAllJournal()
 
+    }
+
+    private fun searchBar() {
+        binding.searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                var tempArray = ArrayList<KiddoJournalEntity>()
+                for (array in list ){
+                    if (array.title!!.toLowerCase(Locale.getDefault()).contains(newText.toString())){
+                        tempArray.add(array)
+                    }
+                }
+                kiddoJournalAdapter.setListData(tempArray)
+                kiddoJournalAdapter.notifyDataSetChanged()
+                return true
+            }
+        })
     }
 
 

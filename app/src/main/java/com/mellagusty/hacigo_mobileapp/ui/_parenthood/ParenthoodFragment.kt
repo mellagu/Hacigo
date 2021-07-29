@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mellagusty.hacigo_mobileapp.R
@@ -15,7 +16,10 @@ import com.mellagusty.hacigo_mobileapp.adapter.ParentArticleAdapter
 import com.mellagusty.hacigo_mobileapp.adapter.ParentEventAdapter
 import com.mellagusty.hacigo_mobileapp.data.local.article.ArticleEntity
 import com.mellagusty.hacigo_mobileapp.data.local.event.EventEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentParenthoodBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ParenthoodFragment : Fragment() {
@@ -46,6 +50,29 @@ class ParenthoodFragment : Fragment() {
         showRecycleViewArticle()
         initDummyDataArticle()
 
+        searchBarArticle()
+
+    }
+
+    private fun searchBarArticle() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                var tempArray = ArrayList<ArticleEntity>()
+                for (array in articles ){
+                    if (array.title!!.toLowerCase(Locale.getDefault()).contains(newText.toString())){
+                        tempArray.add(array)
+                    }
+                }
+                adapterArticle.setListData(tempArray)
+                adapterArticle.notifyDataSetChanged()
+                return true
+            }
+        })
     }
 
     private fun initDummyDataEvent() {

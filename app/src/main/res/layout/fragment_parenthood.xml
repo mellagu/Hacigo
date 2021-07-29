@@ -53,8 +53,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="20dp"
             android:text="Geser Kanan ->"
-            app:layout_constraintTop_toBottomOf="@id/tv_event"
-            />
+            app:layout_constraintTop_toBottomOf="@id/tv_event" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:background="@drawable/search_background"
+            app:iconifiedByDefault="false"
+            app:queryHint="Cari Artikel"
+            app:searchIcon="@drawable/ic_search"
+            app:theme="@style/ThemeOverlay.search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_article"/>
 
         <TextView
             android:id="@+id/tv_article"
@@ -75,7 +88,7 @@
             android:layout_margin="10dp"
             android:nestedScrollingEnabled="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_article"
+            app:layout_constraintTop_toBottomOf="@id/search_view"
             tools:listitem="@layout/item_rv_article"/>
 
 

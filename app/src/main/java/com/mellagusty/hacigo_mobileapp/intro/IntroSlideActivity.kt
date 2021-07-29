@@ -53,18 +53,18 @@ class IntroSlideActivity : AppCompatActivity() {
     private val introSliderAdapter = IntroSliderAdapter(
         listOf(
             IntroSlideEntity(
-                "Say Hi",
-                "Say hi to many developers from around the world",
+                "Learner",
+                "Siap menjadi Ibu pembelajar setiap hari",
                 R.drawable.boarding_1
             ),
             IntroSlideEntity(
-                "Surfing",
-                "Surfing to the Github's users just use your phone",
+                "Watcher",
+                "Pantau tumbuh kembang anak lebih menyenangkan",
                 R.drawable.boarding_2
             ),
             IntroSlideEntity(
-                "Connecting",
-                "Build a programming relation with GitU",
+                "Giver",
+                "Berikan nutrisi dan pengajaran terbaik",
                 R.drawable.boarding_3
             )
         )

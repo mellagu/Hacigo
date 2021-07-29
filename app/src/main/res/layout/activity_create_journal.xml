@@ -10,7 +10,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/prime_dark">
 
     <ImageView
@@ -339,7 +339,7 @@
         android:layout_marginLeft="20dp"
         android:background="@null"
         android:fontFamily="@font/poppins_reguler"
-        android:hint="Enter Journal Description Here.."
+        android:hint="Masukkan Deskripsi Jurnal disini.."
         android:inputType="textMultiLine"
         android:padding="10dp"
         android:textColor="@color/white"
@@ -353,13 +353,14 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etJournalDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imgMore"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_add_circle" />
     </FrameLayout>

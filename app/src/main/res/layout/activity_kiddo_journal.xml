@@ -16,7 +16,7 @@
         <RelativeLayout
             android:id="@+id/relativeBackground"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="240dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -58,7 +58,7 @@
                 android:layout_below="@id/title_kiddo"
                 android:fontFamily="@font/poppins_light"
                 android:textColor="@color/white"
-                android:text="Color this journal every month"/>
+                android:text="Abadikan Tumbuh Kembang Anak Anda\nMinimal sekali di setiap bulannya"/>
 
 
         </RelativeLayout>
@@ -70,7 +70,7 @@
             android:layout_margin="40dp"
             android:background="@drawable/search_background"
             app:iconifiedByDefault="false"
-            app:queryHint="Search Your Journal"
+            app:queryHint="Cari Jurnal"
             app:searchIcon="@drawable/ic_search"
             app:theme="@style/ThemeOverlay.search"
             app:layout_constraintEnd_toEndOf="parent"
