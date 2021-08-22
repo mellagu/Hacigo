@@ -29,4 +29,17 @@
         android:textColor="@color/white"
         android:text="Hacigo"/>
 
+    <TextView
+        android:id="@+id/desc_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_app"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_light"
+        android:textColor="@color/white"
+        android:text="Bring your child happy to grow"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

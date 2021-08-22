@@ -70,8 +70,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_journal"
-                android:layout_width="180dp"
-                android:layout_height="130dp"
+                android:layout_width="230dp"
+                android:layout_height="160dp"
                 android:layout_below="@id/tv_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
@@ -94,13 +94,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_journal"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="10dp"
                 android:elevation="15dp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_medium"
                 android:textAlignment="center"
                 android:textSize="12sp"
-                android:text="Tulis Jurnal Kiddo\nSetiap Sebulan" />
+                android:text="Tulis Jurnal Kiddo\nAbadikan Tumbuh Kembang\nSi Buah Hati" />
 
         </RelativeLayout>
 
