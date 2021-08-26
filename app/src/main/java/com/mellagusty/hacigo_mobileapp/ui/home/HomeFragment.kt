@@ -6,12 +6,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.google.tflite.imageclassification.sample.camera.CameraActivity
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
@@ -58,6 +60,7 @@ class HomeFragment : Fragment() {
         showLoading(false)
         Log.d("TAG", "onViewCreated: homeViewModel.lineDataSet.observe(requireActivity()) AWAL")
         homeViewModel.lineDataSet.observe(requireActivity()) { lineDataSet ->
+            styleLineDataSet(lineDataSet)
             binding.lineChart.data = LineData(lineDataSet)
             binding.lineChart.invalidate()
         }
@@ -71,23 +74,36 @@ class HomeFragment : Fragment() {
     }
 
     fun styleChart(lineChart: LineChart) = lineChart.apply {
-        axisRight.isEnabled = false
+        axisRight.isEnabled = true
 
         axisLeft.apply {
             isEnabled = false
             axisMinimum = 0f
-            axisMaximum = 20f
         }
 
         xAxis.apply {
             axisMinimum = 0f
-            axisMaximum = 24f
             isGranularityEnabled = true
             granularity = 4f
-            setDrawGridLines(true)
+            setDrawGridLines(false)
             position = XAxis.XAxisPosition.BOTTOM
         }
+        setTouchEnabled(true)
+        isDragEnabled = true
+        description = null
 
+    }
+
+    fun styleLineDataSet(lineDataSet: LineDataSet) = lineDataSet.apply {
+        color = ContextCompat.getColor(requireContext(),R.color.prime_dark)
+        valueTextColor = ContextCompat.getColor(requireContext(),R.color.prime_secunder)
+        lineWidth = 3f
+        isHighlightEnabled = true
+        mode = LineDataSet.Mode.CUBIC_BEZIER
+
+        setDrawFilled(true)
+        fillDrawable = ContextCompat.getDrawable(requireContext(),R.drawable.bg_spark_line)
+        
     }
 
     //Show the progress bar while load

@@ -16,7 +16,8 @@ import kotlinx.coroutines.launch
 class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     companion object {
-        private const val CHART_LABEL = "JOURNAL_CHART"
+        private const val CHART_LABEL = "Berat Badan Terhadap Usia"
+
     }
 
     private val _lineDataSet = MutableLiveData<LineDataSet>()
@@ -31,7 +32,8 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
                 Log.d("TAG","it.ageInMonth!!.toFloat() = ${it.ageInMonth!!.toFloat()} . it.weight!!.toFloat() = ${it.weight!!.toFloat()} ")
                 Entry(it.ageInMonth!!.toFloat(), it.weight!!.toFloat())
             }
-            _lineDataSet.value = LineDataSet(listEntry, CHART_LABEL)
+             _lineDataSet.value = LineDataSet(listEntry, CHART_LABEL)
+
         }
 
 
@@ -39,17 +41,5 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
 
 
 
-
-//    init {
-//        journalData.add(Entry(0f,5f))
-//        journalData.add(Entry(2f,4f))
-//        journalData.add(Entry(4f,7f))
-//        journalData.add(Entry(6f,9f))
-//        journalData.add(Entry(8f,5f))
-//        journalData.add(Entry(10f,3f))
-//
-//        _lineDataSet.value = LineDataSet(journalData, CHART_LABEL)
-//
-//    }
 
 }

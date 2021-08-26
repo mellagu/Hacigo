@@ -104,18 +104,32 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:id="@+id/tv_title_chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Grafik Perkembangan Anak"
+            android:textColor="@color/prime_dark"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            />
+
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/line_chart"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="300dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout"/>
+            app:layout_constraintBottom_toTopOf="@+id/cv_pick_food"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_chart"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_pick_food"
             android:layout_width="300dp"
             android:layout_height="180dp"
+            android:layout_marginTop="30dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="9dp"
             app:layout_constraintEnd_toEndOf="parent"
