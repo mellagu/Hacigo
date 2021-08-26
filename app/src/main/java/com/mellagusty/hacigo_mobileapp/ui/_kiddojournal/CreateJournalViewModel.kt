@@ -23,4 +23,6 @@ class CreateJournalViewModel(private val repository: Repository) : ViewModel() {
     }
 
 
+
+
 }

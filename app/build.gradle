@@ -90,4 +90,7 @@ dependencies {
 
     //tensorFlow
     implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
+
+    //chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

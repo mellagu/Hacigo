@@ -62,6 +62,8 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
                 var journal = viewModel.getSpecificAllJournal(noteId)
                 runOnUiThread {
                     //dijalankan harus di luar UI thread
+
+
                     binding.colorView.setBackgroundColor(Color.parseColor(journal.color))
                     binding.colorView2.setBackgroundColor(Color.parseColor(journal.color))
                     binding.colorView3.setBackgroundColor(Color.parseColor(journal.color))

@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.github.mikephil.charting.data.LineData
 import com.google.tflite.imageclassification.sample.camera.CameraActivity
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
-import com.mellagusty.hacigo_mobileapp.ui._parenthood.ParenthoodFragment
+import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 
 class HomeFragment : Fragment() {
 
@@ -31,7 +31,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+
+        val factory = ViewModelFactory.getInstance(requireContext())
+        homeViewModel = ViewModelProvider(this,factory).get(HomeViewModel::class.java)
 
         binding.cardJournal.setOnClickListener {
             val intent = Intent(requireContext(), KiddoJournalActivity::class.java)
@@ -44,14 +46,16 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvParenthood.setOnClickListener {
-//            val parenthood = ParenthoodFragment()
-//            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-//            transaction.replace(R.id.navigation_home,parenthood)
-//            transaction.commit()
             findNavController().navigate(R.id.action_to_parenthood)
         }
 
         showLoading(false)
+
+        homeViewModel.lineDataSet.observe(requireActivity()) { lineDataSet ->
+            binding.lineChart.data = LineData(lineDataSet)
+            binding.lineChart.invalidate()
+        }
+        homeViewModel.getJournalData()
 
     }
 

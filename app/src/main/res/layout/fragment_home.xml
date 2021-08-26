@@ -104,6 +104,14 @@
 
         </RelativeLayout>
 
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/line_chart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relativeLayout"/>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_pick_food"
             android:layout_width="300dp"
@@ -112,7 +120,7 @@
             app:cardElevation="9dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/relativeLayout">
+            app:layout_constraintTop_toBottomOf="@id/line_chart">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
