@@ -32,5 +32,8 @@ class KiddoJLocalDatasource(private val dao: KiddoJournalDao) {
         return dao.deleteSpecificJournal(id)
     }
 
+    suspend fun getLastJournal(): KiddoJournalEntity {
+        return dao.getLastJournal()
+    }
 
 }

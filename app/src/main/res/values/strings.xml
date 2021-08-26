@@ -7,6 +7,9 @@
     <string name="title_account">Account</string>
     <string name="Welcome">Selamat Datang</string>
     <string name="pick_the_food">Pilih Makanan</string>
+    <string name="status_title">Status Gizi Buah Hati</string>
+    <string name="status_ideal">Status Ideal : Belum ada data</string>
+    <string name="rentang_ideal">Rentang Ideal : Belum ada rekomendasi</string>
     <string name="desc_detect">Foto Bahan Makanan,
 Dapatkan resep,
 berikan nutrisi terbaik

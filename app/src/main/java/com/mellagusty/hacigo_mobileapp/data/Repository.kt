@@ -64,4 +64,8 @@ class Repository(
 //        return RecipeFirestoreSrc.getRecipesData()
 //    }
 
+    suspend fun getLastJournal(): KiddoJournalEntity {
+        return kiddoJLocalDatasource.getLastJournal()
+    }
+
 }

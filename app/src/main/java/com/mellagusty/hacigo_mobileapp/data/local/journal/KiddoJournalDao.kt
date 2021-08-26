@@ -25,7 +25,9 @@ interface KiddoJournalDao {
     @Delete
     suspend fun deleteJournal(journalEntity: KiddoJournalEntity)
 
-
+    // this is to get the last journal
+    @Query("SELECT * FROM KiddoJournal ORDER BY id DESC LIMIT 1")
+    suspend fun getLastJournal(): KiddoJournalEntity
 
 
 }
