@@ -77,7 +77,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
                 android:textColor="@color/black"
-                tools:text="Youtube Hacigo Indonesia"/>
+                tools:text="Youtube Gohaci Indonesia"/>
 
 
         </RelativeLayout>
