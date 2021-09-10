@@ -52,6 +52,25 @@ class RecipeFirestoreSrc {
         return mutableData
     }
 
+    fun getRecipesByBahan( bahan : String ): LiveData<MutableList<RecipesEntity>> {
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        Log.d("firestore", "Firestore bahan : $bahan")
+        FirebaseFirestore.getInstance().collection("cook")
+//            .whereGreaterThanOrEqualTo("bahan", bahan)
+            .whereArrayContains("bahanUtama", bahan)
+            .get().addOnSuccessListener { result ->
+            val listData = mutableListOf<RecipesEntity>()
+            for (document in result) {
+                val recipes = document.toObject(RecipesEntity::class.java)
+                Log.d("this", "Firestore, ini data dengan bahan $bahan : $recipes")
+                listData.add(recipes)
+            }
+            mutableData.postValue(listData)
+        }
+        Log.d("this is", "ini data Anda untuk return $mutableData")
+        return mutableData
+    }
+
 //    fun getRecipesData(): LiveData<MutableList<RecipesEntity>> {
 //        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
 //        FirebaseFirestore.getInstance().collection("cook").get().addOnSuccessListener { result ->

@@ -44,25 +44,49 @@ class RecipesFragment : Fragment() {
         val factory = ViewModelFactory.getInstance(requireContext())
         recipesViewModel = ViewModelProvider(this, factory).get(RecipesViewModel::class.java)
 
-        recipesViewModel.fetchRecipesData().observe(viewLifecycleOwner, {
-            binding.rvRecipes.layoutManager =
-                LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            adapter = RecipesAdapter {
-                val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
-                intent.putExtra(RecipesDetailActivity.EXTRA_JUDUL, it.judul)
-                Log.d("startActivity","new Detail Activity")
-                startActivity(intent)
-            }
-            adapter.setListData(it)
-            adapter.notifyDataSetChanged()
-            binding.arrowBack.setOnClickListener {
-                val intent = Intent(requireContext(),MainActivity::class.java)
-                startActivity(intent)
-            }
-            binding.rvRecipes.adapter = adapter
+        if ( arguments?.getString("bahan") != null ) {
+            bahan = arguments?.getString("bahan")
 
-            Log.d("this is","ini data Anda untuk fragment$it")
-        })
+            recipesViewModel.fetchRecipesByBahan(bahan!!).observe(viewLifecycleOwner, {
+                binding.rvRecipes.layoutManager =
+                    LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                adapter = RecipesAdapter {
+                    val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
+                    intent.putExtra(RecipesDetailActivity.EXTRA_JUDUL, it.judul)
+                    startActivity(intent)
+                }
+                adapter.setListData(it)
+                adapter.notifyDataSetChanged()
+                binding.arrowBack.setOnClickListener {
+                    val intent = Intent(requireContext(),MainActivity::class.java)
+                    startActivity(intent)
+                }
+                binding.rvRecipes.adapter = adapter
+            })
+        }
+        else {
+            recipesViewModel.fetchRecipesData().observe(viewLifecycleOwner, {
+                binding.rvRecipes.layoutManager =
+                    LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                adapter = RecipesAdapter {
+                    val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
+                    intent.putExtra(RecipesDetailActivity.EXTRA_JUDUL, it.judul)
+                    Log.d("startActivity","new Detail Activity")
+                    startActivity(intent)
+                }
+                adapter.setListData(it)
+                adapter.notifyDataSetChanged()
+                binding.arrowBack.setOnClickListener {
+                    val intent = Intent(requireContext(),MainActivity::class.java)
+                    startActivity(intent)
+                }
+                binding.rvRecipes.adapter = adapter
+
+                Log.d("this is","ini data Anda untuk fragment$it")
+            })
+        }
+
+
 
 
 //        observeData()

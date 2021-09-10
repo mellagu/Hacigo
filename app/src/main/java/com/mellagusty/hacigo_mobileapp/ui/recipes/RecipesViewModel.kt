@@ -16,10 +16,18 @@ class RecipesViewModel(private val repository: Repository) : ViewModel() {
         return mutableData
     }
 
-    fun fetchARecipe(bahan: String): LiveData<RecipesEntity> {
+    fun fetchARecipe(judul: String): LiveData<RecipesEntity> {
         val mutableData = MutableLiveData<RecipesEntity>()
-        repository.getARecipe(bahan).observeForever{ recipeData->
+        repository.getARecipe(judul).observeForever{ recipeData->
             mutableData.value = recipeData
+        }
+        return mutableData
+    }
+
+    fun fetchRecipesByBahan(bahan: String): LiveData<MutableList<RecipesEntity>> {
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        repository.getRecipesByBahan(bahan).observeForever{ recipeList ->
+            mutableData.value = recipeList
         }
         return mutableData
     }

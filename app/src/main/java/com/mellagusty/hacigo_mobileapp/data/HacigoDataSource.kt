@@ -25,4 +25,6 @@ interface HacigoDataSource {
 
     fun getARecipe(judul: String): LiveData<RecipesEntity>
 
+    fun getRecipesByBahan(bahan : String): LiveData<MutableList<RecipesEntity>>
+
 }

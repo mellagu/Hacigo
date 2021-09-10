@@ -72,4 +72,8 @@ class Repository(
         return RecipeFirestoreSrc.getARecipe(judul)
     }
 
+    override fun getRecipesByBahan(bahan: String): LiveData<MutableList<RecipesEntity>> {
+        return RecipeFirestoreSrc.getRecipesByBahan(bahan);
+    }
+
 }
