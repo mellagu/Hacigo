@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class Repository(
     private val kiddoJLocalDatasource: KiddoJLocalDatasource,
-//    private val RecipeFirestoreSrc: RecipeFirestoreSrc,
+    private val RecipeFirestoreSrc: RecipeFirestoreSrc,
     application: Application
 ) : HacigoDataSource {
 
@@ -22,11 +22,11 @@ class Repository(
 
         fun getInstance(
             localDataSource: KiddoJLocalDatasource,
-//            RecipeFirestoreSrc: RecipeFirestoreSrc,
+            RecipeFirestoreSrc: RecipeFirestoreSrc,
             application: Application
         ): Repository =
             instance ?: synchronized(this) {
-                Repository(localDataSource, application).apply {
+                Repository(localDataSource, RecipeFirestoreSrc, application).apply {
                     instance = this
                 }
             }
@@ -59,13 +59,17 @@ class Repository(
         }
     }
 
-//    //firestore for recipes
-//    override fun getRecipesData(): LiveData<MutableList<RecipesEntity>> {
-//        return RecipeFirestoreSrc.getRecipesData()
-//    }
-
     suspend fun getLastJournal(): KiddoJournalEntity {
         return kiddoJLocalDatasource.getLastJournal()
+    }
+
+    //firestore for recipes
+    override fun getRecipesData(): LiveData<MutableList<RecipesEntity>> {
+        return RecipeFirestoreSrc.getRecipesData()
+    }
+
+    override fun getARecipe(judul: String): LiveData<RecipesEntity>{
+        return RecipeFirestoreSrc.getARecipe(judul)
     }
 
 }

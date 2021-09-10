@@ -8,14 +8,21 @@ import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
 
 class RecipesViewModel(private val repository: Repository) : ViewModel() {
 
-//    fun fetchUserData(): LiveData<MutableList<RecipesEntity>>{
-//        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
-//        repository.getRecipesData().observeForever{ recipeList->
-//            mutableData.value = recipeList
-//        }
-//        return mutableData
-//    }
+    fun fetchRecipesData(): LiveData<MutableList<RecipesEntity>>{
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        repository.getRecipesData().observeForever{ recipeList->
+            mutableData.value = recipeList
+        }
+        return mutableData
+    }
 
+    fun fetchARecipe(bahan: String): LiveData<RecipesEntity> {
+        val mutableData = MutableLiveData<RecipesEntity>()
+        repository.getARecipe(bahan).observeForever{ recipeData->
+            mutableData.value = recipeData
+        }
+        return mutableData
+    }
 
 
 

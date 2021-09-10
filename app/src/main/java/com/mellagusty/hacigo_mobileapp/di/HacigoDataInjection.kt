@@ -15,8 +15,8 @@ object HacigoDataInjection {
 
         val kiddoJLocalDatasource = KiddoJLocalDatasource.getInstances(database.kiddoJournalDao())
 
-//        val recipesFirestoreSrc = RecipeFirestoreSrc.getInstances()
+        val recipesFirestoreSrc = RecipeFirestoreSrc.getInstances()
 
-        return Repository.getInstance(kiddoJLocalDatasource, context.applicationContext as Application)
+        return Repository.getInstance(kiddoJLocalDatasource, recipesFirestoreSrc, context.applicationContext as Application)
     }
 }

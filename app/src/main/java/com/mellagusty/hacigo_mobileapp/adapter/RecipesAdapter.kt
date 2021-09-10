@@ -19,18 +19,28 @@ class RecipesAdapter(private val listener: (RecipesEntity) -> Unit) :
     }
 
     inner class RecipeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(position: Int){
-            val recipe = list[position]
+        private val binding = ItemRvRecipeBinding.bind(itemView)
+        fun bind(recipeList: RecipesEntity){
+
+            binding.titleRecipe.text = recipeList.judul
+            binding.descRecipe.text = recipeList.subJudul
             itemView.setOnClickListener {
                 listener(list[absoluteAdapterPosition])
             }
-            val binding = ItemRvRecipeBinding.bind(itemView)
-            val tvJudul = binding.titleRecipe
-            val tvSubJudul = binding.descRecipe
 
-            tvJudul.text = recipe.judul
-            tvSubJudul.text = recipe.subJudul
         }
+//        fun bind(position: Int){
+//            val recipe = list[position]
+//            itemView.setOnClickListener {
+//                listener(list[absoluteAdapterPosition])
+//            }
+//            val binding = ItemRvRecipeBinding.bind(itemView)
+//            val tvJudul = binding.titleRecipe
+//            val tvSubJudul = binding.descRecipe
+//
+//            tvJudul.text = recipe.judul
+//            tvSubJudul.text = recipe.subJudul
+//        }
 
     }
 
@@ -44,7 +54,7 @@ class RecipesAdapter(private val listener: (RecipesEntity) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: RecipesAdapter.RecipeViewHolder, position: Int) {
-       holder.bind(position)
+       holder.bind(list[position])
     }
 
     override fun getItemCount(): Int {
