@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui._kiddojournal.CreateJournalActivity" />
+        <activity android:name=".ui._kiddojournal.CreatePregnantJournalActivity" />
         <activity android:name=".ui._parenthood.ArticleActivity" />
         <activity android:name=".ui._kiddojournal.KiddoJournalActivity" />
         <activity android:name=".ui._fooddetect.Result_RecipeNut" />

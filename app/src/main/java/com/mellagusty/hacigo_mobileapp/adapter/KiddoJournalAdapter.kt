@@ -7,24 +7,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.data.local.journal.AllJournalEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ItemRvJournalBinding
+import java.io.Serializable
 
-class KiddoJournalAdapter(private val listener: (KiddoJournalEntity) -> Unit) :
+//class KiddoJournalAdapter(private val listener: (KiddoJournalEntity) -> Unit) :
+class KiddoJournalAdapter(private val listener: (AllJournalEntity) -> Unit) :
     RecyclerView.Adapter<KiddoJournalAdapter.JournalViewHolder>() {
 
 
-    private var list: List<KiddoJournalEntity> = ArrayList()
+//    private var list: List<KiddoJournalEntity> = ArrayList()
+    private var list: List<AllJournalEntity> = ArrayList()
 
-    fun setListData(kiddo: List<KiddoJournalEntity>) {
+    fun setListData(kiddo: List<AllJournalEntity>) {
         list = kiddo
         notifyDataSetChanged() //the adapter will reflect the change
     }
 
     inner class JournalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(position: Int) {
-            val kiddo = list[position]
+            val kiddo = list[position] as AllJournalEntity
             itemView.setOnClickListener {
+//                listener(list[absoluteAdapterPosition])
                 listener(list[absoluteAdapterPosition])
             }
             val binding = ItemRvJournalBinding.bind(itemView)
@@ -35,6 +40,10 @@ class KiddoJournalAdapter(private val listener: (KiddoJournalEntity) -> Unit) :
             tvTitle.text = kiddo.title
             tvDesc.text = kiddo.journalText
             tvDate.text = kiddo.dateTime
+
+//            tvTitle.text = kiddo.title
+//            tvDesc.text = kiddo.journalText
+//            tvDate.text = kiddo.dateTime
 
 
             if (list[position].color != null) {

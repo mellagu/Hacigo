@@ -27,6 +27,10 @@ oleh para ahli.</string>
     <string name="kiddo_weight_kg">Berat Anak dalam Kg</string>
     <string name="kiddo_height_cm">Tinggi Anak dalam Cm</string>
 
+    <string name="pregnant_age">Usia kehamilan dalam bulan</string>
+    <string name="pregnant_weight_kg">Berat Bunda dalam Kg</string>
+    <string name="pregnant_height_kg">Tinggi Bunda dalam Cm</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="storage_permission_text">We need permission from your device</string>
     <string name="picture">Picture</string>

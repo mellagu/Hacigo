@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [KiddoJournalEntity::class], version = 1, exportSchema = false)
+@Database(entities = [KiddoJournalEntity::class, PregnantJournalEntity::class, AllJournalEntity::class], version = 1, exportSchema = false)
 abstract class KiddoJournalDatabase : RoomDatabase() {
 
     abstract fun kiddoJournalDao(): KiddoJournalDao

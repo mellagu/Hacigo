@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/prime_dark"
+    tools:context=".ui._kiddojournal.CreateJournalActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/prime_dark">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/save_checklist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:src="@drawable/ic_check"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etJournalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@null"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_bold"
+        android:hint="@string/journal_title"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back" />
+
+    <TextView
+        android:id="@+id/tvDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_bold"
+        android:maxLines="1"
+        android:paddingStart="10dp"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etJournalTitle"
+        tools:text="20 juli 2021" />
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDateTime">
+
+
+        <View
+            android:id="@+id/colorView"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:background="@color/pink" />
+
+        <EditText
+            android:id="@+id/etJournalSubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="@string/journal_subtitle"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l1">
+
+
+        <View
+            android:id="@+id/colorView2"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:background="@color/pink" />
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_reguler"
+            android:hint="@string/pregnant_age"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l2">
+
+
+        <View
+            android:id="@+id/colorView3"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:background="@color/pink" />
+
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_reguler"
+            android:hint="@string/pregnant_weight_kg"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l3">
+
+
+        <View
+            android:id="@+id/colorView4"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:background="@color/pink" />
+
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_reguler"
+            android:hint="@string/pregnant_height_kg"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l4">
+
+        <ImageView
+            android:id="@+id/imgJournal"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgDelete"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_delete"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutWebUrl"
+        android:background="@color/prime_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutImage"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/etWebLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="@font/poppins_reguler"
+                android:hint="Web Url"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:text="http://"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="12sp" />
+            <ImageView
+                android:id="@+id/imgUrlDelete"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:visibility="gone"
+                android:src="@drawable/ic_check" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:background="@color/pink"
+                android:text="Cancel"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:id="@+id/btnCancel"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:background="@color/pink"
+                android:text="OK"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/white"
+                android:id="@+id/btnOk"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvWebLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="end"
+        android:visibility="gone"
+        android:fontFamily="@font/poppins_bold"
+        android:padding="10dp"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey"
+        android:textSize="12sp"
+        android:autoLink="web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutWebUrl" />
+
+    <EditText
+        android:id="@+id/etJournalDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:background="@null"
+        android:fontFamily="@font/poppins_reguler"
+        android:hint="Masukkan Deskripsi Jurnal disini.."
+        android:inputType="textMultiLine"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWebLink" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etJournalDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imgMore"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_add_circle" />
+    </FrameLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

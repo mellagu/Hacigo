@@ -2,11 +2,13 @@ package com.mellagusty.hacigo_mobileapp.ui._kiddojournal
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mellagusty.hacigo_mobileapp.adapter.KiddoJournalAdapter
+import com.mellagusty.hacigo_mobileapp.data.local.journal.AllJournalEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityKiddoJournalBinding
 import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
@@ -23,7 +25,8 @@ class KiddoJournalActivity : AppCompatActivity() {
     private lateinit var viewModel: KiddoJournalViewModel
     private var noteId = -1
 
-    private var list: List<KiddoJournalEntity> = ArrayList()
+//    private var list: List<KiddoJournalEntity> = ArrayList()
+    private var list: List<AllJournalEntity> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,9 +38,36 @@ class KiddoJournalActivity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory).get(KiddoJournalViewModel::class.java)
 
+        var status = "hamil"
+
+//        if ( status == "hamil" ) {
+//            kiddoJournalAdapter = KiddoJournalAdapter {
+//                val intent = Intent(this, CreatePregnantJournalActivity::class.java)
+//                intent.putExtra("note_id", it.id!!)
+//                startActivity(intent)
+//            }
+//        }
+//        else {
+//            kiddoJournalAdapter = KiddoJournalAdapter {
+//                val intent = Intent(this, CreateJournalActivity::class.java)
+//                intent.putExtra("note_id", it.id!!)
+//                startActivity(intent)
+//            }
+//        }
+
         kiddoJournalAdapter = KiddoJournalAdapter {
+            if ( status == "hamil" ) {
+                val intent = Intent(this, CreatePregnantJournalActivity::class.java)
+                intent.putExtra("note_id",it.id!!)
+                Log.d("kiddo","Kiddo, hamil")
+
+            }
+            else {
+                val intent = Intent(this, CreateJournalActivity::class.java)
+                intent.putExtra("note_id",it.id!!)
+                Log.d("kiddo","Kiddo, anak")
+            }
             val intent = Intent(this,CreateJournalActivity::class.java)
-            intent.putExtra("note_id",it.id!!)
             startActivity(intent)
         }
 
@@ -48,9 +78,18 @@ class KiddoJournalActivity : AppCompatActivity() {
         }
 
         binding.fabBtnCreateJournal.setOnClickListener {
-            val intent = Intent(this, CreateJournalActivity::class.java)
-            intent.putExtra("note_id",-1)
-            startActivity(intent)
+            if ( status == "hamil" ) {
+                val intent = Intent(this, CreatePregnantJournalActivity::class.java)
+                intent.putExtra("note_id", -1)
+                startActivity(intent)
+            }
+            else {
+                val intent = Intent(this, CreateJournalActivity::class.java)
+                intent.putExtra("note_id", -1)
+                startActivity(intent)
+            }
+//            val intent = Intent(this, CreateJournalActivity::class.java)
+//            intent.putExtra("note_id",-1)
         }
 
         binding.recyclerView.setHasFixedSize(true)
@@ -74,7 +113,7 @@ class KiddoJournalActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                var tempArray = ArrayList<KiddoJournalEntity>()
+                var tempArray = ArrayList<AllJournalEntity>()
                 for (array in list ){
                     if (array.title!!.toLowerCase(Locale.getDefault()).contains(newText.toString())){
                         tempArray.add(array)
@@ -91,8 +130,15 @@ class KiddoJournalActivity : AppCompatActivity() {
     private fun getAllJournal() {
         CoroutineScope(Dispatchers.IO).launch {
             var journal = viewModel.getJournalAll()
-            kiddoJournalAdapter.setListData(journal)
-            list = journal as ArrayList<KiddoJournalEntity>
+            var pregnantJournal = viewModel.getPregnantJournalAll()
+
+            var allJournal = journal + pregnantJournal
+
+            Log.d("kiddo","Kiddo all journal : $allJournal")
+
+//            kiddoJournalAdapter.setListData(journal)
+            kiddoJournalAdapter.setListData(allJournal as List<AllJournalEntity>)
+            list = allJournal as ArrayList<AllJournalEntity>
             binding.recyclerView.adapter = kiddoJournalAdapter
         }
     }

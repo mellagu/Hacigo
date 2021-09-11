@@ -6,6 +6,7 @@ import com.mellagusty.hacigo_mobileapp.data.firestore.RecipeFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJLocalDatasource
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -37,13 +38,27 @@ class Repository(
         return kiddoJLocalDatasource.getAllJournal()
     }
 
+    override suspend fun getAllPregnantJournal(): List<PregnantJournalEntity> {
+        return kiddoJLocalDatasource.getAllPregnantJournal()
+    }
+
     override suspend fun getSpecificAllJournal(id: Int): KiddoJournalEntity {
         return kiddoJLocalDatasource.getSpecificJournal(id)
+    }
+
+    override suspend fun getSpecificAllPregnantJournal(id: Int): PregnantJournalEntity {
+        return kiddoJLocalDatasource.getSpecificPregnantJournal(id)
     }
 
     override fun insertToJournal(journalEntity: KiddoJournalEntity) {
         CoroutineScope(Dispatchers.IO).launch {
             kiddoJLocalDatasource.insertJournal(journalEntity)
+        }
+    }
+
+    override fun insertToPregnantJournal(journalEntity: PregnantJournalEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            kiddoJLocalDatasource.insertPregnantJournal(journalEntity)
         }
     }
 
@@ -56,6 +71,12 @@ class Repository(
     override fun deleteSpecificJournal(id: Int) {
         CoroutineScope(Dispatchers.IO).launch {
             kiddoJLocalDatasource.deleteSpecificJournal(id)
+        }
+    }
+
+    override fun deleteSpecificPregnantJournal(id: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            kiddoJLocalDatasource.deleteSpecificPregnantJournal(id)
         }
     }
 
@@ -75,5 +96,8 @@ class Repository(
     override fun getRecipesByBahan(bahan: String): LiveData<MutableList<RecipesEntity>> {
         return RecipeFirestoreSrc.getRecipesByBahan(bahan);
     }
+
+
+
 
 }
