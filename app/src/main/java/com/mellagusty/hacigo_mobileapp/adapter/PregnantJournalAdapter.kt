@@ -7,16 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mellagusty.hacigo_mobileapp.R
-import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ItemRvJournalBinding
 
-class KiddoJournalAdapter(private val listener: (KiddoJournalEntity) -> Unit) :
-    RecyclerView.Adapter<KiddoJournalAdapter.JournalViewHolder>() {
+class PregnantJournalAdapter(private val listener: (PregnantJournalEntity) -> Unit) :
+    RecyclerView.Adapter<PregnantJournalAdapter.JournalViewHolder>() {
 
 
-    private var list: List<KiddoJournalEntity> = ArrayList()
+    private var list: List<PregnantJournalEntity> = ArrayList()
 
-    fun setListData(kiddo: List<KiddoJournalEntity>) {
+    fun setListData(kiddo: List<PregnantJournalEntity>) {
         list = kiddo
         notifyDataSetChanged() //the adapter will reflect the change
     }

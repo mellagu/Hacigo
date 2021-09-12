@@ -1,4 +1,4 @@
-package com.mellagusty.hacigo_mobileapp.ui._kiddojournal
+package com.mellagusty.hacigo_mobileapp.ui._pregnantjournal
 
 import android.Manifest
 import android.content.BroadcastReceiver
@@ -18,11 +18,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.mellagusty.hacigo_mobileapp.R
-import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
-import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
-import com.mellagusty.hacigo_mobileapp.databinding.ActivityCreateJournalBinding
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityCreatePregnantJournalBinding
-import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.util.JournalBottomFragment
+import com.mellagusty.hacigo_mobileapp.ui._pregnantjournal.util.PregnantJournalBottomFragment
 import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -35,9 +32,8 @@ import java.util.*
 class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks,
     EasyPermissions.RationaleCallbacks {
 
-//    private lateinit var binding: ActivityCreateJournalBinding
     private lateinit var binding: ActivityCreatePregnantJournalBinding
-    private lateinit var viewModel: CreateJournalViewModel
+    private lateinit var viewModel: CreatePregnantJournalViewModel
 
     var selectedColor = "#DD4F8A"
     var currentDate: String? = null
@@ -56,7 +52,7 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
         val a = intent.extras!!.getInt("note_id")
 
         val factory = ViewModelFactory.getInstance(this)
-        viewModel = ViewModelProvider(this, factory).get(CreateJournalViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory).get(CreatePregnantJournalViewModel::class.java)
 
         noteId = a
 
@@ -132,7 +128,7 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
         }
 
         binding.imgMore.setOnClickListener {
-            var journalBottomFragment = JournalBottomFragment.newInstance(noteId)
+            var journalBottomFragment = PregnantJournalBottomFragment.newInstance(noteId)
             journalBottomFragment.show(this.supportFragmentManager, "Journal Bottom Sheet")
         }
 
@@ -203,7 +199,7 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
 
             viewModel.updateJournal(journal)
         }
-            
+
 //            binding.etJournalTitle.setText("")
 //            binding.etJournalSubTitle.setText("")
 //            binding.etJournalDesc.setText("")
@@ -213,7 +209,7 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
 //            binding.layoutImage.visibility = View.GONE
 //            binding.imgJournal.visibility = View.GONE
 //            binding.tvWebLink.visibility = View.GONE
-        val intent = Intent(this, KiddoJournalActivity::class.java)
+        val intent = Intent(this, PregnantJournalActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
 
@@ -249,7 +245,7 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
         binding.imgJournal.visibility = View.GONE
         binding.tvWebLink.visibility = View.GONE
 
-        val intent = Intent(this, KiddoJournalActivity::class.java)
+        val intent = Intent(this, PregnantJournalActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
 
@@ -350,7 +346,7 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
         lifecycleScope.launch {
             viewModel.deleteSpecificPregnantJournal(noteId)
         }
-        val intent = Intent(this, KiddoJournalActivity::class.java)
+        val intent = Intent(this, PregnantJournalActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
 

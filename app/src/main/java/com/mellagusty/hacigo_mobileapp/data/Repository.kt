@@ -6,13 +6,14 @@ import com.mellagusty.hacigo_mobileapp.data.firestore.RecipeFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJLocalDatasource
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
-import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJLocalDatasource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class Repository(
     private val kiddoJLocalDatasource: KiddoJLocalDatasource,
+    private val pregnantJLocalDatasource: PregnantJLocalDatasource,
     private val RecipeFirestoreSrc: RecipeFirestoreSrc,
     application: Application
 ) : HacigoDataSource {
@@ -23,11 +24,12 @@ class Repository(
 
         fun getInstance(
             localDataSource: KiddoJLocalDatasource,
+            pregnantJLocalDatasource: PregnantJLocalDatasource,
             RecipeFirestoreSrc: RecipeFirestoreSrc,
             application: Application
         ): Repository =
             instance ?: synchronized(this) {
-                Repository(localDataSource, RecipeFirestoreSrc, application).apply {
+                Repository(localDataSource, pregnantJLocalDatasource, RecipeFirestoreSrc, application).apply {
                     instance = this
                 }
             }
@@ -39,7 +41,7 @@ class Repository(
     }
 
     override suspend fun getAllPregnantJournal(): List<PregnantJournalEntity> {
-        return kiddoJLocalDatasource.getAllPregnantJournal()
+        return pregnantJLocalDatasource.getAllPregnantJournal()
     }
 
     override suspend fun getSpecificAllJournal(id: Int): KiddoJournalEntity {
@@ -47,7 +49,7 @@ class Repository(
     }
 
     override suspend fun getSpecificAllPregnantJournal(id: Int): PregnantJournalEntity {
-        return kiddoJLocalDatasource.getSpecificPregnantJournal(id)
+        return pregnantJLocalDatasource.getSpecificPregnantJournal(id)
     }
 
     override fun insertToJournal(journalEntity: KiddoJournalEntity) {
@@ -58,7 +60,7 @@ class Repository(
 
     override fun insertToPregnantJournal(journalEntity: PregnantJournalEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            kiddoJLocalDatasource.insertPregnantJournal(journalEntity)
+            pregnantJLocalDatasource.insertPregnantJournal(journalEntity)
         }
     }
 
@@ -76,7 +78,7 @@ class Repository(
 
     override fun deleteSpecificPregnantJournal(id: Int) {
         CoroutineScope(Dispatchers.IO).launch {
-            kiddoJLocalDatasource.deleteSpecificPregnantJournal(id)
+            pregnantJLocalDatasource.deleteSpecificPregnantJournal(id)
         }
     }
 

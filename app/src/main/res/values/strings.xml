@@ -18,6 +18,8 @@ untuk anak anda.</string>
     <string name="desc_parenthood">Dapatkan artikel dan acara terbaik parenting
 oleh para ahli.</string>
     <string name="kiddo_grow_chart">Kiddo Grow Chart</string>
+    <string name="journal_main_title">Jurnal</string>
+    <string name="journal_main_desc">Abadikan kebersamaan Anda dengan buah hati tercinta</string>
     <string name="kiddo_journal">Jurnal Kiddo</string>
     <string name="toolbar">toolbar</string>
     <string name="notes">Journal</string>
@@ -57,4 +59,10 @@ oleh para ahli.</string>
     <string name="skip_intro">Lewati</string>
     <string name="next">Selanjutnya</string>
     <string name="nama_anda">Nama Anda</string>
+    <string name="kiddo_journal_title">Kiddo Journal</string>
+    <string name="kiddo_journal_desc">Catat tumbuh kembang buah hati Anda di sini</string>
+    <string name="asi_journal_title">ASI Journal</string>
+    <string name="asi_journal_desc">Cek rutinitas ASI eksklusif bagi si kecil di sini</string>
+    <string name="pregnant_journal_title">Pregnant Journal</string>
+    <string name="pregnant_journal_desc">Abadikan momen kehamilan Anda di sini</string>
 </resources>

@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hacigo_MobileApp">
-        <activity android:name=".ui.dummy_develop.DummyDevelopActivity"></activity>
+        <activity android:name=".ui.MainJournalActivity"></activity>
+        <activity android:name=".ui.dummy_develop.DummyDevelopActivity" />
         <activity android:name=".intro.IntroSlideActivity" />
         <activity android:name=".ui.recipes.RecipesDetailActivity" />
         <activity
@@ -28,9 +29,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui._kiddojournal.CreateJournalActivity" />
-        <activity android:name=".ui._kiddojournal.CreatePregnantJournalActivity" />
+        <activity android:name=".ui._pregnantjournal.CreatePregnantJournalActivity" />
         <activity android:name=".ui._parenthood.ArticleActivity" />
         <activity android:name=".ui._kiddojournal.KiddoJournalActivity" />
+        <activity android:name=".ui._pregnantjournal.PregnantJournalActivity" />
         <activity android:name=".ui._fooddetect.Result_RecipeNut" />
         <activity
             android:name=".ui.MainActivity"

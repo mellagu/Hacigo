@@ -19,6 +19,7 @@ import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityMainBinding
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
+import com.mellagusty.hacigo_mobileapp.ui.MainJournalActivity
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
 import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
@@ -53,7 +54,7 @@ class HomeFragment : Fragment() {
         Log.d("TAG", "onViewCreated: factory")
 
         binding.cardJournal.setOnClickListener {
-            val intent = Intent(requireContext(), KiddoJournalActivity::class.java)
+            val intent = Intent(requireContext(), MainJournalActivity::class.java)
             startActivity(intent)
         }
 

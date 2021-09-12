@@ -36,29 +36,4 @@ class KiddoJLocalDatasource(private val dao: KiddoJournalDao) {
         return dao.getLastJournal()
     }
 
-    // untuk PregnantJLocalDatasource
-    suspend fun getAllPregnantJournal(): List<PregnantJournalEntity> {
-        return dao.getAllPregnantJournal()
-    }
-
-    suspend fun getSpecificPregnantJournal(id: Int): PregnantJournalEntity {
-        return dao.getSpecificPregnantJournal(id)
-    }
-
-    suspend fun insertPregnantJournal(journalEntity: PregnantJournalEntity) {
-        return dao.insertPregnantJournal(journalEntity)
-    }
-
-    suspend fun updatePregnantJournal(journalEntity: PregnantJournalEntity) {
-        return dao.updatePregnantJournal(journalEntity)
-    }
-
-    suspend fun deleteSpecificPregnantJournal(id: Int) {
-        return dao.deleteSpecificPregnantJournal(id)
-    }
-
-    suspend fun getLastPregnantJournal(): PregnantJournalEntity {
-        return dao.getLastPregnantJournal()
-    }
-
 }
