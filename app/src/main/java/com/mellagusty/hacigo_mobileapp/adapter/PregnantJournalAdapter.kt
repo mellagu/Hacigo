@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ItemRvJournalBinding
 
 class PregnantJournalAdapter(private val listener: (PregnantJournalEntity) -> Unit) :

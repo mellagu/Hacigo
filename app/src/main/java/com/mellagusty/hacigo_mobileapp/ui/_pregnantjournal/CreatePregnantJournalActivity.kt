@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityCreatePregnantJournalBinding
 import com.mellagusty.hacigo_mobileapp.ui._pregnantjournal.util.PregnantJournalBottomFragment
 import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory

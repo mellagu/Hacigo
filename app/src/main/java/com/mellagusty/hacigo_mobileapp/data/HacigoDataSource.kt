@@ -3,6 +3,7 @@ package com.mellagusty.hacigo_mobileapp.data
 import androidx.lifecycle.LiveData
 import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 
 interface HacigoDataSource {
 
@@ -15,6 +16,8 @@ interface HacigoDataSource {
     suspend fun getSpecificAllJournal(id: Int): KiddoJournalEntity
 
     suspend fun getSpecificAllPregnantJournal(id: Int): PregnantJournalEntity
+
+    suspend fun getLastPregnantJournal(): PregnantJournalEntity
 
     //Add Delete Update for Local Journal
     fun insertToJournal(journalEntity: KiddoJournalEntity)

@@ -3,6 +3,7 @@ package com.mellagusty.hacigo_mobileapp.ui._pregnantjournal
 import androidx.lifecycle.ViewModel
 import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 
 class CreatePregnantJournalViewModel(private val repository: Repository) : ViewModel() {
 

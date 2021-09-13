@@ -14,7 +14,4 @@ class KiddoJournalViewModel(private val repository: Repository) : ViewModel() {
         return repository.updateJournal(journalEntity)
     }
 
-    suspend fun getPregnantJournalAll(): List<PregnantJournalEntity> {
-        return repository.getAllPregnantJournal()
-    }
 }

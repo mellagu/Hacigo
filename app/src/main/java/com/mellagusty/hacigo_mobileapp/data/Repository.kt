@@ -7,6 +7,7 @@ import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJLocalDatasource
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJLocalDatasource
+import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -99,7 +100,9 @@ class Repository(
         return RecipeFirestoreSrc.getRecipesByBahan(bahan);
     }
 
-
+    override suspend fun getLastPregnantJournal(): PregnantJournalEntity {
+        return pregnantJLocalDatasource.getLastPregnantJournal()
+    }
 
 
 }
