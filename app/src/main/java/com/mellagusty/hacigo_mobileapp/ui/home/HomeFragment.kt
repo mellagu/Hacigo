@@ -1,6 +1,8 @@
 package com.mellagusty.hacigo_mobileapp.ui.home
 
 import android.content.Intent
+import android.content.res.AssetManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -65,6 +67,15 @@ class HomeFragment : Fragment() {
 
         binding.cvParenthood.setOnClickListener {
             findNavController().navigate(R.id.action_to_parenthood)
+        }
+
+        binding.cvKia.setOnClickListener {
+
+            val webIntent: Intent = Uri.parse("https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiPusurxP7yAhVz73MBHYUHCiQQFnoECAIQAQ&url=https%3A%2F%2Fkesga.kemkes.go.id%2Fassets%2Ffile%2Fpedoman%2FBUKU%2520KIA%2520REVISI%25202020%2520LENGKAP.pdf&usg=AOvVaw2pp9jF7BPBkyIZq9fWqfBK").let { webpage ->
+                Intent(Intent.ACTION_VIEW, webpage)
+            }
+            startActivity(webIntent)
+
         }
 
         showLoading(false)
