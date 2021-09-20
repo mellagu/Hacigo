@@ -35,9 +35,7 @@ class CreateJournalViewModel(private val repository: Repository) : ViewModel() {
         repository.deleteSpecificPregnantJournal(id)
     }
 
-    suspend fun getLastJournal(): KiddoJournalEntity {
-        return repository.getLastJournal()
-    }
+
 
 
 

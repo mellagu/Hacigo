@@ -98,9 +98,6 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
                         binding.layoutWebUrl.visibility = View.GONE
                     }
                 }
-
-
-
             }
 
 
