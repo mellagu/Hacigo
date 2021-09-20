@@ -24,6 +24,7 @@ import com.mellagusty.hacigo_mobileapp.databinding.FragmentHomeBinding
 import com.mellagusty.hacigo_mobileapp.ui.MainJournalActivity
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
+import com.mellagusty.hacigo_mobileapp.ui.knowledgebase.KnowledgebaseActivity
 import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -74,7 +75,11 @@ class HomeFragment : Fragment() {
                 Intent(Intent.ACTION_VIEW, webpage)
             }
             startActivity(webIntent)
+        }
 
+        binding.cvKnowledgebase.setOnClickListener {
+            val intent = Intent(requireContext(), KnowledgebaseActivity::class.java)
+            startActivity(intent)
         }
 
         showLoading(false)
