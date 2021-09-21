@@ -104,74 +104,6 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_title_chart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Grafik Perkembangan Anak"
-            android:textColor="@color/prime_dark"
-            android:fontFamily="@font/poppins_semibold"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            />
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/line_chart"
-            android:layout_width="350dp"
-            android:layout_height="300dp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_statustitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_chart" />
-
-        <TextView
-            android:id="@+id/tv_statustitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Status Perkembangan Anak"
-            android:textColor="@color/prime_dark"
-            android:fontFamily="@font/poppins_semibold"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/line_chart"
-            />
-
-        <TextView
-            android:id="@+id/tv_statusideal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/status_ideal"
-            android:fontFamily="@font/poppins_semibold"
-            android:textAlignment="center"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/tv_statustitle"
-            />
-
-        <TextView
-            android:id="@+id/tv_rentangideal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/rentang_ideal"
-            android:fontFamily="@font/poppins_semibold"
-            android:textAlignment="center"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_statusideal"/>
-
-        <TextView
-            android:id="@+id/tv_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Menurut Kemenkes"
-            android:fontFamily="@font/poppins_medium"
-            android:textAlignment="center"
-            android:textSize="10sp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_rentangideal"/>
-
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_pick_food"
             android:layout_width="300dp"
@@ -181,7 +113,7 @@
             app:cardElevation="9dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_data">
+            app:layout_constraintTop_toBottomOf="@id/relativeLayout">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -268,6 +200,108 @@
                     android:textSize="12sp"
                     android:fontFamily="@font/poppins_reguler"
                     android:text="@string/desc_parenthood"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_knowledgebase"
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_parenthood">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_knowledgebase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/ic_blocks" />
+
+                <TextView
+                    android:id="@+id/tv_title_knowledgebase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/title_knowledgebase"/>
+
+                <TextView
+                    android:id="@+id/iv_desc_knowledgebase"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_title_knowledgebase"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_reguler"
+                    android:text="@string/desc_knowledgebase"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_kia"
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_knowledgebase">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_kia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/ic_blocks" />
+
+                <TextView
+                    android:id="@+id/tv_title_kia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="55dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/title_kia"/>
+
+                <TextView
+                    android:id="@+id/iv_desc_kia"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_title_kia"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_reguler"
+                    android:text="@string/desc_kia"/>
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

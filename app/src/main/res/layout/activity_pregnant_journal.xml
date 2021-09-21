@@ -46,7 +46,7 @@
                 android:layout_below="@id/arrow_back"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/white"
-                android:text="@string/kiddo_journal"/>
+                android:text="@string/pregnant_journal_title"/>
 
             <TextView
                 android:id="@+id/desc_kiddo"
@@ -58,16 +58,16 @@
                 android:layout_below="@id/title_kiddo"
                 android:fontFamily="@font/poppins_light"
                 android:textColor="@color/white"
-                android:text="Abadikan Tumbuh Kembang Anak Anda\nMinimal sekali di setiap bulannya"/>
+                android:text="@string/pregnant_journal_desc"/>
 
 
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_title_chart"
+            android:id="@+id/tv_title_chart_pregnant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Grafik Pertumbuhan Anak"
+            android:text="Grafik Perkembangan Berat Badan"
             android:textColor="@color/prime_dark"
             android:fontFamily="@font/poppins_semibold"
             android:textAlignment="center"
@@ -75,28 +75,28 @@
             />
 
         <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/line_chart"
+            android:id="@+id/line_chart_pregnant"
             android:layout_width="350dp"
             android:layout_height="300dp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_statustitle"
+            app:layout_constraintBottom_toTopOf="@+id/tv_statustitle_pregnant"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_chart" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_chart_pregnant" />
 
         <TextView
-            android:id="@+id/tv_statustitle"
+            android:id="@+id/tv_statustitle_pregnant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Status Perkembangan Anak"
+            android:text="Status Gizi Ibu"
             android:textColor="@color/prime_dark"
             android:fontFamily="@font/poppins_semibold"
             android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/line_chart"
+            app:layout_constraintTop_toBottomOf="@+id/line_chart_pregnant"
             />
 
         <TextView
-            android:id="@+id/tv_statusideal"
+            android:id="@+id/tv_statusideal_pregnant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -104,11 +104,11 @@
             android:fontFamily="@font/poppins_semibold"
             android:textAlignment="center"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_statustitle"
+            app:layout_constraintTop_toBottomOf="@+id/tv_statustitle_pregnant"
             />
 
         <TextView
-            android:id="@+id/tv_rentangideal"
+            android:id="@+id/tv_rentangideal_pregnant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -116,7 +116,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:textAlignment="center"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_statusideal"
+            app:layout_constraintTop_toBottomOf="@+id/tv_statusideal_pregnant"
             />
 
         <androidx.appcompat.widget.SearchView
@@ -131,7 +131,7 @@
             app:theme="@style/ThemeOverlay.search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_rentangideal"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_rentangideal_pregnant"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

@@ -18,6 +18,8 @@ untuk anak anda.</string>
     <string name="desc_parenthood">Dapatkan artikel dan acara terbaik parenting
 oleh para ahli.</string>
     <string name="kiddo_grow_chart">Kiddo Grow Chart</string>
+    <string name="journal_main_title">Jurnal</string>
+    <string name="journal_main_desc">Abadikan kebersamaan Anda dengan buah hati tercinta</string>
     <string name="kiddo_journal">Jurnal Kiddo</string>
     <string name="toolbar">toolbar</string>
     <string name="notes">Journal</string>
@@ -26,6 +28,10 @@ oleh para ahli.</string>
     <string name="kiddo_age">Usia Anak dalam bulan</string>
     <string name="kiddo_weight_kg">Berat Anak dalam Kg</string>
     <string name="kiddo_height_cm">Tinggi Anak dalam Cm</string>
+
+    <string name="pregnant_age">Usia kehamilan dalam bulan</string>
+    <string name="pregnant_weight_kg">Berat Bunda dalam Kg</string>
+    <string name="pregnant_height_kg">Tinggi Bunda dalam Cm</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="storage_permission_text">We need permission from your device</string>
@@ -63,4 +69,14 @@ oleh para ahli.</string>
     <string name="continueFacebook">Lanjutkan dengan Facebook</string>
 
 
+    <string name="kiddo_journal_title">Kiddo Journal</string>
+    <string name="kiddo_journal_desc">Catat tumbuh kembang buah hati Anda di sini</string>
+    <string name="asi_journal_title">ASI Journal</string>
+    <string name="asi_journal_desc">Cek rutinitas ASI eksklusif bagi si kecil di sini</string>
+    <string name="pregnant_journal_title">Pregnant Journal</string>
+    <string name="pregnant_journal_desc">Abadikan momen kehamilan Anda di sini</string>
+    <string name="title_kia">Buku KIA</string>
+    <string name="desc_kia">Dapatkan pengetahuan lengkap melalui buku Kesehatan Ibu Anak</string>
+    <string name="title_knowledgebase">Knowledge Base</string>
+    <string name="desc_knowledgebase">Pahami informasi dasar seputar gizi seimbang bagi buah hati</string>
 </resources>

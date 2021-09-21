@@ -9,6 +9,7 @@ import com.mellagusty.hacigo_mobileapp.databinding.ActivityRecipesDetailBinding
 class RecipesDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRecipesDetailBinding
+    private lateinit var recipesViewModel: RecipesViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,29 +17,28 @@ class RecipesDetailActivity : AppCompatActivity() {
         binding = ActivityRecipesDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val factory = ViewModelFactory.getInstance(this)
+        recipesViewModel = ViewModelProvider(this, factory).get(RecipesViewModel::class.java)
+
         val judul = intent.getStringExtra(EXTRA_JUDUL)
-        val subjudul = intent.getStringExtra(EXTRA_SUBJUDUL)
-        val nutrisi = intent.getStringExtra(EXTRA_NUTRISI)
-        val bahan = intent.getStringArrayListExtra(EXTRA_BAHAN)
-        val cara = intent.getStringArrayListExtra(EXTRA_CARA)
-        val image = intent.getIntExtra(EXTRA_IMAGE, -1)
 
-        val bahanStr = convertToStringLines(bahan)
-        val caraStr = convertToStringLines(cara)
+        val recipeData = judul?.let { recipesViewModel.fetchARecipe(it) }
 
-        Glide.with(this)
-            .load(image)
-            .into(binding.ivRecipe)
-        binding.tvTitleRecipe.text = judul.toString()
-        binding.tvSubTitleRecipe.text = subjudul.toString()
-        binding.descNutrition.text = nutrisi.toString()
-        binding.tvBahan.text = bahanStr
-        binding.tvCaraBuat.text = caraStr
+        judul?.let {
+            recipesViewModel.fetchARecipe(it).observe(this, {
+                Glide.with(this)
+                    .load(it.imageUrl)
+                    .into(binding.ivRecipe)
 
-        Log.d("cekini", bahan.toString())
-        Log.d("cekini", cara.toString())
-        Log.d("cek", bahanStr)
-        Log.d("cek", caraStr)
+                binding.tvTitleRecipe.text = it.judul
+                binding.tvSubTitleRecipe.text = it.subJudul
+                binding.tvBahan.text = it.bahan.toString()
+                binding.tvCaraBuat.text = it.caraBuat.toString()
+
+
+
+            })
+        }
 
         binding.arrowBack.setOnClickListener{
             onBackPressed()

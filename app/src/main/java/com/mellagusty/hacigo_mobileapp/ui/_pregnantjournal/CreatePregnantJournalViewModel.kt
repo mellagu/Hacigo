@@ -1,11 +1,11 @@
-package com.mellagusty.hacigo_mobileapp.ui._kiddojournal
+package com.mellagusty.hacigo_mobileapp.ui._pregnantjournal
 
 import androidx.lifecycle.ViewModel
 import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 
-class CreateJournalViewModel(private val repository: Repository) : ViewModel() {
+class CreatePregnantJournalViewModel(private val repository: Repository) : ViewModel() {
 
     suspend fun getSpecificAllJournal(noteId: Int): KiddoJournalEntity {
         return repository.getSpecificAllJournal(noteId)
@@ -35,7 +35,9 @@ class CreateJournalViewModel(private val repository: Repository) : ViewModel() {
         repository.deleteSpecificPregnantJournal(id)
     }
 
-
+    suspend fun getLastJournal(): KiddoJournalEntity {
+        return repository.getLastJournal()
+    }
 
 
 

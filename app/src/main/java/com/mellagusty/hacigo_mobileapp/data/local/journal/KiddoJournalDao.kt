@@ -12,6 +12,9 @@ interface KiddoJournalDao {
     @Query("SELECT * FROM KiddoJournal WHERE id =:id")
     suspend fun getSpecificJournal(id:Int) : KiddoJournalEntity
 
+    //this is for edit Pregnant Journal
+
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertJournal(journalEntity: KiddoJournalEntity)
@@ -28,6 +31,10 @@ interface KiddoJournalDao {
     // this is to get the last journal
     @Query("SELECT * FROM KiddoJournal ORDER BY id DESC LIMIT 1")
     suspend fun getLastJournal(): KiddoJournalEntity
+
+
+
+
 
 
 }
