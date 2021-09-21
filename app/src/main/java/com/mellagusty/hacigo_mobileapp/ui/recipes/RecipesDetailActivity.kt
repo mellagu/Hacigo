@@ -3,13 +3,8 @@ package com.mellagusty.hacigo_mobileapp.ui.recipes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.mellagusty.hacigo_mobileapp.R
-import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityRecipesDetailBinding
-import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 
 class RecipesDetailActivity : AppCompatActivity() {
 

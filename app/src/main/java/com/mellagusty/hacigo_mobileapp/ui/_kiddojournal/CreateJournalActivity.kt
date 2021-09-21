@@ -125,7 +125,8 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
                 saveJournal()
         }
         binding.back.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this,KiddoJournalActivity::class.java)
+            startActivity(intent)
         }
 
         binding.imgMore.setOnClickListener {
@@ -200,16 +201,6 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
 
             viewModel.updateJournal(journal)
         }
-            
-//            binding.etJournalTitle.setText("")
-//            binding.etJournalSubTitle.setText("")
-//            binding.etJournalDesc.setText("")
-//            binding.etAge.setText("")
-//            binding.etHeight.setText("")
-//            binding.etWeight.setText("")
-//            binding.layoutImage.visibility = View.GONE
-//            binding.imgJournal.visibility = View.GONE
-//            binding.tvWebLink.visibility = View.GONE
         val intent = Intent(this, KiddoJournalActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)

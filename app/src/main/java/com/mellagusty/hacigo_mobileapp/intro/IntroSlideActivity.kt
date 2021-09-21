@@ -9,20 +9,28 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
+import com.google.firebase.auth.FirebaseAuth
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.adapter.IntroSliderAdapter
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityIntroSlideBinding
 import com.mellagusty.hacigo_mobileapp.ui.MainActivity
+import com.mellagusty.hacigo_mobileapp.ui.auth.LoginActivity
 
 class IntroSlideActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityIntroSlideBinding
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIntroSlideBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.introSliderViewPager2.adapter = introSliderAdapter
+
+
+        //initialize auth
+        mAuth = FirebaseAuth.getInstance()
+        val user = mAuth.currentUser
 
         //calling function
         setupIndicators()
@@ -38,14 +46,24 @@ class IntroSlideActivity : AppCompatActivity() {
             if (binding.introSliderViewPager2.currentItem + 1 < introSliderAdapter.itemCount) {
                 binding.introSliderViewPager2.currentItem += 1
             } else {
-                Intent(applicationContext, MainActivity::class.java).also {
-                    startActivity(it)
+                if (user != null) {
+                    val mainActivityIntent = Intent(this, MainActivity::class.java)
+                    startActivity(mainActivityIntent)
+                    finish()
+                } else {
+                    val loginIntent = Intent(this, LoginActivity::class.java)
+                    startActivity(loginIntent)
+                    finish()
                 }
             }
         }
         binding.tvSkipIntro.setOnClickListener {
-            Intent(applicationContext, MainActivity::class.java).also {
-                startActivity(it)
+            if (user != null) {
+                val mainActivityIntent = Intent(this, MainActivity::class.java)
+                startActivity(mainActivityIntent)
+            } else {
+                val loginIntent = Intent(this, LoginActivity::class.java)
+                startActivity(loginIntent)
             }
         }
     }
@@ -100,8 +118,8 @@ class IntroSlideActivity : AppCompatActivity() {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
-        layoutParams.setMargins(8,0,8,0)
-        for (i in indicators.indices){
+        layoutParams.setMargins(8, 0, 8, 0)
+        for (i in indicators.indices) {
             indicators[i] = ImageView(applicationContext)
             indicators[i].apply {
                 this?.setImageDrawable(

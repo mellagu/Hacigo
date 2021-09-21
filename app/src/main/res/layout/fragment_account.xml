@@ -11,7 +11,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_mom"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -52,7 +52,7 @@
         android:fontFamily="@font/poppins_light"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:text="Irene Tamba"
+        tools:text="Irene Tamba"
         android:layout_marginTop="5dp"
         android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -192,7 +192,7 @@
         android:fontFamily="@font/poppins_light"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:text="irenetamba@gmail.com"
+        tools:text="irenetamba@gmail.com"
         android:layout_marginTop="5dp"
         android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -207,6 +207,21 @@
         android:background="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_email_field" />
+
+    <Button
+        android:id="@+id/btn_signout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/grey"
+        android:textColor="@color/prime"
+        android:text="Sign Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_line5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

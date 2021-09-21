@@ -9,4 +9,5 @@
         <item name="android:textColorHint">@color/prime</item>
 
     </style>
+
 </resources>

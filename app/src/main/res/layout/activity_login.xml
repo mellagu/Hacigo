@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/prime"
+    tools:context=".ui.auth.LoginActivity">
+
+    <ImageView
+        android:id="@+id/iv_mom_feed"
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_mom_breastfeeding" />
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_reguler"
+        android:layout_marginTop="30dp"
+        android:text="Selamat datang Ibu.\nMulai perjalanan buah hati anda\nBersama Hacigo"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_mom_feed" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_auth_google"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="@color/white_broken"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_google"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/google"/>
+
+            <TextView
+                android:id="@+id/tv_login_google"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:fontFamily="@font/poppins_reguler"
+                android:text="@string/login_with_google_account"
+                android:layout_toEndOf="@+id/iv_google"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_auth_email"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/white_broken"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_auth_google">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_email"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_email"/>
+
+            <TextView
+                android:id="@+id/tv_login_email"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:fontFamily="@font/poppins_reguler"
+                android:text="Lanjutkan dengan Email"
+                android:layout_toRightOf="@+id/iv_email"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_auth_facebook"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/white_broken"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_auth_email">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_facebook"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_facebook"/>
+
+            <TextView
+                android:id="@+id/tv_login_facebook"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:fontFamily="@font/poppins_reguler"
+                android:text="@string/continueFacebook"
+                android:layout_toRightOf="@+id/iv_facebook"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btn_facebook_login"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cv_auth_facebook"
+        app:layout_constraintCircleRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_auth_email" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mellagusty.hacigo_mobileapp.R
-import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
+import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ItemRvRecipeBinding
 
 class RecipesAdapter(private val listener: (RecipesEntity) -> Unit) :

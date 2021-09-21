@@ -1,4 +1,4 @@
-package com.mellagusty.hacigo_mobileapp.data.firestore
+package com.mellagusty.hacigo_mobileapp.data.firestore.recipe
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

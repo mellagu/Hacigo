@@ -1,4 +1,4 @@
-package com.mellagusty.hacigo_mobileapp.data.firestore
+package com.mellagusty.hacigo_mobileapp.data.firestore.recipe
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -1,7 +1,7 @@
 package com.mellagusty.hacigo_mobileapp.ui.recipes
 
 import com.mellagusty.hacigo_mobileapp.R
-import com.mellagusty.hacigo_mobileapp.data.firestore.RecipesEntity
+import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipesEntity
 
 fun RecipesData(): MutableList<RecipesEntity>{
     val recipes = mutableListOf<RecipesEntity>()

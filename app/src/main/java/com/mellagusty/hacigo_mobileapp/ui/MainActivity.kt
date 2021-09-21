@@ -1,23 +1,19 @@
 package com.mellagusty.hacigo_mobileapp.ui
 
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mellagusty.hacigo_mobileapp.R
-import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityMainBinding
-import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalViewModel
-import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,8 +35,6 @@ class MainActivity : AppCompatActivity() {
 //            .into(bar)
 
 
-
-
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
@@ -56,6 +50,28 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        printKeyHash()
+
+    }
+
+    private fun printKeyHash() {
+        try {
+            val info = packageManager.getPackageInfo(
+                "com.mellagusty.hacigo_mobileapp",
+                PackageManager.GET_SIGNATURES
+            )
+            for (signature in info.signatures) {
+                val md = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                Log.e("KEYHASH", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+            }
+        } catch (e: PackageManager.NameNotFoundException) {
+
+        }
+        catch (e: NoSuchAlgorithmException) {
+
+        }
 
     }
 

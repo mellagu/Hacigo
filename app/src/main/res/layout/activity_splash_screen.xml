@@ -27,7 +27,7 @@
         android:textSize="40sp"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"
-        android:text="Gohaci"/>
+        android:text="Hacigo"/>
 
     <TextView
         android:id="@+id/desc_app"

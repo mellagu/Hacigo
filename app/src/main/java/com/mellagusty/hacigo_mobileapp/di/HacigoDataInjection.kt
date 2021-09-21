@@ -3,7 +3,6 @@ package com.mellagusty.hacigo_mobileapp.di
 import android.app.Application
 import android.content.Context
 import com.mellagusty.hacigo_mobileapp.data.Repository
-import com.mellagusty.hacigo_mobileapp.data.firestore.RecipeFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJLocalDatasource
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalDatabase
 

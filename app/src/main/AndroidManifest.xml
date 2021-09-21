@@ -15,7 +15,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hacigo_MobileApp">
-        <activity android:name=".ui.dummy_develop.DummyDevelopActivity"></activity>
+        <activity android:name=".ui.dummy_develop.VerificationPursueActivity"></activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.auth.emailLoginActivity" />
+        <activity android:name=".ui.auth.emailRegisterActivity" />
+        <activity android:name=".ui.auth.LoginActivity" />
+        <activity android:name=".ui.dummy_develop.DummyDevelopActivity" />
         <activity android:name=".intro.IntroSlideActivity" />
         <activity android:name=".ui.recipes.RecipesDetailActivity" />
         <activity
@@ -33,6 +54,7 @@
         <activity android:name=".ui._fooddetect.Result_RecipeNut" />
         <activity
             android:name=".ui.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name="com.google.tflite.imageclassification.sample.camera.CameraActivity" />

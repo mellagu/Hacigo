@@ -53,4 +53,14 @@ oleh para ahli.</string>
     <string name="skip_intro">Lewati</string>
     <string name="next">Selanjutnya</string>
     <string name="nama_anda">Nama Anda</string>
+    <string name="login_with_google_account">Lanjutkan dengan Google</string>
+    <string name="masuk_disini"><u> Masuk disini</u></string>
+    <string name="quest_account">Apakah Ibu <b>belum</b> punya akun? </string>
+    <string name="daftar_sekarang"><u> Daftar Sekarang</u></string>
+    <string name="quest_acc">Apakah Ibu <b>sudah</b> punya akun? </string>
+    <string name="facebook_app_id">566824204560749</string>
+    <string name="fb_login_protocol_scheme">fb566824204560749</string>
+    <string name="continueFacebook">Lanjutkan dengan Facebook</string>
+
+
 </resources>
