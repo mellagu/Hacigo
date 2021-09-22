@@ -1,25 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.validation.PregnantFieldFragment">
+    android:background="@color/prime"
+    tools:context=".ui.validation.KiddoIdentityFragment">
+
+    <ImageView
+        android:id="@+id/iv_baby_equipment"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/baby_equipment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_quest"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_desc_kiddo_identity"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Selamat atas kehamilannya Ibu!\n\nYuk isi data dibawah ini"
+        android:fontFamily="@font/poppins_bold"
+        android:elevation="10dp"
+        android:text="Selamat atas kehamilannya Ibu!\n Yuk isi data dibawah ini"
         android:textAlignment="center"
-        android:textColor="@color/prime"
-        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216" />
+        app:layout_constraintVertical_bias="0.337" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_pregnant_field"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="50dp"
+        android:elevation="9dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc_kiddo_identity"/>
+
+    <TextView
+        android:id="@+id/tv_bb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Berat Badan (Kg) Sebelum hamil"
+        android:textColor="@color/prime"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@id/cv_pregnant_field"
+        app:layout_constraintTop_toTopOf="@id/cv_pregnant_field" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_bb_field"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1dp"
+        android:elevation="2dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_reguler"
+        android:inputType="numberDecimal"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="12sp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintStart_toStartOf="@id/cv_pregnant_field"
+        app:layout_constraintTop_toBottomOf="@id/tv_bb" />
+
+    <TextView
+        android:id="@+id/tv_tb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Tinggi Badan (Kg) Sebelum hamil"
+        android:textColor="@color/prime"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@id/cv_pregnant_field"
+        app:layout_constraintTop_toBottomOf="@id/tv_bb_field" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_tb_field"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1dp"
+        android:elevation="2dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_reguler"
+        android:inputType="numberDecimal"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="12sp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintStart_toStartOf="@id/cv_pregnant_field"
+        app:layout_constraintTop_toBottomOf="@id/tv_tb" />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_pregnant_field_button"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
+        app:cardBackgroundColor="@color/pink_baby"
+        app:cardCornerRadius="10dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="@id/cv_pregnant_field"
+        app:layout_constraintStart_toStartOf="@id/cv_pregnant_field"
+        app:layout_constraintTop_toBottomOf="@id/cv_pregnant_field">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_reguler"
+                android:text="Lanjutkan"
+                android:textAlignment="center"
+                android:textColor="@color/prime" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

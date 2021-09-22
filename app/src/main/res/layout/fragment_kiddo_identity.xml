@@ -70,7 +70,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/poppins_reguler"
         android:hint="Ketik nama anak"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
         android:textSize="12dp"
