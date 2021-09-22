@@ -7,11 +7,21 @@
     android:background="@color/prime"
     tools:context=".ui.validation.PregOrNoFragment">
 
+    <ImageView
+        android:id="@+id/iv_baby_equipment"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/baby_equipment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_quest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium"
+        android:elevation="5dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Bagaimana kondisi Ibu sekarang?"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -21,7 +31,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintVertical_bias="0.362" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_mom_pregnant"
