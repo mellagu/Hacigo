@@ -49,7 +49,6 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
         binding = ActivityCreatePregnantJournalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         val a = intent.extras!!.getInt("note_id")
 
         val factory = ViewModelFactory.getInstance(this)

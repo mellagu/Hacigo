@@ -45,6 +45,7 @@ class KiddoJournalActivity : AppCompatActivity() {
 
         kiddoJournalAdapter = KiddoJournalAdapter {
             val intent = Intent(this, CreateJournalActivity::class.java)
+            intent.putExtra("note_id", it.id)
             startActivity(intent)
         }
 

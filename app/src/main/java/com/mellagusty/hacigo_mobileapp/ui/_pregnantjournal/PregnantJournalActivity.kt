@@ -45,6 +45,7 @@ class PregnantJournalActivity : AppCompatActivity() {
 
         pregnantJournalAdapter = PregnantJournalAdapter {
             val intent = Intent(this, CreatePregnantJournalActivity::class.java)
+            intent.putExtra("note_id", it.id)
             startActivity(intent)
         }
 
