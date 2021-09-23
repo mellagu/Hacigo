@@ -91,7 +91,7 @@ class Repository(
         return RecipeFirestoreSrc.getRecipesData()
     }
 
-    override fun getARecipe(judul: String): LiveData<RecipesEntity>{
+    override fun getARecipe(judul: String): LiveData<RecipesEntity> {
         return RecipeFirestoreSrc.getARecipe(judul)
     }
 

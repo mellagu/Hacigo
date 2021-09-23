@@ -1,14 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/prime"
     tools:context=".ui.validation.KiddoIdentityFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/iv_baby_equipment"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/baby_equipment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_desc_kiddo_identity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:elevation="10dp"
+        android:text="Yuk Ibu!\n isi identitas si buah hati\n terlebih dahulu"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_kiddo_identity"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:elevation="9dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc_kiddo_identity"/>
+    <TextView
+        android:id="@+id/tv_name_kiddo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Nama Anak"
+        android:textColor="@color/prime"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@id/cv_kiddo_identity"
+        app:layout_constraintTop_toTopOf="@id/cv_kiddo_identity" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_name_kiddo_field"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1dp"
+        android:elevation="2dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_reguler"
+        android:hint="Ketik nama anak"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textSize="12dp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintStart_toStartOf="@id/cv_kiddo_identity"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_kiddo" />
+
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Jenis Kelamin"
+        android:textColor="@color/prime"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@id/cv_kiddo_identity"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_kiddo_field" />
+
+
+    <RadioGroup
+        android:id="@+id/rg_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:elevation="5dp"
+        app:layout_constraintStart_toStartOf="@id/cv_kiddo_identity"
+        app:layout_constraintTop_toBottomOf="@id/tv_gender">
+
+        <RadioButton android:id="@+id/rb_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_reguler"
+            android:textColor="@color/prime_dark"
+            android:text="@string/perempuan"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton android:id="@+id/rb_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_reguler"
+            android:textColor="@color/prime_dark"
+            android:text="@string/laki_laki"
+            android:onClick="onRadioButtonClicked"/>
+        
+    </RadioGroup>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_kiddo_identity_button"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_margin="70dp"
+        app:cardBackgroundColor="@color/pink_baby"
+        app:cardCornerRadius="10dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="@id/cv_kiddo_identity"
+        app:layout_constraintStart_toStartOf="@id/cv_kiddo_identity"
+        app:layout_constraintTop_toBottomOf="@id/rg_gender">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_reguler"
+                android:text="Lanjutkan"
+                android:textAlignment="center"
+                android:textColor="@color/prime" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

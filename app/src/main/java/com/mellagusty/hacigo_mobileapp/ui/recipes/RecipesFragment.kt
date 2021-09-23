@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mellagusty.hacigo_mobileapp.adapter.RecipesAdapter
 import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentRecipesBinding
 import com.mellagusty.hacigo_mobileapp.ui.MainActivity
+import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 
 class RecipesFragment : Fragment() {
 
