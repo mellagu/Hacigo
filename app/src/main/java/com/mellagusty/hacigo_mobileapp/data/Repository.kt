@@ -1,10 +1,10 @@
 package com.mellagusty.hacigo_mobileapp.data
 
 import android.app.Application
-import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJLocalDatasource
-import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
-import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJLocalDatasource
-import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
+import androidx.lifecycle.LiveData
+import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipeFirestoreSrc
+import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipesEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 class Repository(
     private val kiddoJLocalDatasource: KiddoJLocalDatasource,
     private val pregnantJLocalDatasource: PregnantJLocalDatasource,
+    private val asiJLocalDataSource: AsiJLocalDataSource,
     private val RecipeFirestoreSrc: RecipeFirestoreSrc,
     application: Application
 ) : HacigoDataSource {
@@ -23,11 +24,12 @@ class Repository(
         fun getInstance(
             localDataSource: KiddoJLocalDatasource,
             pregnantJLocalDatasource: PregnantJLocalDatasource,
+            asiJLocalDataSource: AsiJLocalDataSource,
             RecipeFirestoreSrc: RecipeFirestoreSrc,
             application: Application
         ): Repository =
             instance ?: synchronized(this) {
-                Repository(localDataSource, pregnantJLocalDatasource, RecipeFirestoreSrc, application).apply {
+                Repository(localDataSource, pregnantJLocalDatasource, asiJLocalDataSource, RecipeFirestoreSrc, application).apply {
                     instance = this
                 }
             }
@@ -101,5 +103,19 @@ class Repository(
         return pregnantJLocalDatasource.getLastPregnantJournal()
     }
 
+    // Journal Asi
+    override  suspend fun getAllAsiJournal(): List<AsiJournalEntity> {
+        return asiJLocalDataSource.getAllAsiJournal()
+    }
+
+    override suspend fun getJournalByBulan(bulan: String): String {
+        return asiJLocalDataSource.getJournalByBulan(bulan)
+    }
+
+    override fun insertAsiJournal(asiJournalEntity: AsiJournalEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            asiJLocalDataSource.insertAsiJournal(asiJournalEntity)
+        }
+    }
 
 }
