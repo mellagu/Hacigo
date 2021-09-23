@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.mellagusty.hacigo_mobileapp.data.Repository
 import com.mellagusty.hacigo_mobileapp.di.HacigoDataInjection
+import com.mellagusty.hacigo_mobileapp.ui._asijournal.AsiJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui._pregnantjournal.CreatePregnantJournalViewModel
@@ -39,6 +40,9 @@ class ViewModelFactory private constructor(private val repository: Repository): 
         }
         if (modelClass.isAssignableFrom(PregnantJournalViewModel::class.java)){
             return PregnantJournalViewModel(repository) as T
+        }
+        if (modelClass.isAssignableFrom(AsiJournalViewModel::class.java)){
+            return AsiJournalViewModel(repository) as T
         }
         if (modelClass.isAssignableFrom(RecipesViewModel::class.java)){
             return RecipesViewModel(repository) as T

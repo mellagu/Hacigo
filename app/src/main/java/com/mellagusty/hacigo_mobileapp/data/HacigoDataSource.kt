@@ -2,6 +2,7 @@ package com.mellagusty.hacigo_mobileapp.data
 
 import androidx.lifecycle.LiveData
 import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipesEntity
+import com.mellagusty.hacigo_mobileapp.data.local.journal.AsiJournalEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJournalEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 
@@ -38,5 +39,11 @@ interface HacigoDataSource {
 
     fun getRecipesByBahan(bahan : String): LiveData<MutableList<RecipesEntity>>
 
+    // Asi Journal
 
+    suspend fun getAllAsiJournal(): List<AsiJournalEntity>
+
+    suspend fun getJournalByBulan(bulan: String): String
+
+    fun insertAsiJournal(asiJournalEntity: AsiJournalEntity)
 }
