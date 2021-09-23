@@ -9,9 +9,6 @@
     tools:context=".ui.MainJournalActivity">
 
     <ScrollView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui._kiddojournal.KiddoJournalActivity">
@@ -19,7 +16,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:id="@+id/relativeBackground"
@@ -88,11 +85,12 @@
 
                     <ImageView
                         android:id="@+id/iv_kiddo_journal"
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
                         android:layout_marginStart="35dp"
-                        android:layout_marginTop="45dp"
-                        android:src="@drawable/ic_detect_food" />
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/ic_kiddo_journal" />
 
                     <TextView
                         android:id="@+id/tv_kiddo_journal_title"
@@ -137,11 +135,11 @@
 
                     <ImageView
                         android:id="@+id/iv_asi_journal"
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="35dp"
-                        android:layout_marginTop="45dp"
-                        android:src="@drawable/ic_detect_food" />
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/ic_asi_journal" />
 
                     <TextView
                         android:id="@+id/tv_asi_journal_title"
@@ -151,7 +149,7 @@
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="40dp"
+                        android:layout_marginEnd="60dp"
                         android:layout_marginTop="15dp"
                         android:text="@string/asi_journal_title"/>
 
@@ -186,11 +184,11 @@
 
                     <ImageView
                         android:id="@+id/iv_detect_food"
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
                         android:layout_marginStart="35dp"
-                        android:layout_marginTop="45dp"
-                        android:src="@drawable/ic_detect_food" />
+                        android:src="@drawable/desainibu1" />
 
                     <TextView
                         android:id="@+id/tv_pregnant_journal_title"
@@ -200,7 +198,7 @@
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="40dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_marginTop="15dp"
                         android:text="@string/pregnant_journal_title"/>
 
@@ -210,7 +208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_pregnant_journal_title"
                         android:layout_marginTop="5dp"
-                        android:layout_marginEnd="23dp"
+                        android:layout_marginEnd="28dp"
                         android:layout_alignParentEnd="true"
                         android:textSize="12sp"
                         android:fontFamily="@font/poppins_reguler"
