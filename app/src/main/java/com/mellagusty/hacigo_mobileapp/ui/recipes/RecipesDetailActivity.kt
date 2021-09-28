@@ -34,10 +34,9 @@ class RecipesDetailActivity : AppCompatActivity() {
 
                 binding.tvTitleRecipe.text = it.judul
                 binding.tvSubTitleRecipe.text = it.subJudul
-                binding.tvBahan.text = it.bahan.toString()
-                binding.tvCaraBuat.text = it.caraBuat.toString()
-
-
+                binding.descNutrition.text = it.faktaNutrisi
+                binding.tvBahan.text = convertToStringLines(it.bahan)
+                binding.tvCaraBuat.text = convertToStringLines(it.caraBuat)
 
             })
         }

@@ -8,6 +8,7 @@ import kotlinx.parcelize.Parcelize
 data class RecipesEntity(
     var judul: String? = null,
     var subJudul: String? = null,
+    var faktaNutrisi: String? = null,
     var bahan: ArrayList<String>?  = null,
     var caraBuat : ArrayList<String>?  = null,
     var imageUrl : String? = null
