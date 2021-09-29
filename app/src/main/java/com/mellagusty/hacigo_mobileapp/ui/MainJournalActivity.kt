@@ -18,7 +18,8 @@ class MainJournalActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.arrowBack.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         binding.cvJournalKiddo.setOnClickListener{
