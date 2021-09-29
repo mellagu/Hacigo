@@ -71,6 +71,7 @@ class PregnantJournalActivity : AppCompatActivity() {
 
 
         searchBar()
+        getPregnantInfo()
         getAllJournal()
 
         viewModel.lineDataSet.observe(this) { lineDataSet ->
