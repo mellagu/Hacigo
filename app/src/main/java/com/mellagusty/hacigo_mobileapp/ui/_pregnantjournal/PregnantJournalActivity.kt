@@ -15,6 +15,7 @@ import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.adapter.PregnantJournalAdapter
 import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityPregnantJournalBinding
+import com.mellagusty.hacigo_mobileapp.ui.MainActivity
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalViewModel
 import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.CoroutineScope
@@ -51,7 +52,8 @@ class PregnantJournalActivity : AppCompatActivity() {
 
         //back press
         binding.arrowBack.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         binding.fabBtnCreateJournal.setOnClickListener {

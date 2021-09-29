@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityEmailRegisterBinding
 import com.mellagusty.hacigo_mobileapp.ui.MainActivity
+import com.mellagusty.hacigo_mobileapp.ui.validation_dummy.PregOrNoValidActivity
 import java.util.*
 
 class emailRegisterActivity : AppCompatActivity() {
@@ -91,7 +92,7 @@ class emailRegisterActivity : AppCompatActivity() {
                                 user["password"] = binding.tvPasswordField.text.toString()
                                 documentReference.set(user).addOnSuccessListener {
                                     Log.d(TAG, "Success on creating $userID")
-                                    val intent = Intent(this, MainActivity::class.java)
+                                    val intent = Intent(this, PregOrNoValidActivity::class.java)
                                     startActivity(intent)
                                     finish()
                                 }.addOnFailureListener {
