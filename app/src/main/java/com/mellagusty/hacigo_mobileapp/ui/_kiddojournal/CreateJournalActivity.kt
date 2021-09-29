@@ -49,8 +49,7 @@ class CreateJournalActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         binding = ActivityCreateJournalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val a = intent.extras!!.getInt("note_id2")
+        val a = intent.extras!!.getInt("note_id")
 
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory).get(CreateJournalViewModel::class.java)
