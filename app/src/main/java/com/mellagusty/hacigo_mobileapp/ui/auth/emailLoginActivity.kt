@@ -14,6 +14,7 @@ import com.google.tflite.imageclassification.sample.camera.showToast
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityEmailLoginBinding
 import com.mellagusty.hacigo_mobileapp.ui.MainActivity
 import com.mellagusty.hacigo_mobileapp.ui.dummy_develop.VerificationPursueActivity
+import com.mellagusty.hacigo_mobileapp.ui.validation.ValidationActivity
 
 class emailLoginActivity : AppCompatActivity() {
 

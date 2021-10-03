@@ -15,14 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hacigo_MobileApp">
-        <activity android:name=".ui.validation_dummy.PregOrNoValidActivity"></activity>
+        <activity android:name=".ui.validation.ValidationActivity"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".ui.validation_dummy.PregOrNoValidActivity" />
         <activity android:name=".ui.validation_dummy.PregnantFieldActivity" />
         <activity android:name=".ui.validation_dummy.KiddoValidActivity" />
         <activity android:name=".ui.validation_dummy.KiddoFieldActivity" />
         <activity android:name=".ui._asijournal.AsiJournalActivity" />
         <activity android:name=".ui.knowledgebase.KnowledgebaseDetailActivity" />
         <activity android:name=".ui.knowledgebase.KnowledgebaseActivity" />
-        <activity android:name=".ui.MainJournalActivity" />
+        <activity android:name=".ui.MainJournalActivity"/>
         <activity android:name=".ui.dummy_develop.VerificationPursueActivity" />
 
         <meta-data

@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 class PregnantJournalViewModel(private val repository: Repository) : ViewModel() {
 
     companion object {
-        private const val CHART_LABEL = "Berat Badan Terhadap Usia"
+        private const val CHART_LABEL = "Berat Badan Terhadap Usia Kehamilan"
 
     }
 

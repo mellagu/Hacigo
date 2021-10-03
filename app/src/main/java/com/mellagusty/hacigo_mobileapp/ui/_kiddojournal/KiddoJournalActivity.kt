@@ -123,7 +123,7 @@ class KiddoJournalActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory).get(KiddoJournalViewModel::class.java)
 
 
-//      yang akan ditampilkan : bb terakhir, tb terakhir, keterangan sudah ideal atau belum, rekomendasi berat ideal
+//      yang akan ditampilkan : bb terakhir, tb terakhir, keterangan sudah ideal atau belum, rekomendasi tb ideal
 
         CoroutineScope(Dispatchers.IO).launch {
             val kiddoInfo = viewModel.getLastJournal()

@@ -10,8 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityEmailRegisterBinding
-import com.mellagusty.hacigo_mobileapp.ui.MainActivity
-import com.mellagusty.hacigo_mobileapp.ui.validation_dummy.PregOrNoValidActivity
+import com.mellagusty.hacigo_mobileapp.ui.validation.ValidationActivity
 import java.util.*
 
 class emailRegisterActivity : AppCompatActivity() {
@@ -19,7 +18,7 @@ class emailRegisterActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: ActivityEmailRegisterBinding
     private lateinit var mFirestore: FirebaseFirestore
-    
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,13 +85,13 @@ class emailRegisterActivity : AppCompatActivity() {
                                 val userID = mAuth.currentUser?.uid
                                 val documentReference =
                                     mFirestore.collection("users").document(userID!!)
-                                val user: MutableMap<String,Any> = HashMap()
+                                val user: MutableMap<String, Any> = HashMap()
                                 user["name"] = binding.tvNameField.text.toString()
                                 user["email"] = binding.tvEmailField.text.toString()
                                 user["password"] = binding.tvPasswordField.text.toString()
                                 documentReference.set(user).addOnSuccessListener {
                                     Log.d(TAG, "Success on creating $userID")
-                                    val intent = Intent(this, PregOrNoValidActivity::class.java)
+                                    val intent = Intent(this, ValidationActivity::class.java)
                                     startActivity(intent)
                                     finish()
                                 }.addOnFailureListener {

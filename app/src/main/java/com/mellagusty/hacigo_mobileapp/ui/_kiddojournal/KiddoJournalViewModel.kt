@@ -15,7 +15,7 @@ class KiddoJournalViewModel(private val repository: Repository) : ViewModel() {
 
 
     companion object {
-        private const val CHART_LABEL = "Berat Badan Terhadap Usia"
+        private const val CHART_LABEL = "Tinggi Badan Terhadap Usia"
 
     }
 

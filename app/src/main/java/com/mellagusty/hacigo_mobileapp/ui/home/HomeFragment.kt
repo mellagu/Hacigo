@@ -33,7 +33,6 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var journalViewModel: CreateJournalViewModel
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(

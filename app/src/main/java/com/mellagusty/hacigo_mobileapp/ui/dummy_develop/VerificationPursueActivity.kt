@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityDummyDevelopBinding
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityVerificationPursueBinding
 import com.mellagusty.hacigo_mobileapp.ui.MainActivity
+import com.mellagusty.hacigo_mobileapp.ui.auth.LoginActivity
 import com.mellagusty.hacigo_mobileapp.ui.auth.emailLoginActivity
 
 class VerificationPursueActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class VerificationPursueActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this, emailLoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
