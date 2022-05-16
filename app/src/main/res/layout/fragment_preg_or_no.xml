@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/prime"
-    tools:context=".ui.validation.PregOrNoFragment"
+    tools:context=".ui.validation.PregOrNoValidFragment"
     android:id="@+id/frag_preg_or_no">
 
     <ImageView

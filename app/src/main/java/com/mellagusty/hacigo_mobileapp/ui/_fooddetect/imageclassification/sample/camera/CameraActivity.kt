@@ -19,6 +19,7 @@ package com.google.tflite.imageclassification.sample.camera
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmail
 import com.mellagusty.hacigo_mobileapp.ui._fooddetect.imageclassification.sample.camera.Communicator
 import com.mellagusty.hacigo_mobileapp.ui.recipes.RecipesFragment
 
@@ -43,6 +44,7 @@ class CameraActivity : AppCompatActivity(),Communicator {
         transaction.replace(R.id.container, frag)
         transaction.commit()
     }
+
 
 }
 

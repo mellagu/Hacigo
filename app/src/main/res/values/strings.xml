@@ -81,4 +81,10 @@ oleh para ahli.</string>
     <string name="laki_laki">Laki-laki</string>
     <string name="b_diatas_b_6_bulan"><b>Diatas</b> 6 bulan</string>
     <string name="dibawah_6_bulan"><b>Dibawah</b> 6 bulan</string>
+    <string name="edit_profile">Melengkapi Profil</string>
+    <string name="nama_depan">Nama Depan</string>
+    <string name="gender_man">Laki-Laki</string>
+    <string name="gender_woman">Perempuan</string>
+    <string name="ya">Ya</string>
+    <string name="tidak">Tidak</string>
 </resources>

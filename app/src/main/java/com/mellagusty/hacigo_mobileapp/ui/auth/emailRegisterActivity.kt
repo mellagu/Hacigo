@@ -1,17 +1,23 @@
 package com.mellagusty.hacigo_mobileapp.ui.auth
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
-import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmail
+import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmailFirestore
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityEmailRegisterBinding
-import com.mellagusty.hacigo_mobileapp.ui.validation.ValidationActivity
-import java.util.*
+import com.mellagusty.hacigo_mobileapp.ui.MainActivity
+import com.mellagusty.hacigo_mobileapp.ui.validation.MommyValidActivity
+import com.mellagusty.hacigo_mobileapp.ui.validation.MommyValidFragment
+import com.mellagusty.hacigo_mobileapp.utils.Constant
 
 class emailRegisterActivity : AppCompatActivity() {
 
@@ -43,79 +49,116 @@ class emailRegisterActivity : AppCompatActivity() {
     }
 
     private fun registerClick() {
-        if (binding.tvNameField.text.toString().isEmpty()) {
-            binding.tvNameField.error = "Tolong masukkan nama"
-            binding.tvNameField.requestFocus()
-            return
-        }
-
-        if (binding.tvEmailField.text.toString().isEmpty()) {
-            binding.tvEmailField.error = "Tolong masukkan email"
-            binding.tvEmailField.requestFocus()
-            return
-        }
-        if (!Patterns.EMAIL_ADDRESS.matcher(binding.tvEmailField.text.toString()).matches()) {
-            binding.tvEmailField.error = "Email anda tidak valid"
-            binding.tvEmailField.requestFocus()
-            return
-        }
-        if (binding.tvPasswordField.text.toString().isEmpty()) {
-            binding.tvPasswordField.error = "Tolong masukkan password"
-            binding.tvPasswordField.requestFocus()
-            return
-
-        }
-
-        if (binding.tvPasswordField.text.toString().length < 6) {
-            binding.tvPasswordField.error = "Password minimal 6 karakter"
-            binding.tvPasswordField.requestFocus()
-            return
-        }
-
-        mAuth.createUserWithEmailAndPassword(
-            binding.tvEmailField.text.toString(),
-            binding.tvPasswordField.text.toString()
-        )
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val user = mAuth.currentUser
-                    user!!.sendEmailVerification()
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                val userID = mAuth.currentUser?.uid
-                                val documentReference =
-                                    mFirestore.collection("users").document(userID!!)
-                                val user: MutableMap<String, Any> = HashMap()
-                                user["name"] = binding.tvNameField.text.toString()
-                                user["email"] = binding.tvEmailField.text.toString()
-                                user["password"] = binding.tvPasswordField.text.toString()
-                                documentReference.set(user).addOnSuccessListener {
-                                    Log.d(TAG, "Success on creating $userID")
-                                    val intent = Intent(this, ValidationActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                }.addOnFailureListener {
-                                    Log.d(TAG, "failure on creating", task.exception)
-                                    Toast.makeText(
-                                        baseContext, "Pendaftaran gagal.\n Coba beberapa saat lagi",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-
-
-                            }
-                        }
-
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        baseContext, "Pendaftaran gagal.\n Coba beberapa saat lagi",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+        when {
+            TextUtils.isEmpty(binding.tvFirstNameField.text.toString().trim { it <= ' ' }) -> {
+                Toast.makeText(
+                    this,
+                    "Tolong masukkan nama depan anda",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            TextUtils.isEmpty(binding.tvLastNameField.text.toString().trim { it <= ' ' }) -> {
+                Toast.makeText(
+                    this,
+                    "Tolong masukkan nama belakang anda",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
+            TextUtils.isEmpty(binding.tvEmailField.text.toString().trim { it <= ' ' }) -> {
+                Toast.makeText(
+                    this,
+                    "Tolong masukkan email anda",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            TextUtils.isEmpty(binding.tvPasswordField.text.toString().trim { it <= ' ' }) -> {
+                Toast.makeText(
+                    this,
+                    "Tolong masukkan password anda",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else -> {
+                val firstName: String = binding.tvFirstNameField.text.toString().trim { it <= ' ' }
+                val lastName: String = binding.tvLastNameField.text.toString().trim { it <= ' ' }
+                val email: String = binding.tvEmailField.text.toString().trim { it <= ' ' }
+                val password: String = binding.tvPasswordField.text.toString().trim { it <= ' ' }
+
+                mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            val firebaseUser: FirebaseUser = task.result!!.user!!
+                            val user = UserEmail(
+                                firebaseUser.uid,
+                                firstName,
+                                lastName,
+                                email
+                            )
+//                            UserEmailFirestore().registerUser(this, user)
+                            saveDataUserToFirestore(user)
+                        } else {
+                            Toast.makeText(
+                                this,
+                                task.exception!!.message.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+        }
+
+    }
+
+    private fun saveDataUserToFirestore(user: UserEmail) {
+        FirebaseFirestore.getInstance().collection(Constant.USERS)
+            .document(user.id)
+            .set(user, SetOptions.merge())
+            .addOnSuccessListener {
+                Log.d("tes","success register")
+                userRegistrationSuccess(user)
+            }
+    }
+
+    fun userRegistrationSuccess(user: UserEmail) {
+        Toast.makeText(this, "You are register Successfully", Toast.LENGTH_SHORT).show()
+//        intent.putExtra(Constant.EXTRA_USER_DETAIL,user)
+//        startActivity(Intent(this,EditProfileActivity::class.java))
+        if (user.profileComplete == 0) {
+//            val intent = Intent(this, MommyValidActivity::class.java)
+//            intent.putExtra(Constant.EXTRA_USER_DETAIL,user)
+//            startActivity(intent)
+
+
+            val mommyValidFragment = MommyValidFragment()
+            val mBundle = Bundle()
+            mBundle.putString(Constant.EXTRA_USER_DETAIL, user.firstName)
+            mommyValidFragment.arguments = mBundle
+            supportFragmentManager.findFragmentById(R.id.container_register)
+            setFragment(mommyValidFragment)
+
+
+//            val mBundle = Bundle()
+//            mBundle.putString(Constant.EXTRA_USER_DETAIL, user.toString())
+//            val mFragmentTransaction = this.supportFragmentManager.beginTransaction()
+//            val mFragment = MommyValidFragment()
+//            mFragment.arguments = mBundle
+//
+//            mFragmentTransaction.replace(R.id.fragment_mommy_valid, mFragment)
+//            mFragmentTransaction.commit()
+//        } else {
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//
+        }
+//        finish()
+    }
+
+    private fun setFragment(writeDescFragment: MommyValidFragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(android.R.id.content, writeDescFragment)
+        fragmentTransaction.commit()
     }
 
 

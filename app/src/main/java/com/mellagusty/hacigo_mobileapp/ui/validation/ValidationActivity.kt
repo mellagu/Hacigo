@@ -26,7 +26,7 @@ class ValidationActivity : AppCompatActivity() {
 
     private fun showPregOrNoFrag() {
         val transaction = manager.beginTransaction()
-        val fragment = PregOrNoFragment()
+        val fragment = PregOrNoValidFragment()
         transaction.replace(R.id.validation_container,fragment)
 //        transaction.addToBackStack(null)
         transaction.commit()

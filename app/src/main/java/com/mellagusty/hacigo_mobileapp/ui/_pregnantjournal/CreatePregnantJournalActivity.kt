@@ -125,7 +125,7 @@ class CreatePregnantJournalActivity : AppCompatActivity(), EasyPermissions.Permi
         }
 
         binding.imgMore.setOnClickListener {
-            var journalBottomFragment = PregnantJournalBottomFragment.newInstance(noteId)
+            val journalBottomFragment = PregnantJournalBottomFragment.newInstance(noteId)
             journalBottomFragment.show(this.supportFragmentManager, "Journal Bottom Sheet")
         }
 

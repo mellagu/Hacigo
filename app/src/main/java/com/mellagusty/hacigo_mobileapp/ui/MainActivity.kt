@@ -27,13 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.MyToolbar)
         supportActionBar?.hide()
-//        val bar = binding.ToolbarImage
-//        //Glide Toolbar's photo
-//        val photo = R.drawable.hacigo_launcher
-//        Glide.with(this)
-//            .load(photo)
-//            .into(bar)
-
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
@@ -51,29 +44,29 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        printKeyHash()
+
 
     }
 
-    private fun printKeyHash() {
-        try {
-            val info = packageManager.getPackageInfo(
-                "com.mellagusty.hacigo_mobileapp",
-                PackageManager.GET_SIGNATURES
-            )
-            for (signature in info.signatures) {
-                val md = MessageDigest.getInstance("SHA")
-                md.update(signature.toByteArray())
-                Log.e("KEYHASH", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-            }
-        } catch (e: PackageManager.NameNotFoundException) {
-
-        }
-        catch (e: NoSuchAlgorithmException) {
-
-        }
-
-    }
+//    private fun printKeyHash() {
+//        try {
+//            val info = packageManager.getPackageInfo(
+//                "com.mellagusty.hacigo_mobileapp",
+//                PackageManager.GET_SIGNATURES
+//            )
+//            for (signature in info.signatures) {
+//                val md = MessageDigest.getInstance("SHA")
+//                md.update(signature.toByteArray())
+//                Log.e("KEYHASH", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+//            }
+//        } catch (e: PackageManager.NameNotFoundException) {
+//
+//        }
+//        catch (e: NoSuchAlgorithmException) {
+//
+//        }
+//
+//    }
 
 
 }

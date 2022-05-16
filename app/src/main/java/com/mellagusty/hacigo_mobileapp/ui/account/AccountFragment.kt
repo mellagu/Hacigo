@@ -69,7 +69,7 @@ class AccountFragment : Fragment() {
 
 
         binding.btnEditProfile.setOnClickListener {
-            val intent = Intent(requireContext(),DummyDevelopActivity::class.java)
+            val intent = Intent(requireContext(),EditProfileActivity::class.java)
             startActivity(intent)
         }
     }

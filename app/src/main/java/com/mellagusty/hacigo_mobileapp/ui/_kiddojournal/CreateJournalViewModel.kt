@@ -11,17 +11,17 @@ class CreateJournalViewModel(private val repository: Repository) : ViewModel() {
         return repository.getSpecificAllJournal(noteId)
     }
 
-    suspend fun getSpecificAllPregnantJournal(noteId: Int): PregnantJournalEntity {
-        return repository.getSpecificAllPregnantJournal(noteId)
-    }
+//    suspend fun getSpecificAllPregnantJournal(noteId: Int): PregnantJournalEntity {
+//        return repository.getSpecificAllPregnantJournal(noteId)
+//    }
 
     fun insertToJournal(journalEntity: KiddoJournalEntity) {
         repository.insertToJournal(journalEntity)
     }
-
-    fun insertToPregnantJournal(journalEntity: PregnantJournalEntity) {
-        repository.insertToPregnantJournal(journalEntity)
-    }
+//
+//    fun insertToPregnantJournal(journalEntity: PregnantJournalEntity) {
+//        repository.insertToPregnantJournal(journalEntity)
+//    }
 
     fun updateJournal(journalEntity: KiddoJournalEntity) {
         repository.updateJournal(journalEntity)
@@ -31,9 +31,9 @@ class CreateJournalViewModel(private val repository: Repository) : ViewModel() {
         repository.deleteSpecificJournal(id)
     }
 
-    fun deleteSpecificPregnantJournal(id: Int) {
-        repository.deleteSpecificPregnantJournal(id)
-    }
+//    fun deleteSpecificPregnantJournal(id: Int) {
+//        repository.deleteSpecificPregnantJournal(id)
+//    }
 
 
 
