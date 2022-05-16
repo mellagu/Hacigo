@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmail
 import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmailFirestore
@@ -32,7 +33,7 @@ class MommyValidFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentMommyValidBinding.inflate(inflater,container,false)
+        _binding = FragmentMommyValidBinding.inflate(inflater, container, false)
         return _binding.root
 
     }
@@ -44,7 +45,8 @@ class MommyValidFragment : Fragment() {
         saveData()
 
         //view mommy's name
-        val sharedPreferences = activity?.getSharedPreferences(Constant.HACIGO_PREFERENCES,Context.MODE_PRIVATE)
+        val sharedPreferences =
+            activity?.getSharedPreferences(Constant.HACIGO_PREFERENCES, Context.MODE_PRIVATE)
 //        val firstName = sharedPreferences?.getString(Constant.LOGGED_IN_USERNAME, " ")!!
         binding.tvMomName.text = "$firstName"
 
@@ -53,29 +55,47 @@ class MommyValidFragment : Fragment() {
 
     private fun saveData() {
         binding.cvMomValidSubmit.setOnClickListener {
-            val userHashMap = HashMap<String, Any>()
-            Log.d("tag","check data $userHashMap")
+//            Log.d("tag","check data $userHashMap")
             //NON DEFAULT DATA THAT WILL BE SAVE IN FIRESTORE
-            val ageMom = binding.tvAgeMomField.text.toString().trim{ it<= ' '}
+            val ageMom = binding.tvAgeMomField.text.toString().trim { it <= ' ' }
 //            if (ageMom.isEmpty()){
 //                userHashMap[Constant.AGE] = ageMom.toInt()
 //            }
-            val location = binding.tvLocationField.text.toString().trim{ it<= ' '}
+            val location = binding.tvLocationField.text.toString().trim { it <= ' ' }
 //            if (location.isEmpty()){
 //                userHashMap[Constant.LOCATION] = location
 //            }
-            Log.d("tag","check data age and location $ageMom $location")
-            val uid = FirebaseAuth.getInstance().uid
-            FirebaseFirestore.getInstance().collection(Constant.USERS)
-                .document(uid!!)
-                .update(userHashMap)
-                .addOnSuccessListener {
-                    Log.d("TAG", "DocumentSnapshot successfully written!")
-                }
-                .addOnFailureListener { e ->
-                    Log.d("TAG", "Error writing document ${e.localizedMessage}" )
-            }
 
+            val userHashMap = hashMapOf(
+                Constant.AGE to binding.tvAgeMomField.text.toString().trim(),
+                Constant.LOCATION to binding.tvLocationField.text.toString().trim()
+            )
+
+            Log.d("tag", "check data age and location $ageMom $location")
+            val uid = FirebaseAuth.getInstance().uid
+
+            val referenceUpdate = FirebaseFirestore.getInstance().collection(Constant.USERS)
+                .document(uid!!)
+            referenceUpdate.set(userHashMap, SetOptions.mergeFields("age","location"))
+                .addOnSuccessListener { Log.d("TAG", "DocumentSnapshot successfully updated!") }
+                .addOnFailureListener { e ->
+                    Log.w(
+                        "TAG",
+                        "DocumentSnapshot Error updating document",
+                        e
+                    )
+                }
+
+
+//            FirebaseFirestore.getInstance().collection(Constant.USERS)
+//                .document(uid!!)
+//                .update(userHashMap, SetOptions.merge())
+//                .addOnSuccessListener {
+//                    Log.d("TAG", "DocumentSnapshot successfully written!")
+//                }
+//                .addOnFailureListener { e ->
+//                    Log.d("TAG", "Error writing document ${e.localizedMessage}" )
+//            }
 
 
 //            UserEmailFirestore().updateUserProfileData(requireActivity(), userHashMap)
