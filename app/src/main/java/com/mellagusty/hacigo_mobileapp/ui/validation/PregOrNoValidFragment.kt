@@ -35,9 +35,12 @@ class PregOrNoValidFragment : Fragment() {
         }
 
         binding.cvMomKiddo.setOnClickListener {
-            manager?.replace(R.id.validation_container, KiddoIdentityFragment())
-            manager?.addToBackStack(null)
-            manager?.commit()
+            val supportFragment = activity?.supportFragmentManager
+            supportFragment?.findFragmentById(R.id.container_register)
+            val fragmentTransaction = supportFragment?.beginTransaction()
+            fragmentTransaction?.replace(android.R.id.content, KiddoIdentityFragment())
+            fragmentTransaction?.commit()
+
         }
 
         super.onViewCreated(view, savedInstanceState)

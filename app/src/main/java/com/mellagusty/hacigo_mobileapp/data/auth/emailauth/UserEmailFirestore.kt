@@ -8,10 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.mellagusty.hacigo_mobileapp.ui.account.EditProfileActivity
-import com.mellagusty.hacigo_mobileapp.ui.auth.emailLoginActivity
 import com.mellagusty.hacigo_mobileapp.ui.auth.emailRegisterActivity
-import com.mellagusty.hacigo_mobileapp.ui.validation.MommyValidActivity
-import com.mellagusty.hacigo_mobileapp.ui.validation.MommyValidFragment
 import com.mellagusty.hacigo_mobileapp.utils.Constant
 
 class UserEmailFirestore {
@@ -56,9 +53,11 @@ class UserEmailFirestore {
 
                 val user = document.toObject(UserEmail::class.java)!!
 
-                val sharedPreferences = activity.getSharedPreferences(Constant.HACIGO_PREFERENCES,
-                    Context.MODE_PRIVATE)
-                val editor : SharedPreferences.Editor = sharedPreferences.edit()
+                val sharedPreferences = activity.getSharedPreferences(
+                    Constant.HACIGO_PREFERENCES,
+                    Context.MODE_PRIVATE
+                )
+                val editor: SharedPreferences.Editor = sharedPreferences.edit()
                 editor.putString(
                     Constant.LOGGED_IN_USERNAME,
                     user.firstName
@@ -94,9 +93,7 @@ class UserEmailFirestore {
                     is EditProfileActivity -> {
                         activity.userProfileUpdateSuccess()
                     }
-                    is MommyValidActivity -> {
-                        activity.userProfileUpdateSuccess()
-                    }
+
                 }
             }
             .addOnFailureListener { e ->

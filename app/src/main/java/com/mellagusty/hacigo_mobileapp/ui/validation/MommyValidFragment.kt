@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmail
 import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmailFirestore
@@ -24,7 +25,6 @@ class MommyValidFragment : Fragment() {
     private val binding get() = _binding
     var isMommyValidFragment = true
     lateinit var userDetail: UserEmail
-    private val manager = activity?.supportFragmentManager?.beginTransaction()
 
 
     override fun onCreateView(
@@ -32,7 +32,7 @@ class MommyValidFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentMommyValidBinding.inflate(inflater,container,false)
+        _binding = FragmentMommyValidBinding.inflate(inflater, container, false)
         return _binding.root
 
     }
@@ -40,56 +40,69 @@ class MommyValidFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val bundle = this.arguments
         val firstName = bundle?.getString(Constant.EXTRA_USER_DETAIL, " ")
+        binding.tvMomName.text = "$firstName"
+
         userDetail = UserEmail()
         saveData()
-
-        //view mommy's name
-        val sharedPreferences = activity?.getSharedPreferences(Constant.HACIGO_PREFERENCES,Context.MODE_PRIVATE)
-//        val firstName = sharedPreferences?.getString(Constant.LOGGED_IN_USERNAME, " ")!!
-        binding.tvMomName.text = "$firstName"
 
         super.onViewCreated(view, savedInstanceState)
     }
 
     private fun saveData() {
         binding.cvMomValidSubmit.setOnClickListener {
-            val userHashMap = HashMap<String, Any>()
-            Log.d("tag","check data $userHashMap")
+
             //NON DEFAULT DATA THAT WILL BE SAVE IN FIRESTORE
-            val ageMom = binding.tvAgeMomField.text.toString().trim{ it<= ' '}
-//            if (ageMom.isEmpty()){
-//                userHashMap[Constant.AGE] = ageMom.toInt()
-//            }
-            val location = binding.tvLocationField.text.toString().trim{ it<= ' '}
-//            if (location.isEmpty()){
-//                userHashMap[Constant.LOCATION] = location
-//            }
-            Log.d("tag","check data age and location $ageMom $location")
+            val ageMom = binding.tvAgeMomField.text.toString().trim { it <= ' ' }
+            val location = binding.tvLocationField.text.toString().trim { it <= ' ' }
+
+            val userHashMap = HashMap<String, Any>()
+            userHashMap[Constant.AGE] = ageMom.toInt()
+            userHashMap[Constant.LOCATION] = location
+
+//            val userHashMap = hashMapOf(
+//                Constant.AGE to binding.tvAgeMomField.text.toString().trim(),
+//                Constant.LOCATION to binding.tvLocationField.text.toString().trim()
+//            )
+
+            Log.d("tag", "check data age and location $ageMom $location")
             val uid = FirebaseAuth.getInstance().uid
-            FirebaseFirestore.getInstance().collection(Constant.USERS)
+
+            val referenceUpdate = FirebaseFirestore.getInstance().collection(Constant.USERS)
                 .document(uid!!)
-                .update(userHashMap)
-                .addOnSuccessListener {
-                    Log.d("TAG", "DocumentSnapshot successfully written!")
-                }
+            referenceUpdate.set(userHashMap, SetOptions.mergeFields(Constant.AGE,Constant.LOCATION))
+                .addOnSuccessListener { Log.d("TAG", "DocumentSnapshot successfully updated!") }
                 .addOnFailureListener { e ->
-                    Log.d("TAG", "Error writing document ${e.localizedMessage}" )
-            }
+                    Log.w(
+                        "TAG",
+                        "DocumentSnapshot Error updating document",
+                        e
+                    )
+                }
+
+            //move to the next fragment
+            val pregOrNoValidFragment = PregOrNoValidFragment()
+            activity?.supportFragmentManager?.findFragmentById(R.id.container_register)
+            setFragment(pregOrNoValidFragment)
 
 
+//            FirebaseFirestore.getInstance().collection(Constant.USERS)
+//                .document(uid!!)
+//                .update(userHashMap, SetOptions.merge())
+//                .addOnSuccessListener {
+//                    Log.d("TAG", "DocumentSnapshot successfully written!")
+//                }
+//                .addOnFailureListener { e ->
+//                    Log.d("TAG", "Error writing document ${e.localizedMessage}" )
+//            }
 
-//            UserEmailFirestore().updateUserProfileData(requireActivity(), userHashMap)
-
-//            //move to the next activity
-//            manager?.replace(R.id.container_register, PregOrNoValidFragment())
-//            manager?.addToBackStack(null)
-//            manager?.commit()
-
-//TODO update data user
         }
     }
 
-
-    companion object {
+    private fun setFragment(pregOrNoValidFragment: PregOrNoValidFragment) {
+        val supportFragment = activity?.supportFragmentManager
+        val fragmentTransaction = supportFragment?.beginTransaction()
+        fragmentTransaction?.replace(android.R.id.content, pregOrNoValidFragment)
+        fragmentTransaction?.commit()
     }
+
 }
