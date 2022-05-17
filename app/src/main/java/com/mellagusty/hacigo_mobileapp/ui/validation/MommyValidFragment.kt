@@ -79,10 +79,9 @@ class MommyValidFragment : Fragment() {
             referenceUpdate.set(userHashMap, SetOptions.mergeFields("age","location"))
                 .addOnSuccessListener { Log.d("TAG", "DocumentSnapshot successfully updated!") }
                 .addOnFailureListener { e ->
-                    Log.w(
+                    Log.d(
                         "TAG",
-                        "DocumentSnapshot Error updating document",
-                        e
+                        "DocumentSnapshot Error updating document ${e.localizedMessage}"
                     )
                 }
 
