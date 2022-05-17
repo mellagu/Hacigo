@@ -13,8 +13,6 @@ class UserEmail(
         val location: String = "",
         val age: Int = 0,
         val pregnant: String = "",
-        val kidName: String = "",
-        val kidGender: String = "",
         val profileComplete: Int = 0
 
 ): Parcelable

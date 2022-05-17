@@ -12,10 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmail
-import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmailFirestore
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityEmailRegisterBinding
-import com.mellagusty.hacigo_mobileapp.ui.MainActivity
-import com.mellagusty.hacigo_mobileapp.ui.validation.MommyValidActivity
 import com.mellagusty.hacigo_mobileapp.ui.validation.MommyValidFragment
 import com.mellagusty.hacigo_mobileapp.utils.Constant
 
@@ -115,21 +112,15 @@ class emailRegisterActivity : AppCompatActivity() {
             .document(user.id)
             .set(user, SetOptions.merge())
             .addOnSuccessListener {
-                Log.d("tes","success register")
+                Log.d("tes", "success register")
                 userRegistrationSuccess(user)
             }
     }
 
     fun userRegistrationSuccess(user: UserEmail) {
         Toast.makeText(this, "You are register Successfully", Toast.LENGTH_SHORT).show()
-//        intent.putExtra(Constant.EXTRA_USER_DETAIL,user)
-//        startActivity(Intent(this,EditProfileActivity::class.java))
+
         if (user.profileComplete == 0) {
-//            val intent = Intent(this, MommyValidActivity::class.java)
-//            intent.putExtra(Constant.EXTRA_USER_DETAIL,user)
-//            startActivity(intent)
-
-
             val mommyValidFragment = MommyValidFragment()
             val mBundle = Bundle()
             mBundle.putString(Constant.EXTRA_USER_DETAIL, user.firstName)
@@ -137,27 +128,14 @@ class emailRegisterActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.container_register)
             setFragment(mommyValidFragment)
 
-
-//            val mBundle = Bundle()
-//            mBundle.putString(Constant.EXTRA_USER_DETAIL, user.toString())
-//            val mFragmentTransaction = this.supportFragmentManager.beginTransaction()
-//            val mFragment = MommyValidFragment()
-//            mFragment.arguments = mBundle
-//
-//            mFragmentTransaction.replace(R.id.fragment_mommy_valid, mFragment)
-//            mFragmentTransaction.commit()
-//        } else {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//
         }
-//        finish()
+
     }
 
-    private fun setFragment(writeDescFragment: MommyValidFragment) {
+    private fun setFragment(mommyValidFragment: MommyValidFragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(android.R.id.content, writeDescFragment)
+        fragmentTransaction.replace(android.R.id.content, mommyValidFragment)
         fragmentTransaction.commit()
     }
 
