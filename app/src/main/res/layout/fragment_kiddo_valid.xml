@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/prime"
-    tools:context=".ui.validation.PregOrNoFragment">
+    android:background="@color/prime">
 
     <ImageView
         android:id="@+id/iv_baby_equipment"
@@ -22,7 +21,6 @@
         android:layout_height="wrap_content"
         android:elevation="5dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Berapa usia anak Ibu?"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -34,7 +32,7 @@
         app:layout_constraintVertical_bias="0.362" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_mom_pregnant"
+        android:id="@+id/cv_kid_undersix_month"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
@@ -50,7 +48,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/iv_preg"
+                android:id="@+id/iv_baby"
                 android:layout_width="100dp"
                 android:layout_height="78dp"
                 android:layout_marginStart="20dp"
@@ -58,12 +56,12 @@
                 android:src="@drawable/ic_fresh_baby"/>
 
             <TextView
-                android:id="@+id/tv_mom_pregnant"
+                android:id="@+id/tv_baby_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:fontFamily="@font/poppins_medium"
-                android:layout_toEndOf="@+id/iv_preg"
+                android:layout_toEndOf="@+id/iv_baby"
                 android:text="@string/dibawah_6_bulan"
                 android:textColor="@color/prime"
                 android:textSize="20sp" />
@@ -73,7 +71,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_mom_kiddo"
+        android:id="@+id/cv_kid_upsix_month"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
@@ -82,7 +80,7 @@
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cv_mom_pregnant">
+        app:layout_constraintTop_toBottomOf="@id/cv_kid_undersix_month">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -97,7 +95,7 @@
                 android:src="@drawable/ic_fresh_second_baby"/>
 
             <TextView
-                android:id="@+id/tv_mom_kiddo"
+                android:id="@+id/tv_baby_old"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"

@@ -11,7 +11,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui._kiddojournal.KiddoJournalActivity">
+        tools:context=".ui._kiddojournal.KiddoJournalActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-47dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,40 +32,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_pink_board_wave_2"/>
+                    android:src="@drawable/ic_pink_board_wave_2" />
 
                 <ImageView
                     android:id="@+id/arrow_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
                     android:elevation="5dp"
-                    android:src="@drawable/ic_arrow_back"/>
+                    android:src="@drawable/ic_arrow_back" />
 
                 <TextView
                     android:id="@+id/journal_main_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
+                    android:layout_below="@id/arrow_back"
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="20dp"
-                    android:layout_below="@id/arrow_back"
                     android:fontFamily="@font/poppins_medium"
+                    android:text="@string/journal_main_title"
                     android:textColor="@color/white"
-                    android:text="@string/journal_main_title"/>
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/journal_main_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:layout_below="@id/journal_main_title"
                     android:layout_marginStart="42dp"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/journal_main_title"
                     android:fontFamily="@font/poppins_light"
+                    android:text="@string/journal_main_desc"
                     android:textColor="@color/white"
-                    android:text="@string/journal_main_desc"/>
+                    android:textSize="15sp" />
 
 
             </RelativeLayout>
@@ -71,7 +73,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_journal_kiddo"
                 android:layout_width="300dp"
-                android:layout_height="120dp"
+                android:layout_height="145dp"
                 android:layout_marginTop="30dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="9dp"
@@ -96,32 +98,45 @@
                         android:id="@+id/tv_kiddo_journal_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="40dp"
                         android:layout_marginTop="15dp"
-                        android:text="@string/kiddo_journal_title"/>
+                        android:layout_marginEnd="40dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/kiddo_journal_title"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/tv_kiddo_journal_desc"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_kiddo_journal_title"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="23dp"
-                        android:layout_alignParentEnd="true"
-                        android:textSize="12sp"
                         android:fontFamily="@font/poppins_reguler"
-                        android:text="@string/kiddo_journal_desc"/>
+                        android:text="@string/kiddo_journal_desc"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/priority_kiddo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_kiddo_journal_desc"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="70dp"
+                        android:text="@string/priority"
+                        android:fontFamily="@font/poppins_bold"
+                        android:visibility="invisible"
+                        android:textSize="12sp" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_journal_asi"
                 android:layout_width="300dp"
-                android:layout_height="120dp"
+                android:layout_height="145dp"
                 android:layout_marginTop="30dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="9dp"
@@ -145,32 +160,44 @@
                         android:id="@+id/tv_asi_journal_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="60dp"
                         android:layout_marginTop="15dp"
-                        android:text="@string/asi_journal_title"/>
+                        android:layout_marginEnd="60dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/asi_journal_title"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/tv_asi_journal_desc"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_asi_journal_title"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="23dp"
-                        android:layout_alignParentEnd="true"
-                        android:textSize="12sp"
                         android:fontFamily="@font/poppins_reguler"
-                        android:text="@string/asi_journal_desc"/>
+                        android:text="@string/asi_journal_desc"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/priority_asi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_asi_journal_desc"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="70dp"
+                        android:text="@string/priority"
+                        android:fontFamily="@font/poppins_bold"
+                        android:visibility="invisible"
+                        android:textSize="12sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_journal_pregnant"
                 android:layout_width="300dp"
-                android:layout_height="120dp"
+                android:layout_height="145dp"
                 android:layout_marginTop="30dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="9dp"
@@ -183,36 +210,49 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/iv_detect_food"
+                        android:id="@+id/iv_mom_pregnant"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
                         android:layout_marginStart="35dp"
+                        android:layout_marginTop="15dp"
                         android:src="@drawable/desainibu1" />
 
                     <TextView
                         android:id="@+id/tv_pregnant_journal_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="10dp"
                         android:layout_marginTop="15dp"
-                        android:text="@string/pregnant_journal_title"/>
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/pregnant_journal_title"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/tv_pregnant_journal_desc"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_pregnant_journal_title"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="28dp"
-                        android:layout_alignParentEnd="true"
-                        android:textSize="12sp"
                         android:fontFamily="@font/poppins_reguler"
-                        android:text="@string/pregnant_journal_desc"/>
+                        android:text="@string/pregnant_journal_desc"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/priority_pregnant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_pregnant_journal_desc"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="70dp"
+                        android:text="@string/priority"
+                        android:fontFamily="@font/poppins_bold"
+                        android:visibility="invisible"
+                        android:textSize="12sp" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 

@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmail
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentKiddoIdentityBinding
 import com.mellagusty.hacigo_mobileapp.utils.Constant
 
@@ -81,12 +82,36 @@ class KiddoIdentityFragment : Fragment() {
                     )
                 }
 
+
             //move to the next fragment
-            val supportFragment = activity?.supportFragmentManager
-            supportFragment?.findFragmentById(R.id.container_register)
-            val fragmentTransaction = supportFragment?.beginTransaction()
-            fragmentTransaction?.replace(android.R.id.content, KiddoValidFragment())
-            fragmentTransaction?.commit()
+            val kiddoValidFragment = KiddoValidFragment()
+            val mBundle = Bundle()
+            val user = UserEmail()
+            mBundle.putString(Constant.EXTRA_USER_DETAIL, user.firstName)
+            kiddoValidFragment.arguments = mBundle
+            activity?.supportFragmentManager?.findFragmentById(R.id.container_register)
+            setFragment(kiddoValidFragment)
+
+//            val user = UserEmail()
+//            val kiddoValid = KiddoValidFragment()
+//            val mBundle = Bundle()
+//            mBundle.putString(Constant.EXTRA_USER_DETAIL, user.firstName)
+//            kiddoValid.arguments = mBundle
+//
+//            val supportFragment = activity?.supportFragmentManager
+//            supportFragment?.findFragmentById(R.id.container_register)
+//
+//            val fragmentTransaction = supportFragment?.beginTransaction()
+//            fragmentTransaction?.replace(android.R.id.content, kiddoValid)
+//            fragmentTransaction?.commit()
         }
+    }
+
+    private fun setFragment(kiddoValidFragment: KiddoValidFragment) {
+        val supportFragment = activity?.supportFragmentManager
+        val fragmentTransaction = supportFragment?.beginTransaction()
+        fragmentTransaction?.replace(android.R.id.content, kiddoValidFragment)
+        fragmentTransaction?.commit()
+
     }
 }
