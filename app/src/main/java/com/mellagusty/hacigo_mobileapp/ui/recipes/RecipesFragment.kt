@@ -35,8 +35,6 @@ class RecipesFragment : Fragment() {
 
         return binding.root
 
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,7 +45,7 @@ class RecipesFragment : Fragment() {
         if ( arguments?.getString("bahan") != null ) {
             bahan = arguments?.getString("bahan")
 
-            recipesViewModel.fetchRecipesByBahan(bahan!!).observe(viewLifecycleOwner, {
+            recipesViewModel.fetchRecipesByBahan(bahan!!).observe(viewLifecycleOwner) {
                 binding.rvRecipes.layoutManager =
                     LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                 adapter = RecipesAdapter {
@@ -58,50 +56,35 @@ class RecipesFragment : Fragment() {
                 adapter.setListData(it)
                 adapter.notifyDataSetChanged()
                 binding.arrowBack.setOnClickListener {
-                    val intent = Intent(requireContext(),MainActivity::class.java)
+                    val intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
                 }
                 binding.rvRecipes.adapter = adapter
-            })
+            }
         }
         else {
-            recipesViewModel.fetchRecipesData().observe(viewLifecycleOwner, {
+            recipesViewModel.fetchRecipesData().observe(viewLifecycleOwner) {
                 binding.rvRecipes.layoutManager =
                     LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                 adapter = RecipesAdapter {
                     val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
                     intent.putExtra(RecipesDetailActivity.EXTRA_JUDUL, it.judul)
-                    Log.d("startActivity","new Detail Activity")
+                    Log.d("startActivity", "new Detail Activity")
                     startActivity(intent)
                 }
                 adapter.setListData(it)
                 adapter.notifyDataSetChanged()
                 binding.arrowBack.setOnClickListener {
-                    val intent = Intent(requireContext(),MainActivity::class.java)
+                    val intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
                 }
                 binding.rvRecipes.adapter = adapter
 
-                Log.d("this is","ini data Anda untuk fragment$it")
-            })
+                Log.d("this is", "ini data Anda untuk fragment$it")
+            }
         }
 
 
-
-
-//        observeData()
-//        if ( arguments?.getString("bahan") != null ){
-//            bahan = arguments?.getString("bahan")
-//        }
-//        else{
-//            bahan = ""
-//        }
-//        resepPilihan = bahan?.let{ getRecipes(it) }!!
-//        Log.d("Bahan", bahan.toString())
-//
-//        Log.d("Resep",resepPilihan.toString())
-//
-//        showRVDummy()
 
         //back press
         binding.arrowBack.setOnClickListener {

@@ -41,8 +41,6 @@ class AsiJournalActivity : AppCompatActivity() {
         binding.rvAsi.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         asiJournalAdapter = AsiJournalAdapter {
-//            val intent = Intent(this, KnowledgebaseDetailActivity::class.java)
-//            startActivity(intent)
             showAsiDialog(it.bulanke)
 
         }
@@ -61,22 +59,17 @@ class AsiJournalActivity : AppCompatActivity() {
 
     }
 
-    fun getListAsiJournal() {
-        var newList: MutableList<AsiJournalEntity> = ArrayList()
+    private fun getListAsiJournal() {
+        val newList: MutableList<AsiJournalEntity> = ArrayList()
 
         CoroutineScope(Dispatchers.IO).launch {
             for ( i in 1..6 ) {
                 val asi = viewModel.getJournalByBulan(i.toString())
-                var journal = AsiJournalEntity()
+                val journal = AsiJournalEntity()
 
                 journal.bulanke = i
 
-                if ( asi != null ) {
-                    journal.asi = asi
-                }
-                else {
-                    journal.asi = "belum"
-                }
+                journal.asi = asi
                 Log.d("asijournal","asi, list ke-$i")
                 newList.add(journal)
 
@@ -89,7 +82,7 @@ class AsiJournalActivity : AppCompatActivity() {
         }
     }
 
-    fun showAsiDialog( bulanke: Int? ) {
+    private fun showAsiDialog(bulanke: Int? ) {
         val builder = AlertDialog.Builder(this, 0)
 
         builder.setTitle("ASI Eksklusif")

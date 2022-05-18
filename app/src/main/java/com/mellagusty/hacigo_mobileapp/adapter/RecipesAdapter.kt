@@ -29,18 +29,6 @@ class RecipesAdapter(private val listener: (RecipesEntity) -> Unit) :
             }
 
         }
-//        fun bind(position: Int){
-//            val recipe = list[position]
-//            itemView.setOnClickListener {
-//                listener(list[absoluteAdapterPosition])
-//            }
-//            val binding = ItemRvRecipeBinding.bind(itemView)
-//            val tvJudul = binding.titleRecipe
-//            val tvSubJudul = binding.descRecipe
-//
-//            tvJudul.text = recipe.judul
-//            tvSubJudul.text = recipe.subJudul
-//        }
 
     }
 

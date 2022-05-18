@@ -15,6 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hacigo_MobileApp">
+        <activity
+            android:name=".ui._asijournal_FS.ASIJournalActivity"
+            android:exported="false" />
         <activity android:name=".ui.account.EditProfileActivity" />
         <activity
             android:name=".ui.validation.ValidationActivity"
