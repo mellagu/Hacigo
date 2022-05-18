@@ -81,19 +81,11 @@ class MommyValidFragment : Fragment() {
 
             //move to the next fragment
             val pregOrNoValidFragment = PregOrNoValidFragment()
+            val mBundle = Bundle()
+            mBundle.putString(Constant.LOCATION, userDetail.location)
+            pregOrNoValidFragment.arguments = mBundle
             activity?.supportFragmentManager?.findFragmentById(R.id.container_register)
             setFragment(pregOrNoValidFragment)
-
-
-//            FirebaseFirestore.getInstance().collection(Constant.USERS)
-//                .document(uid!!)
-//                .update(userHashMap, SetOptions.merge())
-//                .addOnSuccessListener {
-//                    Log.d("TAG", "DocumentSnapshot successfully written!")
-//                }
-//                .addOnFailureListener { e ->
-//                    Log.d("TAG", "Error writing document ${e.localizedMessage}" )
-//            }
 
         }
     }

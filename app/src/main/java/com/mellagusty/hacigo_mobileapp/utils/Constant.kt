@@ -2,10 +2,16 @@ package com.mellagusty.hacigo_mobileapp.utils
 
 object Constant {
     const val USERS: String = "users"
+    const val FIRST_NAME: String = "firstName"
+    const val LAST_NAME: String = "lastName"
+    const val EMAIL: String = "email"
+    const val PRIORITY: String = "priority"
+    const val UNDER_SIX_MONTH: String = "under_six_month"
+    const val UP_SIX_MONTH: String = "up_six_month"
     const val KID_NAME: String = "kid_name"
     const val GENDER: String = "gender"
-    const val MALE: String = "male"
-    const val FEMALE: String = "female"
+    const val MALE: String = "Laki-Laki"
+    const val FEMALE: String = "Perempuan"
     const val PREGNANT: String = "pregnant"
     const val YES_PREGNANT: String = "yes_pregnant"
     const val NOT_PREGNANT: String = "not_pregnant"

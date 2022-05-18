@@ -138,8 +138,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_kid_field" />
 
+
     <TextView
-        android:id="@+id/tv_age_kid"
+        android:id="@+id/tv_gender_kid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
@@ -151,7 +152,7 @@
         app:layout_constraintTop_toBottomOf="@id/divider_line3"/>
 
     <TextView
-        android:id="@+id/tv_age_kid_field"
+        android:id="@+id/tv_gender_kid_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_light"
@@ -161,7 +162,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_age_kid"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_gender_kid"/>
 
     <View
         android:id="@+id/divider_line4"
@@ -171,7 +172,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_age_kid_field" />
+        app:layout_constraintTop_toBottomOf="@id/tv_gender_kid_field" />
 
     <TextView
         android:id="@+id/tv_email"
@@ -208,6 +209,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_email_field" />
 
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/black"
+        android:text="@string/lokasi_anda"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_line5"/>
+    <TextView
+        android:id="@+id/tv_location_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        tools:text="Jakarta"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_location"/>
+
     <Button
         android:id="@+id/btn_signout"
         android:layout_width="200dp"
@@ -219,7 +244,7 @@
         android:text="Sign Out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider_line5"
+        app:layout_constraintTop_toBottomOf="@id/tv_location_field"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 

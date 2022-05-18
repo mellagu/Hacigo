@@ -34,8 +34,10 @@
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -82,22 +84,22 @@
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fl_user_image"/>
+                app:layout_constraintTop_toBottomOf="@id/fl_user_image" />
 
             <TextView
                 android:id="@+id/tv_first_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:elevation="5dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/nama_depan"
                 android:textColor="@color/prime"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/til_first_name"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_avatar"
-                app:layout_constraintBottom_toTopOf="@id/til_first_name"/>
+                app:layout_constraintTop_toBottomOf="@id/btn_avatar" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_first_name"
@@ -107,7 +109,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                android:hint="contoh : Anissa"
+                android:hint="Nama Depan"
                 android:textColorHint="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -127,16 +129,16 @@
                 android:id="@+id/tv_last_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:elevation="5dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Nama Belakang"
                 android:textColor="@color/prime"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/til_last_name"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_first_name"
-                app:layout_constraintBottom_toTopOf="@id/til_last_name"/>
+                app:layout_constraintTop_toBottomOf="@id/til_first_name" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_last_name"
@@ -146,7 +148,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                android:hint="contoh: Nasution"
+                android:hint="Nama Belakang"
                 android:textColorHint="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -166,16 +168,16 @@
                 android:id="@+id/tv_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:elevation="5dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Usia Anda"
                 android:textColor="@color/prime"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/til_age"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_last_name"
-                app:layout_constraintBottom_toTopOf="@id/til_age"/>
+                app:layout_constraintTop_toBottomOf="@id/til_last_name" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_age"
@@ -185,7 +187,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                android:hint="contoh: 24"
+                android:hint="Usia Anda"
                 android:textColorHint="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -205,16 +207,16 @@
                 android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:elevation="5dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Email"
                 android:textColor="@color/prime"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/til_email"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_age"
-                app:layout_constraintBottom_toTopOf="@id/til_email"/>
+                app:layout_constraintTop_toBottomOf="@id/til_age" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_email"
@@ -224,7 +226,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                android:hint="contoh: anisa@mail.com"
+                android:hint="Email"
                 android:textColorHint="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -244,16 +246,16 @@
                 android:id="@+id/tv_pregnant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:elevation="5dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Apakah anda dalam kondisi hamil?"
                 android:textColor="@color/prime"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/rg_pregnant"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_email"
-                app:layout_constraintBottom_toTopOf="@id/rg_pregnant"/>
+                app:layout_constraintTop_toBottomOf="@id/til_email" />
 
             <RadioGroup
                 android:id="@+id/rg_pregnant"
@@ -280,7 +282,7 @@
                     android:gravity="center"
                     android:text="@string/tidak"
                     android:textColor="@color/white"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <RadioButton
                     android:id="@+id/rb_no"
@@ -293,23 +295,23 @@
                     android:gravity="center"
                     android:text="@string/ya"
                     android:textColor="@color/grey"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/tv_kid_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:elevation="5dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Nama Anak"
                 android:textColor="@color/prime"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/til_kid_name"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rg_pregnant"
-                app:layout_constraintBottom_toTopOf="@id/til_kid_name"/>
+                app:layout_constraintTop_toBottomOf="@id/rg_pregnant" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_kid_name"
@@ -319,7 +321,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                android:hint="contoh: Bayu"
+                android:hint="Nama Anak"
                 android:textColorHint="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -339,16 +341,16 @@
                 android:id="@+id/tv_gender_kid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:elevation="5dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Jenis Kelamin Anak"
                 android:textColor="@color/prime"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/rg_gender"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_kid_name"
-                app:layout_constraintBottom_toTopOf="@id/rg_gender"/>
+                app:layout_constraintTop_toBottomOf="@id/til_kid_name" />
 
             <RadioGroup
                 android:id="@+id/rg_gender"
@@ -375,7 +377,7 @@
                     android:gravity="center"
                     android:text="@string/gender_man"
                     android:textColor="@color/white"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <RadioButton
                     android:id="@+id/rb_female"
@@ -388,7 +390,7 @@
                     android:gravity="center"
                     android:text="@string/gender_woman"
                     android:textColor="@color/grey"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </RadioGroup>
 
 
@@ -407,13 +409,35 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:text="Simpan"
-                android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rg_gender"/>
+                app:layout_constraintTop_toBottomOf="@id/rg_gender" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/white_broken"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Batalkan"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_submit_profile" />
 
 
 

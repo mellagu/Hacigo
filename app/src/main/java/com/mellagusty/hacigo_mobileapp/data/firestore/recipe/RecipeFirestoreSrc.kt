@@ -71,31 +71,6 @@ class RecipeFirestoreSrc {
         return mutableData
     }
 
-//    fun getRecipesData(): LiveData<MutableList<RecipesEntity>> {
-//        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
-//        FirebaseFirestore.getInstance().collection("cook").get().addOnSuccessListener { result ->
-//            val listData = mutableListOf<RecipesEntity>()
-//            for (document in result) {
-//                val recipes = document.toObject(RecipesEntity::class.java)
-////                val judul = document.getString("judul")
-////                val subJudul = document.getString("subJudul")
-////                val imageUrl = document.getString("imageUrl")
-////                val bahan = document.get("bahan") as ArrayList<String>
-////                val caraBuat = document.get("caraBuat") as ArrayList<String>
-////                val recipes = RecipesEntity(
-////                    judul,
-////                    subJudul,
-////                    bahan,
-////                    caraBuat,
-////                    imageUrl
-////                )
-////                Log.d("TAG","Cek data resep : $recipes")
-//                listData.add(recipes)
-//            }
-//            mutableData.postValue = listData
-//        }
-//        Log.d("TAG","Data yang akan di return $mutableData")
-//        return mutableData
-//    }
+
 
 }

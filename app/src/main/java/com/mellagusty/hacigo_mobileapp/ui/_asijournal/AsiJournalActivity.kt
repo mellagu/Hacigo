@@ -26,7 +26,7 @@ class AsiJournalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAsiJournalBinding
     private lateinit var asiJournalAdapter: AsiJournalAdapter
     private lateinit var viewModel: AsiJournalViewModel
-
+    var totalMonth = 0
     private var list: MutableList<AsiJournalEntity> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +54,11 @@ class AsiJournalActivity : AppCompatActivity() {
         binding.rvAsi.adapter = asiJournalAdapter
 
         getListAsiJournal()
+    }
+
+    fun countTheMonth() {
+
+
     }
 
     fun getListAsiJournal() {
@@ -93,15 +98,18 @@ class AsiJournalActivity : AppCompatActivity() {
 
         builder.setPositiveButton( "Ya" ) {
                 dialog, id ->
-            var asi = AsiJournalEntity()
-            asi.bulanke = bulanke
-            asi.asi = "ya"
-            lifecycleScope.launch {
-                viewModel.insertAsiJournal(asi)
-            }
-            Toast.makeText(this, "sudah :)", Toast.LENGTH_SHORT).show()
-            finish()
-            startActivity(getIntent())
+            totalMonth += 1
+            Log.d("check","total month : $totalMonth")
+            //TODO: save total month to sharePreferences/Data Store
+//            var asi = AsiJournalEntity()
+//            asi.bulanke = bulanke
+//            asi.asi = "ya"
+//            lifecycleScope.launch {
+//                viewModel.insertAsiJournal(asi)
+//            }
+//            Toast.makeText(this, "sudah :)", Toast.LENGTH_SHORT).show()
+//            finish()
+//            startActivity(getIntent())
         }
 
         builder.setNegativeButton( "Tidak" ) {

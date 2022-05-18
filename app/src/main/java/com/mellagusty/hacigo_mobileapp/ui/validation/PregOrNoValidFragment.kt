@@ -1,12 +1,16 @@
 package com.mellagusty.hacigo_mobileapp.ui.validation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmail
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentPregOrNoBinding
+import com.mellagusty.hacigo_mobileapp.ui.MainJournalActivity
+import com.mellagusty.hacigo_mobileapp.utils.Constant
 
 
 class PregOrNoValidFragment : Fragment() {
@@ -14,6 +18,7 @@ class PregOrNoValidFragment : Fragment() {
     private lateinit var _binding: FragmentPregOrNoBinding
     private val binding get() = _binding
     var isPregOrNoFragmentLoaded = true
+    lateinit var userDetail: UserEmail
 
 
     override fun onCreateView(
@@ -26,12 +31,17 @@ class PregOrNoValidFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val manager = activity?.supportFragmentManager?.beginTransaction()
 
+        val bundle = this.arguments
+        val location = bundle?.getString(Constant.LOCATION," ")
+        binding.tvLocation.text = "$location"
+
+        userDetail = UserEmail()
+        
         binding.cvMomPregnant.setOnClickListener {
-            manager?.replace(R.id.validation_container, PregnantFieldFragment())
-            manager?.addToBackStack(null)
-            manager?.commit()
+            val intent = Intent(requireContext(), MainJournalActivity::class.java)
+            intent.putExtra(Constant.PRIORITY,Constant.YES_PREGNANT)
+            startActivity(intent)
         }
 
         binding.cvMomKiddo.setOnClickListener {

@@ -10,8 +10,9 @@
         <entry key="app/src/main/res/layout/activity_main_journal.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_mommy_valid.xml" value="0.2536231884057971" />
         <entry key="app/src/main/res/layout/activity_validation.xml" value="0.2536231884057971" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_kiddo_identity.xml" value="0.2536231884057971" />
-        <entry key="app/src/main/res/layout/fragment_kiddo_valid.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_kiddo_valid.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_mommy_valid.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_new_baby.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_old_baby.xml" value="0.29583333333333334" />
