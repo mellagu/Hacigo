@@ -22,7 +22,8 @@
         <activity android:name=".ui._asijournal.AsiJournalActivity" />
         <activity android:name=".ui.knowledgebase.KnowledgebaseDetailActivity" />
         <activity android:name=".ui.knowledgebase.KnowledgebaseActivity" />
-        <activity android:name=".ui.MainJournalActivity" />
+        <activity android:name=".ui.MainJournalActivity"
+            android:exported="true"/>
         <activity android:name=".ui.dummy_develop.VerificationPursueActivity" />
 
         <meta-data

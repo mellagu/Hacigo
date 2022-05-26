@@ -2,6 +2,7 @@ package com.mellagusty.hacigo_mobileapp.ui._pregnantjournal
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -156,10 +157,16 @@ class PregnantJournalActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val pregnantInfo = viewModel.getLastPregnantJournal()
 
-            val resultIdeal = dataBbIdeal(pregnantInfo)
+            if(pregnantInfo != null){
+                val resultIdeal = dataBbIdeal(pregnantInfo)
 
-            binding.tvStatusidealPregnant.setText(resultIdeal[0])
-            binding.tvRentangidealPregnant.setText(resultIdeal[1])
+                binding.tvStatusidealPregnant.setText(resultIdeal[0])
+                binding.tvRentangidealPregnant.setText(resultIdeal[1])
+            } else {
+                Log.d("pregnant","Belum ada data yang dimasukkan")
+            }
+
+
 
         }
 
