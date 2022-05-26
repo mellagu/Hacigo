@@ -89,4 +89,6 @@ oleh para ahli.</string>
     <string name="tidak">Tidak</string>
     <string name="priority">Priority</string>
     <string name="lokasi_anda">Lokasi Anda</string>
+    <string name="imunisasi_journal">Imunisasi Journal</string>
+    <string name="desc_imunisasi">Pantau pemberian imunisasi si buah hati agar terhindar dari penyakit</string>
 </resources>

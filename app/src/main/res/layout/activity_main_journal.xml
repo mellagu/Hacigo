@@ -256,6 +256,70 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_imunisasi"
+                android:layout_width="300dp"
+                android:layout_height="145dp"
+                android:layout_marginTop="30dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="9dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_journal_pregnant">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_imunisasi"
+                        android:layout_width="65dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_imunisasi" />
+
+                    <TextView
+                        android:id="@+id/tv_imunisasi_journal_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/imunisasi_journal"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_imunisasi_journal_desc"
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/tv_imunisasi_journal_title"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="28dp"
+                        android:fontFamily="@font/poppins_reguler"
+                        android:text="@string/desc_imunisasi"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/priority_imunisasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_imunisasi_journal_desc"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="70dp"
+                        android:text="@string/priority"
+                        android:fontFamily="@font/poppins_bold"
+                        android:visibility="invisible"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

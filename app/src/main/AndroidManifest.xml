@@ -15,6 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hacigo_MobileApp">
+        <activity
+            android:name=".ui._imunisasijournal.ImunisasiJournalViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".ui._imunisasijournal.ImunisasiJournalActivity"
+            android:exported="false" />
         <activity android:name=".ui.account.EditProfileActivity" />
         <activity
             android:name=".ui.validation.ValidationActivity"
@@ -22,8 +28,9 @@
         <activity android:name=".ui._asijournal.AsiJournalActivity" />
         <activity android:name=".ui.knowledgebase.KnowledgebaseDetailActivity" />
         <activity android:name=".ui.knowledgebase.KnowledgebaseActivity" />
-        <activity android:name=".ui.MainJournalActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".ui.MainJournalActivity"
+            android:exported="true" />
         <activity android:name=".ui.dummy_develop.VerificationPursueActivity" />
 
         <meta-data
