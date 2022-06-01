@@ -17,6 +17,9 @@ object Constant {
     const val NOT_PREGNANT: String = "not_pregnant"
     const val AGE: String = "age"
     const val LOCATION: String = "location"
+    const val IMUNISASI: String = "imunisasi"
+    const val YA: String = "Ya"
+    const val TIDAK: String= "Tidak"
 
 
     const val HACIGO_PREFERENCES: String = "hacigo_preferences"

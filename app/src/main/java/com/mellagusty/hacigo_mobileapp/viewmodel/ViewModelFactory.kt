@@ -46,9 +46,9 @@ class ViewModelFactory private constructor(private val repository: Repository): 
             return AsiJournalViewModel(repository) as T
         }
 
-//        if (modelClass.isAssignableFrom(ImunisasiJournalViewModel::class.java)){
-//            return ImunisasiJournalViewModel(repository) as T
-//        }
+        if (modelClass.isAssignableFrom(ImunisasiJournalViewModel::class.java)){
+            return ImunisasiJournalViewModel(repository) as T
+        }
 
         if (modelClass.isAssignableFrom(RecipesViewModel::class.java)){
             return RecipesViewModel(repository) as T

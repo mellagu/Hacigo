@@ -3,6 +3,7 @@ package com.mellagusty.hacigo_mobileapp.di
 import android.app.Application
 import android.content.Context
 import com.mellagusty.hacigo_mobileapp.data.Repository
+import com.mellagusty.hacigo_mobileapp.data.firestore.imunisasi_journal.ImunisasiFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipeFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.local.journal.AsiJLocalDataSource
 import com.mellagusty.hacigo_mobileapp.data.local.journal.KiddoJLocalDatasource
@@ -23,6 +24,8 @@ object HacigoDataInjection {
 
         val recipesFirestoreSrc = RecipeFirestoreSrc.getInstances()
 
-        return Repository.getInstance(kiddoJLocalDatasource, pregnantJLocalDatasource, asiJLocalDatasource, recipesFirestoreSrc, context.applicationContext as Application)
+        val imunisasiFirestoreSrc = ImunisasiFirestoreSrc.getInstance()
+
+        return Repository.getInstance(kiddoJLocalDatasource, pregnantJLocalDatasource, asiJLocalDatasource, recipesFirestoreSrc, imunisasiFirestoreSrc, context.applicationContext as Application)
     }
 }

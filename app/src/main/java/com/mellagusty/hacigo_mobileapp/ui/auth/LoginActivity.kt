@@ -16,10 +16,13 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.data.auth.googleauth.UserGmail
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityLoginBinding
 import com.mellagusty.hacigo_mobileapp.ui.MainActivity
+import com.mellagusty.hacigo_mobileapp.ui.validation.MommyValidFragment
+import com.mellagusty.hacigo_mobileapp.utils.Constant
 
 class LoginActivity : AppCompatActivity() {
 
@@ -154,19 +157,25 @@ class LoginActivity : AppCompatActivity() {
 //                    val intent = Intent(this,MainActivity::class.java)
 //                    startActivity(intent)
 //                    finish()
-                    var user = mAuth.currentUser
-                    FirebaseFirestore.getInstance().collection("users")
+                    val user = mAuth.currentUser
+//                    val userData = UserEmail()
+                    FirebaseFirestore.getInstance().collection(Constant.USERS)
                         .whereEqualTo("id", user?.uid)
                         .get()
                         .addOnSuccessListener {
                             if (it.isEmpty) {
                                 setDataToFireStore(
                                     user?.uid, user?.displayName, user?.email
+//                                    user?.uid, user?.displayName,user?.email
                                 )
                             } else {
-                                val intent = Intent(this,MainActivity::class.java)
-                                startActivity(intent)
-                            }
+//                                val intent = Intent(this,MainActivity::class.java)
+//                                startActivity(intent)
+                                val mommyValidFragment = MommyValidFragment()
+                                supportFragmentManager.findFragmentById(R.id.container_register)
+                                setFragment(mommyValidFragment)
+                        }
+
                         }
 
                 } else {
@@ -176,15 +185,27 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun setDataToFireStore(uid: String?, displayName: String?, email: String?) {
+    private fun setFragment(mommyValidFragment: MommyValidFragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(android.R.id.content, mommyValidFragment)
+        fragmentTransaction.commit()
+    }
+
+    private fun setDataToFireStore(
+        uid: String?,
+        displayName: String?,
+        email: String?
+    ) {
         val user = UserGmail(
             id = uid,
-            name = displayName,
+            firstName = displayName,
             email = email
+
         )
-        FirebaseFirestore.getInstance().collection("users")
+        FirebaseFirestore.getInstance().collection(Constant.USERS)
             .document(uid.toString())
-            .set(user)
+            .set(user, SetOptions.merge())
             .addOnSuccessListener {
                 Toast.makeText(this, "user berhasil di save", Toast.LENGTH_SHORT).show()
             }

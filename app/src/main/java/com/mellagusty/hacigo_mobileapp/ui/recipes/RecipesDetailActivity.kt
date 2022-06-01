@@ -27,7 +27,7 @@ class RecipesDetailActivity : AppCompatActivity() {
         val recipeData = judul?.let { recipesViewModel.fetchARecipe(it) }
 
         judul?.let {
-            recipesViewModel.fetchARecipe(it).observe(this, {
+            recipesViewModel.fetchARecipe(it).observe(this) {
                 Glide.with(this)
                     .load(it.imageUrl)
                     .into(binding.ivRecipe)
@@ -38,7 +38,7 @@ class RecipesDetailActivity : AppCompatActivity() {
                 binding.tvBahan.text = convertToStringLines(it.bahan)
                 binding.tvCaraBuat.text = convertToStringLines(it.caraBuat)
 
-            })
+            }
         }
 
         binding.arrowBack.setOnClickListener{

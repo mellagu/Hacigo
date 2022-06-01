@@ -2,6 +2,8 @@ package com.mellagusty.hacigo_mobileapp.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import com.mellagusty.hacigo_mobileapp.data.firestore.imunisasi_journal.ImunisasiEntity
+import com.mellagusty.hacigo_mobileapp.data.firestore.imunisasi_journal.ImunisasiFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipeFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.*
@@ -14,6 +16,7 @@ class Repository(
     private val pregnantJLocalDatasource: PregnantJLocalDatasource,
     private val asiJLocalDataSource: AsiJLocalDataSource,
     private val RecipeFirestoreSrc: RecipeFirestoreSrc,
+    private val ImunisasiFirestoreSrc: ImunisasiFirestoreSrc,
     application: Application
 ) : HacigoDataSource {
 
@@ -26,10 +29,11 @@ class Repository(
             pregnantJLocalDatasource: PregnantJLocalDatasource,
             asiJLocalDataSource: AsiJLocalDataSource,
             RecipeFirestoreSrc: RecipeFirestoreSrc,
+            ImunisasiFirestoreSrc: ImunisasiFirestoreSrc,
             application: Application
         ): Repository =
             instance ?: synchronized(this) {
-                Repository(localDataSource, pregnantJLocalDatasource, asiJLocalDataSource, RecipeFirestoreSrc, application).apply {
+                Repository(localDataSource, pregnantJLocalDatasource, asiJLocalDataSource, RecipeFirestoreSrc, ImunisasiFirestoreSrc, application).apply {
                     instance = this
                 }
             }
@@ -99,6 +103,12 @@ class Repository(
         return RecipeFirestoreSrc.getRecipesByBahan(bahan);
     }
 
+    //firestore for Imunisasi
+    override fun getImunisasiData(): LiveData<MutableList<ImunisasiEntity>> {
+        return ImunisasiFirestoreSrc.getImunisasiData()
+    }
+
+    //Journal Pregnant
     override suspend fun getLastPregnantJournal(): PregnantJournalEntity {
         return pregnantJLocalDatasource.getLastPregnantJournal()
     }
