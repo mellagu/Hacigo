@@ -47,7 +47,7 @@ class RecipesFragment : Fragment() {
         if ( arguments?.getString("bahan") != null ) {
             bahan = arguments?.getString("bahan")
 
-            recipesViewModel.fetchRecipesByBahan(bahan!!).observe(viewLifecycleOwner, {
+            recipesViewModel.fetchRecipesByBahan(bahan!!).observe(viewLifecycleOwner) {
                 binding.rvRecipes.layoutManager =
                     LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                 adapter = RecipesAdapter {
@@ -58,32 +58,32 @@ class RecipesFragment : Fragment() {
                 adapter.setListData(it)
                 adapter.notifyDataSetChanged()
                 binding.arrowBack.setOnClickListener {
-                    val intent = Intent(requireContext(),MainActivity::class.java)
+                    val intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
                 }
                 binding.rvRecipes.adapter = adapter
-            })
+            }
         }
         else {
-            recipesViewModel.fetchRecipesData().observe(viewLifecycleOwner, {
+            recipesViewModel.fetchRecipesData().observe(viewLifecycleOwner) {
                 binding.rvRecipes.layoutManager =
                     LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                 adapter = RecipesAdapter {
                     val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
                     intent.putExtra(RecipesDetailActivity.EXTRA_JUDUL, it.judul)
-                    Log.d("startActivity","new Detail Activity")
+                    Log.d("startActivity", "new Detail Activity")
                     startActivity(intent)
                 }
                 adapter.setListData(it)
                 adapter.notifyDataSetChanged()
                 binding.arrowBack.setOnClickListener {
-                    val intent = Intent(requireContext(),MainActivity::class.java)
+                    val intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
                 }
                 binding.rvRecipes.adapter = adapter
 
-                Log.d("this is","ini data Anda untuk fragment$it")
-            })
+                Log.d("this is", "ini data Anda untuk fragment$it")
+            }
         }
 
 
@@ -114,68 +114,6 @@ class RecipesFragment : Fragment() {
 
     }
 
-//    private fun showRVDummy() {
-//        binding.rvRecipes.layoutManager =
-//            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-//        adapter = RecipesAdapter {
-//            val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
-//            intent.putExtra(RecipesDetailActivity.EXTRA_JUDUL, it.judul)
-//            intent.putExtra(RecipesDetailActivity.EXTRA_SUBJUDUL, it.subJudul)
-//            intent.putExtra(RecipesDetailActivity.EXTRA_NUTRISI, it.nutrisi)
-//            intent.putExtra(RecipesDetailActivity.EXTRA_BAHAN, it.bahanSemua)
-//            intent.putExtra(RecipesDetailActivity.EXTRA_CARA, it.caraBuat)
-//            intent.putExtra(RecipesDetailActivity.EXTRA_IMAGE, it.imageUrl)
-//
-//            startActivity(intent)
-//        }
-//        adapter.setListData(resepPilihan)
-//
-//        binding.rvRecipes.adapter = adapter
-//    }
-
-//    private fun getRecipes(bahan: String): MutableList<RecipesEntity> {
-//        recipes.clear()
-//        recipes = RecipesData()
-//
-//        val daftarResep = recipes.listIterator()
-//        val resepPilihan = mutableListOf<RecipesEntity>()
-//
-//        if (bahan != ""){
-//            daftarResep.forEach {
-//                if(it.bahanUtama.contains(bahan)){
-//                    resepPilihan.add(it)
-//                }
-//            }
-//        }
-//        else{
-//            daftarResep.forEach{
-//                resepPilihan.add(it)
-//            }
-//        }
-//
-//        return resepPilihan
-//    }
-
-//    private fun observeData() {
-//        recipesViewModel.fetchUserData().observe(viewLifecycleOwner, { recipe ->
-//            adapter.setListData(recipe)
-//            adapter.notifyDataSetChanged()
-//            Log.d("TAG", "ini data untuk recycleview $recipe")
-//
-//        })
-//    }
-
-
-//    private fun showRecycleCard() {
-//        binding.rvRecipes.layoutManager =
-//            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-//        adapter = RecipesAdapter {
-//            val intent = Intent(requireContext(), RecipesDetailActivity::class.java)
-//            intent.putExtra(RecipesDetailActivity.EXTRA_RECIPES,it)
-//            startActivity(intent)
-//        }
-//        binding.rvRecipes.adapter = adapter
-//    }
 
 
 }

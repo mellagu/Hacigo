@@ -11,7 +11,8 @@ data class RecipesEntity(
     var faktaNutrisi: String? = null,
     var bahan: ArrayList<String>?  = null,
     var caraBuat : ArrayList<String>?  = null,
-    var imageUrl : String? = null
+    var imageUrl : String? = null,
+    var usia : Int? = null
 
 
 ) : Parcelable

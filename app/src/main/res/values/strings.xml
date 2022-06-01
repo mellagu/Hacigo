@@ -91,4 +91,6 @@ oleh para ahli.</string>
     <string name="lokasi_anda">Lokasi Anda</string>
     <string name="imunisasi_journal">Imunisasi Journal</string>
     <string name="desc_imunisasi">Pantau pemberian imunisasi si buah hati agar terhindar dari penyakit</string>
+    <string name="jurnal_imunisasi">Jurnal Imunisasi</string>
+    <string name="jenis_imunisasi">Jenis Imunisasi :</string>
 </resources>

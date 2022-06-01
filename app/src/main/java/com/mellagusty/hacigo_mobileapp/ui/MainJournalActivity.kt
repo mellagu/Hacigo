@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityMainJournalBinding
 import com.mellagusty.hacigo_mobileapp.ui._asijournal.AsiJournalActivity
+import com.mellagusty.hacigo_mobileapp.ui._imunisasijournal.ImunisasiJournalActivity
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalActivity
 import com.mellagusty.hacigo_mobileapp.ui._pregnantjournal.PregnantJournalActivity
 import com.mellagusty.hacigo_mobileapp.utils.Constant
@@ -47,6 +48,11 @@ class MainJournalActivity : AppCompatActivity() {
 
         binding.cvJournalPregnant.setOnClickListener{
             val intent = Intent(this, PregnantJournalActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.cvImunisasi.setOnClickListener {
+            val intent = Intent(this, ImunisasiJournalActivity::class.java)
             startActivity(intent)
         }
 
