@@ -16,6 +16,31 @@ class RecipesViewModel(private val repository: Repository) : ViewModel() {
         return mutableData
     }
 
+    fun fetchRecipeSixToTen(): LiveData<MutableList<RecipesEntity>> {
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        repository.getRecipeSixToTen().observeForever{ recipeList->
+            mutableData.value = recipeList
+        }
+        return mutableData
+    }
+
+    fun fetchRecipeElevenToEighteen(): LiveData<MutableList<RecipesEntity>> {
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        repository.getRecipeElevenToEighteen().observeForever{ recipeList->
+            mutableData.value = recipeList
+        }
+        return mutableData
+    }
+
+    fun fetchRecipeNineteentoTwenfour(): LiveData<MutableList<RecipesEntity>> {
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        repository.getRecipeNineteentoTwenfour().observeForever{ recipeList->
+            mutableData.value = recipeList
+        }
+        return mutableData
+    }
+
+
     fun fetchARecipe(judul: String): LiveData<RecipesEntity> {
         val mutableData = MutableLiveData<RecipesEntity>()
         repository.getARecipe(judul).observeForever{ recipeData->

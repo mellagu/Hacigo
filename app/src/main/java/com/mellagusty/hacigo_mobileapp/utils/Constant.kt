@@ -20,6 +20,8 @@ object Constant {
     const val IMUNISASI: String = "imunisasi"
     const val YA: String = "Ya"
     const val TIDAK: String= "Tidak"
+    const val COOK: String= "cook"
+    const val USIA: String = "usia"
 
 
     const val HACIGO_PREFERENCES: String = "hacigo_preferences"

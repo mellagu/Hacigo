@@ -38,6 +38,12 @@ interface HacigoDataSource {
 
     fun getARecipe(judul: String): LiveData<RecipesEntity>
 
+    fun getRecipeSixToTen(): LiveData<MutableList<RecipesEntity>>
+
+    fun getRecipeElevenToEighteen(): LiveData<MutableList<RecipesEntity>>
+
+    fun getRecipeNineteentoTwenfour(): LiveData<MutableList<RecipesEntity>>
+
     fun getRecipesByBahan(bahan : String): LiveData<MutableList<RecipesEntity>>
 
     //Imunisasi

@@ -48,10 +48,21 @@
                 tools:text="Kandungan brokoli dengn air" />
 
             <TextView
+                android:id="@+id/age_recipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/desc_recipe"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                tools:text="6 bulan" />
+
+            <TextView
                 android:id="@+id/see_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/desc_recipe"
+                android:layout_below="@id/age_recipe"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
