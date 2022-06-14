@@ -62,9 +62,9 @@ class ParenthoodFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                var tempArray = ArrayList<ArticleEntity>()
+                val tempArray = ArrayList<ArticleEntity>()
                 for (array in articles ){
-                    if (array.title!!.toLowerCase(Locale.getDefault()).contains(newText.toString())){
+                    if (array.title!!.lowercase(Locale.getDefault()).contains(newText.toString())){
                         tempArray.add(array)
                     }
                 }

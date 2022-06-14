@@ -24,23 +24,12 @@ class RecipesAdapter(private val listener: (RecipesEntity) -> Unit) :
 
             binding.titleRecipe.text = recipeList.judul
             binding.descRecipe.text = recipeList.subJudul
+            binding.ageRecipe.text = "${recipeList.usia} bulan"
             itemView.setOnClickListener {
                 listener(list[absoluteAdapterPosition])
             }
 
         }
-//        fun bind(position: Int){
-//            val recipe = list[position]
-//            itemView.setOnClickListener {
-//                listener(list[absoluteAdapterPosition])
-//            }
-//            val binding = ItemRvRecipeBinding.bind(itemView)
-//            val tvJudul = binding.titleRecipe
-//            val tvSubJudul = binding.descRecipe
-//
-//            tvJudul.text = recipe.judul
-//            tvSubJudul.text = recipe.subJudul
-//        }
 
     }
 

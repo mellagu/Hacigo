@@ -95,6 +95,18 @@ class Repository(
         return RecipeFirestoreSrc.getRecipesData()
     }
 
+    override fun getRecipeSixToTen(): LiveData<MutableList<RecipesEntity>>{
+        return RecipeFirestoreSrc.getRecipeSixToTen()
+    }
+
+    override fun getRecipeElevenToEighteen():LiveData<MutableList<RecipesEntity>>{
+        return RecipeFirestoreSrc.getRecipeElevenToEighteen()
+    }
+
+    override fun getRecipeNineteentoTwenfour(): LiveData<MutableList<RecipesEntity>> {
+        return RecipeFirestoreSrc.getRecipeNineteentoTwenfour()
+    }
+
     override fun getARecipe(judul: String): LiveData<RecipesEntity> {
         return RecipeFirestoreSrc.getARecipe(judul)
     }

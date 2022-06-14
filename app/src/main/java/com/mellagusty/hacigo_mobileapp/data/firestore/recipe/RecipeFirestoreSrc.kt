@@ -3,7 +3,9 @@ package com.mellagusty.hacigo_mobileapp.data.firestore.recipe
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.facebook.internal.Mutable
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mellagusty.hacigo_mobileapp.utils.Constant
 
 class RecipeFirestoreSrc {
 
@@ -16,9 +18,12 @@ class RecipeFirestoreSrc {
             }
     }
 
+    private val cookDb = FirebaseFirestore.getInstance().collection(Constant.COOK)
+
     fun getRecipesData(): LiveData<MutableList<RecipesEntity>> {
         val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
-        FirebaseFirestore.getInstance().collection("cook").get().addOnSuccessListener { result ->
+        cookDb.get()
+            .addOnSuccessListener { result ->
                 val listData = mutableListOf<RecipesEntity>()
                 for (document in result) {
                     val recipes = document.toObject(RecipesEntity::class.java)
@@ -31,10 +36,62 @@ class RecipeFirestoreSrc {
         return mutableData
     }
 
+    fun getRecipeSixToTen(): LiveData<MutableList<RecipesEntity>> {
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        cookDb
+            .whereGreaterThanOrEqualTo(Constant.USIA,6)
+            .whereLessThanOrEqualTo(Constant.USIA,10)
+            .get()
+            .addOnSuccessListener { result ->
+                val listData = mutableListOf<RecipesEntity>()
+                for (document in result) {
+                    val recipes = document.toObject(RecipesEntity::class.java)
+                    listData.add(recipes)
+                }
+                mutableData.postValue(listData)
+            }
+        return mutableData
+    }
+
+    fun getRecipeElevenToEighteen(): LiveData<MutableList<RecipesEntity>>{
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        cookDb
+            .whereGreaterThanOrEqualTo(Constant.USIA,11)
+            .whereLessThanOrEqualTo(Constant.USIA,18)
+            .get()
+            .addOnSuccessListener { result ->
+                val listData = mutableListOf<RecipesEntity>()
+                for (document in result) {
+                    val recipes = document.toObject(RecipesEntity::class.java)
+                    listData.add(recipes)
+                }
+                mutableData.postValue(listData)
+            }
+        return mutableData
+    }
+
+    fun getRecipeNineteentoTwenfour(): LiveData<MutableList<RecipesEntity>>{
+        val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
+        cookDb
+            .whereGreaterThanOrEqualTo(Constant.USIA,19)
+            .whereLessThanOrEqualTo(Constant.USIA,25)
+            .get()
+            .addOnSuccessListener { result ->
+                val listData = mutableListOf<RecipesEntity>()
+                for (document in result) {
+                    val recipes = document.toObject(RecipesEntity::class.java)
+                    listData.add(recipes)
+                }
+                mutableData.postValue(listData)
+            }
+        return mutableData
+    }
+
+
     fun getARecipe(judul: String): LiveData<RecipesEntity> {
         val mutableData = MutableLiveData<RecipesEntity>()
         var recipe = RecipesEntity()
-        FirebaseFirestore.getInstance().collection("cook").document(judul)
+        cookDb.document(judul)
             .get()
             .addOnSuccessListener { result ->
                 if (result != null) {
@@ -55,9 +112,7 @@ class RecipeFirestoreSrc {
     fun getRecipesByBahan( bahan : String ): LiveData<MutableList<RecipesEntity>> {
         val mutableData = MutableLiveData<MutableList<RecipesEntity>>()
         Log.d("firestore", "Firestore bahan : $bahan")
-        FirebaseFirestore.getInstance().collection("cook")
-//            .whereGreaterThanOrEqualTo("bahan", bahan)
-            .whereArrayContains("bahanUtama", bahan)
+        cookDb.whereArrayContains("bahanUtama", bahan)
             .get().addOnSuccessListener { result ->
             val listData = mutableListOf<RecipesEntity>()
             for (document in result) {

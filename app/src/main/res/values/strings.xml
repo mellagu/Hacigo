@@ -93,4 +93,8 @@ oleh para ahli.</string>
     <string name="desc_imunisasi">Pantau pemberian imunisasi si buah hati agar terhindar dari penyakit</string>
     <string name="jurnal_imunisasi">Jurnal Imunisasi</string>
     <string name="jenis_imunisasi">Jenis Imunisasi :</string>
+    <string name="bulan_semua">Semua</string>
+    <string name="bulan_6_10">6–10 Bulan</string>
+    <string name="bulan_11_18">11–18 Bulan</string>
+    <string name="bulan_19_24">19–24 Bulan</string>
 </resources>
