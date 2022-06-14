@@ -55,9 +55,9 @@
                 android:layout_below="@id/tv_welcome"
                 android:layout_marginStart="25dp"
                 android:fontFamily="@font/poppins_medium"
+                android:text="Ibu !"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:text="Ibunya Annisa" />
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/iv_mom"
