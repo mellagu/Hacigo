@@ -87,13 +87,8 @@ class AllRecipesFragment : Fragment() {
                             adapter.setListData(listData)
                             adapter.notifyDataSetChanged()
                             binding.rvRecipes.adapter = adapter
-            //                            }
                             mutableData.postValue(listData)
                         }
-//                    adapter.notifyDataSetChanged()
-
-
-//                }
                 return true
             }
 

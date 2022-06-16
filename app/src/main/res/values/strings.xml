@@ -97,4 +97,8 @@ oleh para ahli.</string>
     <string name="bulan_6_10">6–10 Bulan</string>
     <string name="bulan_11_18">11–18 Bulan</string>
     <string name="bulan_19_24">19–24 Bulan</string>
+    <string name="hidupkan_notifikasi">Hidupkan Notifikasi</string>
+    <string name="search">Isi jurnal bulanan ibu sekarang</string>
+    <string name="reminder">Notifikasi Telah Dinyalakan</string>
+    <string name="remindcancel">Notifikasi dimatikan</string>
 </resources>

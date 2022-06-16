@@ -18,6 +18,9 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.data.auth.emailauth.UserEmail
+import com.mellagusty.hacigo_mobileapp.data.local.notification.NotificationData
+import com.mellagusty.hacigo_mobileapp.data.local.notification.NotificationPreferences
+import com.mellagusty.hacigo_mobileapp.data.local.notification.NotificationReceiver
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentAccountBinding
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentRecipesBinding
 import com.mellagusty.hacigo_mobileapp.ui.auth.LoginActivity
@@ -30,6 +33,8 @@ class AccountFragment : Fragment() {
     private lateinit var binding: FragmentAccountBinding
     private lateinit var mAuth : FirebaseAuth
     private lateinit var mFirestore: FirebaseFirestore
+    private lateinit var notification: NotificationData
+    private lateinit var notificationReceiver: NotificationReceiver
     lateinit var userDetail: UserEmail
 
     override fun onCreateView(
@@ -66,12 +71,6 @@ class AccountFragment : Fragment() {
                 Log.d("tag","Found the error ")
             }
 
-
-
-
-
-//        Glide.with(this).load(currentUser?.photoUrl).into(binding.ivMom)
-
         binding.btnSignout.setOnClickListener {
             mAuth.signOut()
             val intent = Intent(requireContext(),LoginActivity::class.java)
@@ -79,19 +78,45 @@ class AccountFragment : Fragment() {
             activity?.finish()
         }
 
-
-//        //get name from Email account
-//        val documentReference = mFirestore.collection("users").document(userId!!)
-//        documentReference.addSnapshotListener{ snapshot, e ->
-//
-//
-//        }
-
-
         binding.btnEditProfile.setOnClickListener {
             val intent = Intent(requireContext(),EditProfileActivity::class.java)
             startActivity(intent)
         }
+        
+        notificationPreference()
+    }
+
+    private fun notificationPreference() {
+        val notificationPreference = activity?.let { NotificationPreferences(it) }
+        if (notificationPreference != null) binding.switch1.isChecked =
+            notificationPreference.getReminder().isReminded
+
+        notificationReceiver = NotificationReceiver()
+
+        binding.switch1.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                saveReminder(true)
+                activity?.let {
+                    notificationReceiver.setRepeatingAlarm(
+                        it,
+                        "RepeatingAlarm",
+                        "10:40",
+                        "Hacigo Reminder"
+                    )
+                }
+            } else {
+                saveReminder(false)
+                activity?.let { notificationReceiver.cancelAlarm(it) }
+            }
+        }
+    }
+
+    private fun saveReminder(b: Boolean) {
+        val notificationPreference = activity?.let { NotificationPreferences(it) }
+        notification = NotificationData()
+
+        notification.isReminded = b
+        notificationPreference?.setReminder(notification)
     }
 
 }

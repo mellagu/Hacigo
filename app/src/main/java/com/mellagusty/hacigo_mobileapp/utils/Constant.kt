@@ -22,6 +22,15 @@ object Constant {
     const val TIDAK: String= "Tidak"
     const val COOK: String= "cook"
     const val USIA: String = "usia"
+    const val NOTIFICATION_ID = 1
+    const val CHANNEL_ID = "channel_01"
+    const val CHANNEL_NAME = "GitU: provide our github's users "
+    const val TIME_FORMAT = "HH:mm"
+    const val EXTRA_MESSAGE = "extra_message"
+    const val EXTRA_TYPE = "extra_type"
+    const val ID_REPEATING = 101
+    const val PREFS_NAME = "reminder_pref"
+    const val REMINDER = "isRemind"
 
 
     const val HACIGO_PREFERENCES: String = "hacigo_preferences"

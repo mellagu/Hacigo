@@ -33,6 +33,21 @@
         app:layout_constraintTop_toBottomOf="@id/iv_mom"
         android:text="Edit Profil" />
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:textSize="15sp"
+        android:textColor="@color/prime"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/hidupkan_notifikasi"
+        app:layout_constraintTop_toBottomOf="@id/btn_edit_profile"
+        android:textOff="ON"
+        android:textOn="OFF"/>
+
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
@@ -43,7 +58,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_edit_profile"/>
+        app:layout_constraintTop_toBottomOf="@id/switch1"/>
 
     <TextView
         android:id="@+id/tv_name_field"
