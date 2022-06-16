@@ -9,6 +9,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityMainBinding
@@ -46,27 +48,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
     }
 
-//    private fun printKeyHash() {
-//        try {
-//            val info = packageManager.getPackageInfo(
-//                "com.mellagusty.hacigo_mobileapp",
-//                PackageManager.GET_SIGNATURES
-//            )
-//            for (signature in info.signatures) {
-//                val md = MessageDigest.getInstance("SHA")
-//                md.update(signature.toByteArray())
-//                Log.e("KEYHASH", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-//            }
-//        } catch (e: PackageManager.NameNotFoundException) {
-//
-//        }
-//        catch (e: NoSuchAlgorithmException) {
-//
-//        }
-//
-//    }
+
 
 
 }
