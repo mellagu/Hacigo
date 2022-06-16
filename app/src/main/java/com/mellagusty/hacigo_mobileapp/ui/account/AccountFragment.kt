@@ -1,5 +1,6 @@
 package com.mellagusty.hacigo_mobileapp.ui.account
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -48,6 +49,7 @@ class AccountFragment : Fragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -59,7 +61,7 @@ class AccountFragment : Fragment() {
         mFirestore.collection(Constant.USERS)
             .get()
             .addOnSuccessListener {
-                binding.tvNameField.text = "${it.documents.get(0).data?.get(Constant.FIRST_NAME)} ${it.documents.get(0).data?.get(Constant.LAST_NAME)}"
+                binding.tvNameField.text = "${it.documents.get(0).data?.get(Constant.FIRST_NAME)}" + "${it.documents.get(0).data?.get(Constant.LAST_NAME)}"
                 binding.tvAgeField.text = "${it.documents.get(0).data?.get(Constant.AGE)}"
                 binding.tvKidField.text = "${it.documents.get(0).data?.get(Constant.KID_NAME)}"
                 binding.tvGenderKidField.text = "${it.documents.get(0).data?.get(Constant.GENDER)}"
@@ -100,7 +102,7 @@ class AccountFragment : Fragment() {
                     notificationReceiver.setRepeatingAlarm(
                         it,
                         "RepeatingAlarm",
-                        "10:40",
+                        "10:45",
                         "Hacigo Reminder"
                     )
                 }
