@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import com.mellagusty.hacigo_mobileapp.data.firestore.imunisasi_journal.ImunisasiEntity
 import com.mellagusty.hacigo_mobileapp.data.firestore.imunisasi_journal.ImunisasiFirestoreSrc
+import com.mellagusty.hacigo_mobileapp.data.firestore.nutrisi_ibu.NutrisiIbuEntity
+import com.mellagusty.hacigo_mobileapp.data.firestore.nutrisi_ibu.NutrisiIbuFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipeFirestoreSrc
 import com.mellagusty.hacigo_mobileapp.data.firestore.recipe.RecipesEntity
 import com.mellagusty.hacigo_mobileapp.data.local.journal.*
@@ -17,6 +19,7 @@ class Repository(
     private val asiJLocalDataSource: AsiJLocalDataSource,
     private val RecipeFirestoreSrc: RecipeFirestoreSrc,
     private val ImunisasiFirestoreSrc: ImunisasiFirestoreSrc,
+    private val NutrisiIbuFirestoreSrc: NutrisiIbuFirestoreSrc,
     application: Application
 ) : HacigoDataSource {
 
@@ -30,10 +33,11 @@ class Repository(
             asiJLocalDataSource: AsiJLocalDataSource,
             RecipeFirestoreSrc: RecipeFirestoreSrc,
             ImunisasiFirestoreSrc: ImunisasiFirestoreSrc,
+            NutrisiIbuFirestoreSrc: NutrisiIbuFirestoreSrc,
             application: Application
         ): Repository =
             instance ?: synchronized(this) {
-                Repository(localDataSource, pregnantJLocalDatasource, asiJLocalDataSource, RecipeFirestoreSrc, ImunisasiFirestoreSrc, application).apply {
+                Repository(localDataSource, pregnantJLocalDatasource, asiJLocalDataSource, RecipeFirestoreSrc, ImunisasiFirestoreSrc, NutrisiIbuFirestoreSrc, application).apply {
                     instance = this
                 }
             }
@@ -118,6 +122,15 @@ class Repository(
     //firestore for Imunisasi
     override fun getImunisasiData(): LiveData<MutableList<ImunisasiEntity>> {
         return ImunisasiFirestoreSrc.getImunisasiData()
+    }
+
+    //firestore for Nutrition
+    override fun getNutritionData(): LiveData<MutableList<NutrisiIbuEntity>> {
+        return NutrisiIbuFirestoreSrc.getNutritionData()
+    }
+
+    override fun getANutrition(judul: String): LiveData<NutrisiIbuEntity> {
+        return NutrisiIbuFirestoreSrc.getANutrition(judul)
     }
 
     //Journal Pregnant
