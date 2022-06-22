@@ -26,6 +26,7 @@ import com.mellagusty.hacigo_mobileapp.databinding.FragmentAccountBinding
 import com.mellagusty.hacigo_mobileapp.databinding.FragmentRecipesBinding
 import com.mellagusty.hacigo_mobileapp.ui.auth.LoginActivity
 import com.mellagusty.hacigo_mobileapp.ui.dummy_develop.DummyDevelopActivity
+import com.mellagusty.hacigo_mobileapp.ui.notification.SettingsActivity
 import com.mellagusty.hacigo_mobileapp.utils.Constant
 
 class AccountFragment : Fragment() {
@@ -34,9 +35,7 @@ class AccountFragment : Fragment() {
     private lateinit var binding: FragmentAccountBinding
     private lateinit var mAuth : FirebaseAuth
     private lateinit var mFirestore: FirebaseFirestore
-    private lateinit var notification: NotificationData
-    private lateinit var notificationReceiver: NotificationReceiver
-    lateinit var userDetail: UserEmail
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -61,7 +60,7 @@ class AccountFragment : Fragment() {
         mFirestore.collection(Constant.USERS)
             .get()
             .addOnSuccessListener {
-                binding.tvNameField.text = "${it.documents.get(0).data?.get(Constant.FIRST_NAME)}" + "${it.documents.get(0).data?.get(Constant.LAST_NAME)}"
+                binding.tvNameField.text = "${it.documents.get(0).data?.get(Constant.FIRST_NAME)}" + " ${it.documents.get(0).data?.get(Constant.LAST_NAME)}"
                 binding.tvAgeField.text = "${it.documents.get(0).data?.get(Constant.AGE)}"
                 binding.tvKidField.text = "${it.documents.get(0).data?.get(Constant.KID_NAME)}"
                 binding.tvGenderKidField.text = "${it.documents.get(0).data?.get(Constant.GENDER)}"
@@ -84,41 +83,15 @@ class AccountFragment : Fragment() {
             val intent = Intent(requireContext(),EditProfileActivity::class.java)
             startActivity(intent)
         }
-        
-        notificationPreference()
-    }
 
-    private fun notificationPreference() {
-        val notificationPreference = activity?.let { NotificationPreferences(it) }
-        if (notificationPreference != null) binding.switch1.isChecked =
-            notificationPreference.getReminder().isReminded
-
-        notificationReceiver = NotificationReceiver()
-
-        binding.switch1.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                saveReminder(true)
-                activity?.let {
-                    notificationReceiver.setRepeatingAlarm(
-                        it,
-                        "RepeatingAlarm",
-                        "10:45",
-                        "Hacigo Reminder"
-                    )
-                }
-            } else {
-                saveReminder(false)
-                activity?.let { notificationReceiver.cancelAlarm(it) }
-            }
+        binding.switch1.setOnClickListener {
+            val intent = Intent(requireContext(), SettingsActivity::class.java)
+            startActivity(intent)
         }
+        
+
     }
 
-    private fun saveReminder(b: Boolean) {
-        val notificationPreference = activity?.let { NotificationPreferences(it) }
-        notification = NotificationData()
 
-        notification.isReminded = b
-        notificationPreference?.setReminder(notification)
-    }
 
 }

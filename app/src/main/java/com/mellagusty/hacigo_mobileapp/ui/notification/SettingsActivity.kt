@@ -20,6 +20,7 @@ class SettingsActivity : AppCompatActivity() {
                 .commit()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     class SettingsFragment : PreferenceFragmentCompat() ,

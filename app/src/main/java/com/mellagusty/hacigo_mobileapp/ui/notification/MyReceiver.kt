@@ -48,7 +48,7 @@ class MyReceiver : BroadcastReceiver() {
             val builder: NotificationCompat.Builder =
                 NotificationCompat.Builder(context, CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_notification)
-                    .setContentTitle("Mella Anak Baik")
+                    .setContentTitle("Jangan Lupa Isi Jurnal Bu!")
                     .setContentText(message)
                     .setContentIntent(pendingIntent)
                     .setAutoCancel(true)
