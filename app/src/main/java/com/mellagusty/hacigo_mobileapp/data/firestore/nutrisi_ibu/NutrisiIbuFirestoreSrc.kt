@@ -39,16 +39,26 @@ class NutrisiIbuFirestoreSrc {
     fun getANutrition(judul: String): LiveData<NutrisiIbuEntity> {
         val mutableData = MutableLiveData<NutrisiIbuEntity>()
         var nutrisi = NutrisiIbuEntity()
-        nutrisiDb.document(judul)
+        nutrisiDb
+            .whereEqualTo("judul", judul)
             .get()
-            .addOnSuccessListener { result ->
-                if (result != null) {
-                    Log.d("this", "Firestore detail ln 59, if result != null : $result")
+            .addOnSuccessListener {
+                if (it != null) {
+                    Log.d("this", "Firestore detail nutrisi != null : ${it.documents.get(0).data?.get("imageUrl")}")
                     Log.d("this", "ln 61 cek judul $judul")
 
-                    nutrisi = result.toObject(NutrisiIbuEntity::class.java)!!
+                    val nutrisiNew = NutrisiIbuEntity(
+                        imageUrl = it.documents.get(0).data?.get("imageUrl") as String?,
+                        judul = it.documents.get(0).data?.get("judul") as String?,
+                        p0 = it.documents.get(0).data?.get("p0") as ArrayList<String>?,
+                        p0title = it.documents.get(0).data?.get("p0title") as String?,
+                        p1 = it.documents.get(0).data?.get("p1") as ArrayList<String>?,
+                        p1title = it.documents.get(0).data?.get("p1title") as String?,
+
+                    )
+//                    nutrisi = it.toObject(NutrisiIbuEntity::class.java)!!
                     Log.d("this", "ln 64 " + nutrisi)
-                    mutableData.postValue(nutrisi)
+                    mutableData.postValue(nutrisiNew)
 
                 } else {
                     Log.d("this", "Firestore detail ln 63, kosong")

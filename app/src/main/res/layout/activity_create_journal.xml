@@ -103,16 +103,26 @@
             android:textSize="14sp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_usia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l1"
+        android:text="Usia (bulan)"/>
+
     <LinearLayout
         android:id="@+id/l2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/l1">
+        app:layout_constraintTop_toBottomOf="@id/tv_usia">
 
 
         <View
@@ -138,6 +148,17 @@
             android:textSize="12sp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_berat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l2"
+        android:text="Berat (Kg)"/>
+
     <LinearLayout
         android:id="@+id/l3"
         android:layout_width="match_parent"
@@ -146,8 +167,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/l2">
-
+        app:layout_constraintTop_toBottomOf="@id/tv_berat">
 
         <View
             android:id="@+id/colorView3"
@@ -172,6 +192,17 @@
             android:textSize="12sp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_tinggi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l3"
+        android:text="Tinggi (Cm)"/>
+
     <LinearLayout
         android:id="@+id/l4"
         android:layout_width="match_parent"
@@ -180,7 +211,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/l3">
+        app:layout_constraintTop_toBottomOf="@id/tv_tinggi">
 
 
         <View

@@ -20,7 +20,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.nutrisi_ibu.NutrisiHamilActivity"
-            android:exported="false" />
+            android:exported="true" />
 
         <receiver
             android:name=".data.local.notification.NotificationReceiver"
@@ -80,7 +80,8 @@
         <activity android:name=".ui._pregnantjournal.CreatePregnantJournalActivity" />
         <activity android:name=".ui._parenthood.ArticleActivity" />
         <activity android:name=".ui._kiddojournal.KiddoJournalActivity" />
-        <activity android:name=".ui._pregnantjournal.PregnantJournalActivity" />
+        <activity android:name=".ui._pregnantjournal.PregnantJournalActivity"
+            android:exported="true"/>
         <activity android:name=".ui._fooddetect.Result_RecipeNut" />
         <activity
             android:name=".ui.MainActivity"

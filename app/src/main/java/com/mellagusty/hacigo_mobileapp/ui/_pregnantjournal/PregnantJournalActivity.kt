@@ -13,11 +13,13 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.mellagusty.hacigo_mobileapp.R
+import com.mellagusty.hacigo_mobileapp.adapter.NutrisiHamilAdapter
 import com.mellagusty.hacigo_mobileapp.adapter.PregnantJournalAdapter
 import com.mellagusty.hacigo_mobileapp.data.local.journal.PregnantJournalEntity
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityPregnantJournalBinding
 import com.mellagusty.hacigo_mobileapp.ui.MainActivity
 import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.CreateJournalViewModel
+import com.mellagusty.hacigo_mobileapp.ui.nutrisi_ibu.NutrisiHamilActivity
 import com.mellagusty.hacigo_mobileapp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -62,6 +64,12 @@ class PregnantJournalActivity : AppCompatActivity() {
             intent.putExtra("note_id",-1)
             startActivity(intent)
         }
+
+        binding.rvMomNutrition.setOnClickListener {
+            val intent = Intent(this, NutrisiHamilActivity::class.java)
+            startActivity(intent)
+        }
+
 
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = StaggeredGridLayoutManager(

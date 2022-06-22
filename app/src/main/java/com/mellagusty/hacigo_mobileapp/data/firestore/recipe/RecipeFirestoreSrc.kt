@@ -95,7 +95,7 @@ class RecipeFirestoreSrc {
             .get()
             .addOnSuccessListener { result ->
                 if (result != null) {
-                    Log.d("this", "Firestore detail ln 59, if result != null : $result")
+                    Log.d("this", "Firestore detail resep != null : $result")
                     Log.d("this", "ln 61 cek judul $judul")
 
                     recipe = result.toObject(RecipesEntity::class.java)!!
