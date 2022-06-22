@@ -15,6 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hacigo_MobileApp">
+        <receiver
+            android:name=".ui.notification.MyReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
         <activity
             android:name=".ui._imunisasijournal.ImunisasiJournalViewModel"
             android:exported="false" />
@@ -76,6 +85,7 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name="com.google.tflite.imageclassification.sample.camera.CameraActivity" />
+        <activity android:name=".ui.notification.SettingsActivity" />
     </application>
 
 </manifest>
