@@ -31,6 +31,7 @@ object Constant {
     const val ID_REPEATING = 101
     const val PREFS_NAME = "reminder_pref"
     const val REMINDER = "isRemind"
+    const val NUTRISI_HAMIL = "nutrisiHamil"
 
 
     const val HACIGO_PREFERENCES: String = "hacigo_preferences"

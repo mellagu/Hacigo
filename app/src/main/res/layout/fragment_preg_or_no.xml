@@ -65,15 +65,18 @@
                 android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/desainibu1"/>
+                android:src="@drawable/desainibu1" />
 
             <TextView
                 android:id="@+id/tv_mom_pregnant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:fontFamily="@font/poppins_medium"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_toEndOf="@+id/iv_preg"
+                android:fontFamily="@font/poppins_medium"
                 android:text="Saya sedang hamil"
                 android:textColor="@color/prime"
                 android:textSize="20sp" />

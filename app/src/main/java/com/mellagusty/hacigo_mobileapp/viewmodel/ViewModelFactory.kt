@@ -12,6 +12,7 @@ import com.mellagusty.hacigo_mobileapp.ui._kiddojournal.KiddoJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui._pregnantjournal.CreatePregnantJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui._pregnantjournal.PregnantJournalViewModel
 import com.mellagusty.hacigo_mobileapp.ui.home.HomeViewModel
+import com.mellagusty.hacigo_mobileapp.ui.nutrisi_ibu.NutrisiIbuViewModel
 import com.mellagusty.hacigo_mobileapp.ui.recipes.RecipesViewModel
 
 class ViewModelFactory private constructor(private val repository: Repository): ViewModelProvider.Factory{
@@ -53,6 +54,11 @@ class ViewModelFactory private constructor(private val repository: Repository): 
         if (modelClass.isAssignableFrom(RecipesViewModel::class.java)){
             return RecipesViewModel(repository) as T
         }
+
+        if (modelClass.isAssignableFrom(NutrisiIbuViewModel::class.java)){
+            return NutrisiIbuViewModel(repository) as T
+        }
+
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)){
             return HomeViewModel(repository) as T
         }

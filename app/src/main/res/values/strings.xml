@@ -10,8 +10,7 @@
     <string name="status_title">Status Gizi Buah Hati</string>
     <string name="status_ideal">Status Ideal : Belum ada data</string>
     <string name="rentang_ideal">Rentang Ideal : Belum ada rekomendasi</string>
-    <string name="desc_detect">Foto Bahan Makanan,
-Dapatkan resep,
+    <string name="desc_detect">Dapatkan resep,
 berikan nutrisi terbaik
 untuk anak anda.</string>
     <string name="parenthood">Parenthood</string>
@@ -119,4 +118,5 @@ oleh para ahli.</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="open_the_app">Selalu pantau buah hati agar terhindar dari stunting</string>
     <string name="alarm">alarm</string>
+    <string name="nutrisi_ibu_hamil"><b>Baru!</b>\nNutrisi Ibu Hamil</string>
 </resources>

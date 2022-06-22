@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mellagusty.hacigo_mobileapp">
+    package="com.mellagusty.hacigo_mobileapp" >
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -24,6 +24,19 @@
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />
+        android:theme="@style/Theme.Hacigo_MobileApp" >
+        <activity
+            android:name=".ui.nutrisi_ibu.NutrisiHamilDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.nutrisi_ibu.NutrisiHamilActivity"
+            android:exported="true" />
+
+        <receiver
+            android:name=".data.local.notification.NotificationReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
             android:name=".ui._imunisasijournal.ImunisasiJournalViewModel"
             android:exported="false" />
@@ -77,7 +90,8 @@
         <activity android:name=".ui._pregnantjournal.CreatePregnantJournalActivity" />
         <activity android:name=".ui._parenthood.ArticleActivity" />
         <activity android:name=".ui._kiddojournal.KiddoJournalActivity" />
-        <activity android:name=".ui._pregnantjournal.PregnantJournalActivity" />
+        <activity android:name=".ui._pregnantjournal.PregnantJournalActivity"
+            android:exported="true"/>
         <activity android:name=".ui._fooddetect.Result_RecipeNut" />
         <activity
             android:name=".ui.MainActivity"
