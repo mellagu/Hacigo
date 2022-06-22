@@ -1,5 +1,6 @@
 package com.mellagusty.hacigo_mobileapp.ui
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Base64
@@ -14,6 +15,7 @@ import androidx.work.WorkManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mellagusty.hacigo_mobileapp.R
 import com.mellagusty.hacigo_mobileapp.databinding.ActivityMainBinding
+import com.mellagusty.hacigo_mobileapp.ui.notification.SettingsActivity
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        startActivity(Intent(this, SettingsActivity::class.java))
 
     }
 
